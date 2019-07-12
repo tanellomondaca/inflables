@@ -551,71 +551,71 @@
                                                 //4. Imprimir
                                                 if(count($juegos_disponibles) !=0 && $juegos_disponibles != ""):
                                              ?>
-    <thead>
-        <tr>
-            <th>Nombre</th>
-            <th>Categoria</th>
-            <th>Disponibilidad</th>
-            <th>Valor</th>
-            <th>Valor empresa</th>
-        </tr>
-    </thead>
-    <tfoot>
-        <tr>
-            <th>Nombre</th>
-            <th>Categoria</th>
-            <th>Disponibilidad</th>
-            <th>Valor</th>
-            <th>Valor empresa</th>
-        </tr>
-    </tfoot>
-    <tbody>
-        <?php for($i=0;$i<count($juegos_disponibles);$i++):?>
-        <tr>
-            <td>
-                <div class="custom-control custom-checkbox mt-2 juego"> 
-                    <input type="checkbox" class="custom-control-input"
-                        data-id="<?php echo $juegos_disponibles[$i][1]; ?>"
-                        data-nombre="<?php echo $juegos_disponibles[$i][0]; ?>" 
-                        data-valor="<?php echo $juegos_disponibles[$i][2]; ?>"
-                        data-empresa = "<?php echo $juegos_disponibles[$i][3]; ?>" 
-                        value="<?php echo $juegos_disponibles[$i][0]; ?>" 
-                        name="<?php echo $juegos_disponibles[$i][0]; ?>" 
-                        id="<?php echo $juegos_disponibles[$i][0]."&id=".$juegos_disponibles[$i][1]; ?>">
-                    <label class="custom-control-label" for="<?php echo $juegos_disponibles[$i][0]."&id=".$juegos_disponibles[$i][1]; ?>"> <?php echo $juegos_disponibles[$i][0]; ?> </label>
-                </div>
-            </td>
-            <td><?= $juegos_disponibles[$i][5]; ?></td>
-            <td><?= $juegos_disponibles[$i][4]; ?></td>
-            <td><?php echo $juegos_disponibles[$i][2]; ?></td>
-            <td><?php echo $juegos_disponibles[$i][3]; ?></td>
-        </tr>
-        <?php endfor; ?>
-    </tbody>
+                              <thead>
+                                 <tr>
+                                       <th>Nombre</th>
+                                       <th>Categoria</th>
+                                       <th>Disponibilidad</th>
+                                       <th>Valor</th>
+                                       <th>Valor empresa</th>
+                                 </tr>
+                              </thead>
+                              <tfoot>
+                                 <tr>
+                                       <th>Nombre</th>
+                                       <th>Categoria</th>
+                                       <th>Disponibilidad</th>
+                                       <th>Valor</th>
+                                       <th>Valor empresa</th>
+                                 </tr>
+                              </tfoot>
+                              <tbody>
+                                 <?php for($i=0;$i<count($juegos_disponibles);$i++):?>
+                                 <tr>
+                                       <td>
+                                          <div class="custom-control custom-checkbox mt-2 juego"> 
+                                             <input type="checkbox" class="custom-control-input"
+                                                   data-id="<?php echo $juegos_disponibles[$i][1]; ?>"
+                                                   data-nombre="<?php echo $juegos_disponibles[$i][0]; ?>" 
+                                                   data-valor="<?php echo $juegos_disponibles[$i][2]; ?>"
+                                                   data-empresa = "<?php echo $juegos_disponibles[$i][3]; ?>" 
+                                                   value="<?php echo $juegos_disponibles[$i][0]; ?>" 
+                                                   name="<?php echo $juegos_disponibles[$i][0]; ?>" 
+                                                   id="<?php echo $juegos_disponibles[$i][0]."&id=".$juegos_disponibles[$i][1]; ?>">
+                                             <label class="custom-control-label" for="<?php echo $juegos_disponibles[$i][0]."&id=".$juegos_disponibles[$i][1]; ?>"> <?php echo $juegos_disponibles[$i][0]; ?> </label>
+                                          </div>
+                                       </td>
+                                       <td><?= $juegos_disponibles[$i][5]; ?></td>
+                                       <td><?= $juegos_disponibles[$i][4]; ?></td>
+                                       <td><?php echo $juegos_disponibles[$i][2]; ?></td>
+                                       <td><?php echo $juegos_disponibles[$i][3]; ?></td>
+                                 </tr>
+                                 <?php endfor; ?>
+                              </tbody>
 
-<?php else: ?>
-    <h3>No hay juegos disponibles para a fecha seleccionada fecha</h3>
-<?php endif;
-    elseif($v==2):
+                                 <?php else: ?>
+                                    <h3>No hay juegos disponibles para a fecha seleccionada fecha</h3>
+                                 <?php endif;
+                                    elseif($v==2):
 
 
-    endif;
-?>  
-                                       </table>
-                                 </div>
-                                 <div class="row">
-                                    <div class="col-lg-3">
-                                       <button onclick="juegosSel()" class="btn btn-primary">Siguiente</button>
-                                    </div>
-                                    <div class="col-lg-3">
-                                       <h5>Total</h5>
-                                       <button class="btn btn-success" id="total_persona" onclick="totalJuegos(id)"></button>
-                                    </div>
-                                    <div class="col-lg-3">
-                                       <h5>Total Empresa</h5>
-                                       <button class="btn btn-success" id="total_empresa" onclick="totalJuegos(id)"></button>
-                                    </div>
-                                 </div>
+                                    endif;
+                                 ?>  
+                                                </table>
+                                          </div>
+                                          <div class="row">
+                                             <div class="col-lg-3">
+                                                <button onclick="juegosSel()" class="btn btn-primary">Siguiente</button>
+                                             </div>
+                                             <div class="col-lg-3">
+                                                <h5>Total</h5>
+                                                <button class="btn btn-success" id="total_persona" onclick="totalJuegos(id)"></button>
+                                             </div>
+                                             <div class="col-lg-3">
+                                                <h5>Total Empresa</h5>
+                                                <button class="btn btn-success" id="total_empresa" onclick="totalJuegos(id)"></button>
+                                             </div>
+                                          </div>
                                  
                              </div>
                           </div>
@@ -798,57 +798,64 @@
                                        <hr>
 
                                        <div class="form-group row">
-                                          <div class="col-lg-2 col-md-6">
+                                          <div class="col-lg-6 col-md-6">
                                              <h6 class="mt-3 font-weight-bold text-primary">
                                                 Valor de despacho
                                              </h6>
                                           </div>
-                                          <div class="col-lg-4 col-md-6 mb-3">
+                                          <div class="col-lg-6 col-md-6 mb-3">
                                              <input onkeydown="calcularTotal()" type="text" class="form-control form-control-user"
                                                 name="valor_despacho" id="valor_despacho" placeholder="Valor despacho" required>
                                           </div>
-                                          <div class="col-lg-2 col-md-6">
+                                       </div>
+                                       <div class="form-group row">
+                                          <div class="col-lg-4 col-md-6">
                                              <h6 class="mt-3 font-weight-bold text-primary">
                                                 Cobro adicional
                                              </h6>
                                           </div>
-                                          <div class="col-lg-4 col-md-6 mb-3">
+                                          <div class="col-lg-2 col-md-6 mb-3">
+                                             <input onchange="calcularAdicional()" type="text" class="form-control form-control-user"
+                                                name="porc_add" id="porc_add" placeholder="%" value="0" required>
+                                          </div>
+                                          <div class="col-lg-6 col-md-6 mb-3">
                                              <input onchange="calcularTotal()" type="text" class="form-control form-control-user"
                                                 name="cobro_adicional" id="cobro_adicional"
                                                 placeholder="Cobro adicional" value="0" required>
                                           </div>
                                        </div>
-
                                        <div class="form-group row">
-                                          <div class="col-lg-2 col-md-6">
+                                          <div class="col-lg-4 col-md-6">
                                              <h6 class="mt-3 font-weight-bold text-primary">
                                                 Descuento (%)
                                              </h6>
                                           </div>
-                                          <div class="col-lg-1 col-md-6 mb-3">
+                                          <div class="col-lg-2 col-md-6 mb-3">
                                              <input onchange="calcularDescuento()" type="text" class="form-control form-control-user"
                                                 name="porcentaje" id="porcentaje" placeholder="%" value="0" required>
                                           </div>
-                                          <div class="col-lg-3 col-md-6 mb-3">
+                                          <div class="col-lg-6 col-md-6 mb-3">
                                              <input onchange="calcularTotal()" type="text" class="form-control form-control-user"
                                                 name="descuento" id="descuento" placeholder="Descuento" value="0" required>
                                           </div>
-
-                                             <div class="col-lg-2 col-md-6 rounded bg-gradient-primary py-2 ">
-                                                <h6 class="mt-3 font-weight-bold text-gray-100 text-center ">
-                                                   Total
-                                                </h6>
-                                             </div>
-                                             <div class="col-lg-4 col-md-6 mb-3">
-                                                <input type="text" class="form-control form-control-user"
-                                                   name="valor_total" id="valor_total" placeholder="Valor total" required>
-                                             </div>
                                        </div>
-                                          <div class="row justify-content-md-center">
-                                             <input type="submit" onclick="guardarArriendo()"
-                                                class="btn btn-warning btn-user btn-block col-lg-4"
-                                                id="btn_agregar" value="Guardar como pre-arriendo">
+
+                                       <div class="form-group row">
+                                          <div class="col-lg-6 col-md-6 rounded bg-gradient-primary py-2 ">
+                                             <h6 class="mt-3 font-weight-bold text-gray-100 text-center ">
+                                                Total
+                                             </h6>
                                           </div>
+                                          <div class="col-lg-6 col-md-6 mb-3">
+                                             <input type="text" class="form-control form-control-user"
+                                                name="valor_total" id="valor_total" placeholder="Valor total" required>
+                                          </div>
+                                       </div>
+                                       <div class="row justify-content-md-center">
+                                          <input type="submit" onclick="guardarArriendo()"
+                                             class="btn btn-warning btn-user btn-block col-lg-4"
+                                             id="btn_agregar" value="Guardar como pre-arriendo">
+                                       </div>
                                        <hr>
                                        <div class="form-group row">
                                           <div class="col-lg-2 col-md-6">
