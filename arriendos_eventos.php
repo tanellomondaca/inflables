@@ -3,7 +3,7 @@
     include 'conexion.php';
     
     #Cambiar para internet---------------------------------------------------
-    $pdo = new PDO("mysql:dbname=arcadesa_proyecto;host=localhost","root","");
+    $pdo = new PDO("mysql:dbname=arcadesa_proyecto;host=200.24.13.65","arcadesa","ELJ5QZIW67RD");
     
     $consulta = $pdo->prepare("SELECT id, comuna, start, end, color FROM arriendo");
     $consulta->execute();

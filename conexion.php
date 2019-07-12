@@ -1,7 +1,7 @@
 <?php
-        $servidor = "localhost"; //el servidor que utilizaremos, en este caso será el localhost
-        $usuario = "root"; //El usuario que acabamos de crear en la base de datos
-        $contrasenha = ""; //La contraseña del usuario que utilizaremos
+        $servidor = "200.24.13.65"; //el servidor que utilizaremos, en este caso será el localhost
+        $usuario = "arcadesa"; //El usuario que acabamos de crear en la base de datos
+        $contrasenha = "ELJ5QZIW67RD"; //La contraseña del usuario que utilizaremos
         $BD = "arcadesa_proyecto"; //El nombre de la base de datos
          
         /*Aquí abrimos la conexión en el servidor.
