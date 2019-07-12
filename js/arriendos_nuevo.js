@@ -1,3 +1,5 @@
+//ESTO ES UNA PRUEBA A VER SI SE SUBE REALMETE
+
 llenarListas();
 comunas();
 //mostrarJuegos();
@@ -56,6 +58,7 @@ var e = 0;
     }
 
     function calcularTotal(){
+        
         despacho = parseInt($("#valor_despacho").val());
         cobro_adicional = parseInt($("#cobro_adicional").val());
         descuento = parseInt($("#descuento").val());
