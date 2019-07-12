@@ -811,12 +811,12 @@
                                        <div class="form-group row">
                                           <div class="col-lg-4 col-md-6">
                                              <h6 class="mt-3 font-weight-bold text-primary">
-                                                Cobro adicional
+                                                Cobro adicional (%)
                                              </h6>
                                           </div>
                                           <div class="col-lg-2 col-md-6 mb-3">
                                              <input onchange="calcularAdicional()" type="text" class="form-control form-control-user"
-                                                name="porc_add" id="porc_add" placeholder="%" value="0" required>
+                                                name="porc_add" id="porc_add" placeholder="%" value="" required>
                                           </div>
                                           <div class="col-lg-6 col-md-6 mb-3">
                                              <input onchange="calcularTotal()" type="text" class="form-control form-control-user"
@@ -832,7 +832,7 @@
                                           </div>
                                           <div class="col-lg-2 col-md-6 mb-3">
                                              <input onchange="calcularDescuento()" type="text" class="form-control form-control-user"
-                                                name="porcentaje" id="porcentaje" placeholder="%" value="0" required>
+                                                name="porcentaje" id="porcentaje" placeholder="%" value="" required>
                                           </div>
                                           <div class="col-lg-6 col-md-6 mb-3">
                                              <input onchange="calcularTotal()" type="text" class="form-control form-control-user"
