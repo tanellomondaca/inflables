@@ -12,6 +12,7 @@
             if($trabajador["oficina"]=="si"){
                 session_start();
                 $_SESSION["oficina"] = $trabajador["oficina"];
+                $_SESSION["rut"] = $rut;
                 header("Location: http://pdc.arcadesamuel.cl/clientes.php");
                 $flag = 1;
             }else{
