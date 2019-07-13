@@ -5,7 +5,7 @@
     $clave = $_POST["clave"];
 
     $consulta = "SELECT * FROM trabajador";
-    $resultado = mysqli_result($conexion,$consulta);
+    $resultado = mysqli_query($conexion,$consulta);
     $flag = 0;
     while($trabajador=mysqli_fetch_array($resultado)){
         if($trabajador["rut"] == $rut && $trabajador["clave"] == $clave){
