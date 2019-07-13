@@ -66,7 +66,7 @@
     <div class="form-group row">
         <div class="col-lg-6 col-md-12 mb-3 mb-sm-0">
             <input type="text" class="form-control form-control-user" name="cliente"
-            id="cliente" placeholder="Cliente" value="<?= $cliente["rut"]." ".$cliente["nombre"]." ".$cliente["apellido"]." ".$cliente["razon_social"]; ?>" required>
+            id="cliente" placeholder="Cliente" value="<?= $cliente["rut"]." ".$cliente["nombre"]." ".$cliente["apellido"]." ".$cliente["razon_social"]; ?>" readonly required>
         </div>
         <div class="col-lg-6 col-md-12 mb-3 mb-sm-0">
             <input type="text" class="form-control form-control-user" name="telefono"
@@ -128,11 +128,10 @@
             <ul class="pt-2" id="lista_juegos">
             <?php while($juegos = mysqli_fetch_array($resul_juegos)):?>
             <li class="list-group-item">
-                <input type="hidden" name="" value="">
-                <input type="hidden" name="" value="">
-                <div class="col-lg-2 custom-control custom-checkbox mt-2">
-                    <input type="checkbox" class="custom-control-input" value="oficina" name="oficina" id="oficina">
-                    <label class="custom-control-label" for="oficina"><?php echo $juegos["nombre"]; ?></label>
+                <div class="col-lg-10 mt-2">
+                    <h6 class="mt-3 font-weight-bold">
+                        <?= $juegos["nombre"]; ?>
+                    </h6>
                 </div>
             </li>
             <?php endwhile; ?>
