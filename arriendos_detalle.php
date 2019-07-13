@@ -2,7 +2,7 @@
    include "conexion.php";
    $id_arriendo = $_GET["id"];
 
-   $consulta = "SELECT fecha, rut_cliente, start, end, valor_total, abono, fecha_abono, saldo, telefono, comuna, calle, numero FROM arriendo WHERE id ='".$id_arriendo."'";
+   $consulta = "SELECT * FROM arriendo WHERE id ='".$id_arriendo."'";
    $resultado = mysqli_query($conexion,$consulta);
    mysqli_data_seek ($resultado, 0);
    $arriendo = mysqli_fetch_assoc($resultado);
@@ -12,7 +12,7 @@
    mysqli_data_seek ($resul_cliente, 0);
    $cliente = mysqli_fetch_assoc($resul_cliente);
 
-   $cons_juegos = "SELECT * FROM juego_arriendo JA, juego J, arriendo A WHERE J.id = JA.id_juego AND JA.id_arriendo = '".$id_arriendo."' ";
+   $cons_juegos = "SELECT * FROM juego_arriendo JA, juego J, arriendo A WHERE J.id = JA.id_juego AND JA.id_arriendo = A.id AND JA.id_arriendo = '".$id_arriendo."' ";
    $resul_juegos = mysqli_query($conexion,$cons_juegos);
 
    $consulta_comuna = "SELECT * FROM comuna";
@@ -20,57 +20,65 @@
 
 ?>
 <form class="user" id="form_arriendo" method="POST">
-    <input type="hidden" name="rut_arriendo" id="rut_arriendo" value="<?php echo $arriendo['rut_cliente']; ?>">
+    <input type="hidden" name="rut_arriendo" id="rut_arriendo" value="<?= $arriendo["rut_cliente"] ?>">
+    <input type="hidden" name="id_arriendo" id="id_arriendo" value="<?= $id_arriendo ?>">
     <div class="form-group row">
-        <div class="col-lg-2 col-md-6">
+        <div class="col-lg-3 col-md-6">
             <h6 class="mt-3 font-weight-bold text-primary">
-            Fecha de arriendo
+            Fecha inicio de arriendo
             </h6>
         </div>
         <div class="col-lg-3 col-md-6 mb-3">
             <input type="date" class="form-control form-control-user" name="fec_arriendo"
-            id="fec_arriendo" placeholder="" value="<?php echo $arriendo['fecha']; ?>">
+            id="fec_arriendo" placeholder="" value="<?= $arriendo['fecha']; ?>" required>
         </div>
-        <div class="col-lg-1 col-md-6">
+        <div class="col-lg-3 col-md-6">
+            <h6 class="mt-3 font-weight-bold text-primary">
+            Fecha fin de arriendo
+            </h6>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-3">
+            <input type="date" class="form-control form-control-user" name="fin_arriendo"
+            id="fin_arriendo" placeholder="" value="<?= $arriendo['fin']; ?>" required>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-lg-3 col-md-6">
             <h6 class="mt-3 font-weight-bold text-primary">
             Horario inicio
             </h6>
         </div>
-        <div class="col-lg-2 col-md-6 mb-3">
+        <div class="col-lg-3 col-md-6 mb-3">
             <input type="time" class="form-control form-control-user"
-            name="hora_inicio" id="hora_inicio" value="<?php echo substr($arriendo['start'],11,5); ?>" placeholder="">
+            name="hora_inicio" id="hora_inicio" value="<?= substr($arriendo['start'],11,5); ?>" placeholder="" required>
         </div>
-        <div class="col-lg-2 col-md-6">
+        <div class="col-lg-3 col-md-6">
             <h6 class="mt-3 font-weight-bold text-primary">
             Horario termino
             </h6>
         </div>
-        <div class="col-lg-2 col-md-6 mb-3">
+        <div class="col-lg-3 col-md-6 mb-3">
             <input type="time" class="form-control form-control-user"
-            name="hora_termino" id="hora_termino" value="<?php echo substr($arriendo['end'],11,5); ?>" placeholder="">
+            name="hora_termino" id="hora_termino" value="<?= substr($arriendo['end'],11,5); ?>" placeholder="" required>
+        </div>
+    </div>
+    <hr>
+    <div class="form-group row">
+        <div class="col-lg-6 col-md-12 mb-3 mb-sm-0">
+            <input type="text" class="form-control form-control-user" name="cliente"
+            id="cliente" placeholder="Cliente" value="<?= $cliente["rut"]." ".$cliente["nombre"]." ".$cliente["apellido"]." ".$cliente["razon_social"]; ?>" required>
+        </div>
+        <div class="col-lg-6 col-md-12 mb-3 mb-sm-0">
+            <input type="text" class="form-control form-control-user" name="telefono"
+            id="telefono" placeholder="Telefono" value="<?= $arriendo['telefono']; ?>" required>
         </div>
         
     </div>
 
     <div class="form-group row">
-        <div class="col-lg-6 col-md-12 mb-3 mb-sm-0">
-            <input type="text" class="form-control form-control-user" name="telefono"
-            id="telefono" placeholder="Telefono" value="<?php echo $arriendo['fecha']; ?>">
-        </div>
-        <div class="col-lg-6 col-md-12 mb-3 mb-sm-0">
-            <input type="text" class="form-control form-control-user" name="cliente"
-            id="cliente" placeholder="Cliente" value="<?php echo $cliente["rut"]." ".$cliente["nombre"]." ".$cliente["apellido"]." ".$cliente["razon_social"]; ?>">
-        </div>
-    </div>
-
-    <div class="form-group row">
-        <div class="col-lg-3 col-md-6 mb-3">
-            <input type="text" class="form-control form-control-user" name="calle"
-            id="calle" placeholder="Calle" value="<?php echo $arriendo['calle']; ?>">
-        </div>
-        <div class="col-lg-3 col-md-6">
-            <input type="text" class="form-control form-control-user" name="numero"
-            id="numero" placeholder="Numero" value="<?php echo $arriendo['numero']; ?>">
+        <div class="col-lg-6 col-md-6 mb-3">
+            <input type="text" class="form-control form-control-user" name="direccion"
+            id="direccion" placeholder="Direccion" value="<?= $arriendo['direccion']; ?>" required>
         </div>
         <div class="col-lg-2 col-md-4">
             <h6 class="mt-3 font-weight-bold text-primary">
@@ -79,7 +87,7 @@
         </div>
         <div class="col-lg-4 col-md-8 mt-2">
             <select class="custom-select form-control" name="comuna" id="comuna">
-                <option value="Prueba">Comuna</option>
+                <option value="">Comuna</option>
             <?php while ($columna = mysqli_fetch_array($comunas) ): 
                     if($arriendo["comuna"]== $columna["nombre"]):?>
                         <option value="<?php echo $columna["nombre"]; ?>" selected ><?php echo $columna["nombre"]; ?></option>
@@ -91,6 +99,19 @@
             </select>
         </div>
     </div>
+    <div class="form-group row">
+        <div class="col-lg-4 col-md-4">
+            <h6 class="mt-3 font-weight-bold text-primary">
+            Detalles de direccion
+            </h6>
+        </div>
+        <div class="col-lg-8 col-md-6 mb-3">
+            <input type="text" class="form-control form-control-user" name="dir_notas"
+                id="dir_notas"
+                placeholder="Ejemplo: Block, depto, parcela, referencias, etc" value=""
+                value="<?= $arriendo['direccion_notas']; ?>">
+        </div>    
+    </div>
 
     <div class="form-group row">
         <div class="col-lg-2 col-md-6">
@@ -101,72 +122,98 @@
         <div class="col-lg-2 col-md-6 mb-3">
             <input type="text" class="form-control form-control-user"
             name="cant_juegos"
-            id="cant_juegos" placeholder="Cantidad de juegos" value="<?php echo mysqli_num_rows($resul_juegos); ?>">
+            id="cant_juegos" placeholder="Cantidad de juegos" value="<?php echo mysqli_num_rows($resul_juegos); ?>" readonly>
         </div>
-        <div class="col-lg-2 mt-2 mx-3" id="juegos">
-            <ul class="list-group" id="lista_juegos">
+        <div class="col-lg-6 mt-2 mx-3 rounded border border-left-success text-lg" id="juegos">
+            <ul class="pt-2" id="lista_juegos">
             <?php while($juegos = mysqli_fetch_array($resul_juegos)):?>
-                <li class="list-group-item">
-                    <input type="hidden" name="" value="">
-                    <input type="hidden" name="" value="">
-                    <div class="col-lg-2 custom-control custom-checkbox mt-2">
-                        <input type="checkbox" class="custom-control-input" value="oficina" name="oficina" id="oficina">
-                        <label class="custom-control-label" for="oficina"><?php echo $juegos["nombre"]; ?></label>
-                    </div>
-                </li>
+            <li class="list-group-item">
+                <input type="hidden" name="" value="">
+                <input type="hidden" name="" value="">
+                <div class="col-lg-2 custom-control custom-checkbox mt-2">
+                    <input type="checkbox" class="custom-control-input" value="oficina" name="oficina" id="oficina">
+                    <label class="custom-control-label" for="oficina"><?php echo $juegos["nombre"]; ?></label>
+                </div>
+            </li>
             <?php endwhile; ?>
             </ul>
         </div>
     </div>
 
     <div class="form-group row">
-        <div class="col-lg-2 col-md-6">
+        <div class="col-lg-4 col-md-4">
+            <h6 class="mt-3 font-weight-bold text-primary">
+            Comentarios del arriendo
+            </h6>
+        </div>
+        <div class="col-lg-8 col-md-6 mb-3">
+            <input type="text" class="form-control form-control-user" name="comentarios"
+                id="comentarios"
+                placeholder="Ejemplo: Se debe instalar dos horas antes, etc" value="<?= $arriendo['comentarios']; ?>">
+        </div>    
+    </div>
+    <hr>
+
+    <div class="form-group row">
+        <div class="col-lg-6 col-md-6">
             <h6 class="mt-3 font-weight-bold text-primary">
             Valor de despacho
             </h6>
         </div>
-        <div class="col-lg-4 col-md-6 mb-3">
-            <input onkeydown="calcularTotal()" type="text" class="form-control form-control-user"
-            name="valor_despacho" id="valor_despacho" placeholder="Valor despacho" value="<?php while ($columna = mysqli_fetch_array($comunas)): if($arriendo["comuna"]== $columna["nombre"]): echo $columna["costo_despacho"]; endif; endwhile; ?>">
+        <div class="col-lg-6 col-md-6 mb-3">
+            <input onkeydown="calcular()" type="text" class="form-control form-control-user"
+            name="valor_despacho" id="valor_despacho" placeholder="Valor despacho" value="<?= $arriendo["despacho"] ?>" required>
         </div>
-        <div class="col-lg-2 col-md-6">
+    </div>
+    <div class="form-group row">
+        <div class="col-lg-4 col-md-6">
             <h6 class="mt-3 font-weight-bold text-primary">
-            Cobro adicional
+            Cobro adicional (%)
             </h6>
         </div>
-        <div class="col-lg-4 col-md-6 mb-3">
-            <input onchange="calcularTotal()" type="text" class="form-control form-control-user"
+        <div class="col-lg-2 col-md-6 mb-3">
+            <input onchange="calcularAdicional()" type="text" class="form-control form-control-user"
+            name="porc_add" id="porc_add" placeholder="%" value="" required>
+        </div>
+        <div class="col-lg-6 col-md-6 mb-3">
+            <input onchange="calcular()" type="text" class="form-control form-control-user"
             name="cobro_adicional" id="cobro_adicional"
-            placeholder="Cobro adicional" value="0">
+            placeholder="Cobro adicional" value="<?= $arriendo["cobro_adicional"] ?>" required>
         </div>
     </div>
-
     <div class="form-group row">
-        
-    </div>
-
-    <div class="form-group row">
-        <div class="col-lg-2 col-md-6">
+        <div class="col-lg-4 col-md-6">
             <h6 class="mt-3 font-weight-bold text-primary">
-            Descuento
+            Descuento (%)
             </h6>
         </div>
-        <div class="col-lg-4 col-md-6 mb-3">
+        <div class="col-lg-2 col-md-6 mb-3">
+            <input onchange="calcularDescuento()" type="text" class="form-control form-control-user"
+            name="porcentaje" id="porcentaje" placeholder="%"  required>
+        </div>
+        <div class="col-lg-6 col-md-6 mb-3">
             <input onchange="calcularTotal()" type="text" class="form-control form-control-user"
-            name="descuento" id="descuento" placeholder="Descuento" value="0">
+            name="descuento" id="descuento" placeholder="Descuento" value="<?= $arriendo["descuento"] ?>" required>
         </div>
-
-            <div class="col-lg-2 col-md-6 rounded bg-gradient-primary py-2 ">
-            <h6 class="mt-3 font-weight-bold text-primary text-center text-gray-100">
-                Total
-            </h6>
-            </div>
-            <div class="col-lg-4 col-md-6 mb-3">
-            <input type="text" class="form-control form-control-user"
-                name="valor_total" id="valor_total" placeholder="Valor total" value="<?php echo $arriendo['valor_total']; ?>">
-            </div>
     </div>
 
+    <div class="form-group row">
+        <div class="col-lg-6 col-md-6 rounded bg-gradient-primary py-2 ">
+            <h6 class="mt-3 font-weight-bold text-gray-100 text-center ">
+            Total
+            </h6>
+        </div>
+        <div class="col-lg-6 col-md-6 mb-3">
+            <input type="text" class="form-control form-control-user"
+            name="valor_total" id="valor_total" placeholder="Valor total" value="<?= $arriendo["valor_total"] ?>" required>
+        </div>
+    </div>
+    <div class="row justify-content-md-center">
+        <input type="submit" onclick=""
+            class="btn btn-warning btn-user btn-block col-lg-4"
+            id="btn_agregar" value="Guardar como pre-arriendo">
+    </div>
+    <hr>
     <div class="form-group row">
         <div class="col-lg-2 col-md-6">
             <h6 class="mt-3 font-weight-bold text-primary">
@@ -174,8 +221,8 @@
             </h6>
         </div>
         <div class="col-lg-2 col-md-6 mb-3">
-            <input onchange="calcularTotal()" type="text" class="form-control form-control-user" name="abono"
-            id="abono" placeholder="Abono" value="<?php echo $arriendo['abono']; ?>">
+            <input onchange="calcular()" type="text" class="form-control form-control-user" name="abono"
+            id="abono" placeholder="Abono" value="<?= $arriendo["abono"] ?>" required>
         </div>
 
         <div class="col-lg-2 col-md-6">
@@ -185,7 +232,7 @@
         </div>
         <div class="col-lg-3 col-md-6 mb-3">
             <input type="date" class="form-control form-control-user" name="fecha_abono"
-            id="fecha_abono" placeholder="" value="<?php echo $arriendo['fecha_abono']; ?>">
+            id="fecha_abono" placeholder="" value="<?= $arriendo["fecha_abono"] ?>" required>
         </div>
         <div class="col-lg-1 col-md-6">
             <h6 class="mt-3 font-weight-bold text-primary">
@@ -194,7 +241,12 @@
         </div>
         <div class="col-lg-2 col-md-6 mb-3">
             <input type="text" class="form-control form-control-user" name="saldo"
-            id="saldo" placeholder="Saldo" value="<?php echo $arriendo['saldo']; ?>">
+            id="saldo" placeholder="Saldo" value="<?= $arriendo["saldo"] ?>" required>
         </div>
+    </div>
+    <div class="row justify-content-md-center">
+        <input type="submit" onclick=""
+            class="btn btn-primary btn-user btn-block col-lg-4"
+            id="btn_agregar" value="Guardar arriendo">
     </div>
 </form>

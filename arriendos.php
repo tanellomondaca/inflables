@@ -343,7 +343,7 @@
             </div>
             <button id="btn_detalle" data-toggle="modal" data-target="#detalle_arriendo" style="display: none"></button>
 
-            <!-- Modal DETALLE ARRIENDO -->
+            <!-- Modal ABONO -->
             <div class="modal fade" id="ingresar_abono" tabindex="-1" role="dialog"
                 aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg" role="document">
@@ -435,11 +435,8 @@
     <script src="js/sb-admin-2.min.js"></script>
 
     <!-- Page level plugins -->
-    <!-- <script src="vendor/datatables/jquery.dataTables.min.js"></script>
-    <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script> -->
-
-    <!--Pruebas para las tablas-->
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
                                                 
     <!-- Page level custom scripts -->
     <script src="js/demo/datatables-demo.js"></script>

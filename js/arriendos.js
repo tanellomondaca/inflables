@@ -31,3 +31,15 @@ function ingresarAbono(){
     location.href = "http://pdc.arcadesamuel.cl/arriendos.php";
     },3000);
 }
+
+function calcularAdicional(){
+
+}
+
+function calcular(){
+
+}
+
+function calcularDescuento(){
+    
+}
