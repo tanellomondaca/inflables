@@ -6,7 +6,7 @@ function fechaArriendo(){
 
 function asignarId(id,total){
     $("#id_arriendo").val(id);
-    $("#total").val(total);
+    $("#total_abono").val(total);
 }
 
 function calcularTotal() {
