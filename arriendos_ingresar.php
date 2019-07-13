@@ -33,6 +33,9 @@
     if($abono == 0){
         $estado = "pre-arrendado";
         $color = "red";
+    }elseif($saldo==0){
+        $estado = "pagado";
+        $color = "green";
     }else{
         $estado = "pendiente";
         $color = "yellow";
