@@ -14,3 +14,20 @@ function calcularTotal() {
     var abono = $("#abono_abono").val();
     $("#saldo_abono").val(total-abono);
 }
+
+function ingresarAbono(){
+    var form_abono = $("#form_abono");
+    var xhr_enviar = new XMLHttpRequest;
+
+    xhr_enviar.open('POST', "funciones.php?v=1");
+
+    xhr_enviar.addEventListener('load', (info) => {
+        var resultado_enviar = new String;
+        resultado_enviar = info.target.response;
+        alert(resultado_enviar);
+    })
+    xhr_enviar.send(new FormData(form_abono));
+    setTimeout(function(){
+        location.href = "http://pdc.arcadesamuel.cl/arriendos.php";
+    },3000);
+}

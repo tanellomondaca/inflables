@@ -400,9 +400,9 @@
                                     </div>
                                 </div>
                                 <div class="row justify-content-md-center">
-                                    <input type="submit" onclick=""
+                                    <input type="submit" onclick="ingresarAbono()"
                                         class="btn btn-primary btn-user btn-block col-lg-4"
-                                        id="btn_ingresar_abono" value="Guardar arriendo">
+                                        id="btn_ingresar_abono" value="Ingresar abono">
                                 </div>
                             </form>
                         </div>
