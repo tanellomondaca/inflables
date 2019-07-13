@@ -66,7 +66,7 @@
 
                <li class="nav-item">
                   <a class="nav-link" href="arriendos.php">
-                     <i class="fas fa-fw fa-calendar-check-o"></i>
+                     <i class="fas fa-fw fa-calendar-alt"></i>
                      <span>Arriendos</span></a>
                </li>
 
@@ -84,7 +84,7 @@
 
                <li class="nav-item">
                   <a class="nav-link" href="clientes.php">
-                     <i class="fas fa-fw fa-address-card-o"></i>
+                     <i class="fas fa-fw fa-id-card-alt"></i>
                      <span>Clientes</span></a>
                </li>
 
