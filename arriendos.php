@@ -399,12 +399,12 @@
                                         id="saldo_abono" placeholder="Saldo" required>
                                     </div>
                                 </div>
-                                <div class="row justify-content-md-center">
+                            </form>
+                            <div class="row justify-content-md-center">
                                     <button onclick="ingresarAbono()"
                                         class="btn btn-primary btn-user btn-block col-lg-4"
-                                        id="btn_ingresar_abono" value="Ingresar abono"></button>
+                                        id="btn_ingresar_abono" value="">Ingresar abono</button>
                                 </div>
-                            </form>
                         </div>
                     </div>
                 </div>
