@@ -2,7 +2,7 @@
    session_start();
    if($_SESSION["oficina"]== null || $_SESSION["oficina"] != "si"){
       session_abort();
-      header("Location: http://pdc.arcadesamuel.cl/clientes.php");
+      header("Location: http://pdc.arcadesamuel.cl");
    }
 ?>
 <!DOCTYPE HTML>
