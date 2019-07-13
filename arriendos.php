@@ -217,7 +217,7 @@
                                                 <td><?= $pre_arriendo["nombre"]." ".$pre_arriendo["apellido"]; ?></td>
                                                 <td><?= $pre_arriendo["comuna"]; ?></td>
                                                 <td><?= $pre_arriendo["valor_total"]; ?></td>
-                                                <td><button id="btn_abono" data-toggle="modal" data-target="#ingresar_abono" onclick="asignarId(<?= $pre_arriendo['valor_total']; ?>)">Ingresar</button></td>
+                                                <td><button class="btn btn-danger" id="btn_abono" data-toggle="modal" data-target="#ingresar_abono" onclick="asignarId(<?= $id; ?>,<?= $pre_arriendo['valor_total']; ?>)">Ingresar</button></td>
                                             </tr>    
                                             <?php
                                                 endwhile;
@@ -356,8 +356,54 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form class="user" id="form_arriendo" method="POST">
+                            <form class="user" id="form_abono" method="POST">
+                                <input type="hidden" name="id_arriendo" id="id_arriendo" value="">
+                                <div class="form-group row">
+                                    <div class="col-lg-6 col-md-6">
+                                        <h6 class="mt-3 font-weight-bold text-primary">
+                                        Total
+                                        </h6>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 mb-3">
+                                        <input type="text" class="form-control form-control-user" name="total_abono"
+                                        id="total_abono" placeholder="Abono" value="" readonly>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-lg-2 col-md-6">
+                                        <h6 class="mt-3 font-weight-bold text-primary">
+                                        Abono
+                                        </h6>
+                                    </div>
+                                    <div class="col-lg-2 col-md-6 mb-3">
+                                        <input onchange="calcularTotal()" type="text" class="form-control form-control-user" name="abono_abono"
+                                        id="abono_abono" placeholder="Abono" value="0" required>
+                                    </div>
 
+                                    <div class="col-lg-2 col-md-6">
+                                        <h6 class="mt-3 font-weight-bold text-primary">
+                                        Fecha del abono
+                                        </h6>
+                                    </div>
+                                    <div class="col-lg-3 col-md-6 mb-3">
+                                        <input type="date" class="form-control form-control-user" name="fecha_abono"
+                                        id="fecha_abono_abono" placeholder="" required>
+                                    </div>
+                                    <div class="col-lg-1 col-md-6">
+                                        <h6 class="mt-3 font-weight-bold text-primary">
+                                        Saldo
+                                        </h6>
+                                    </div>
+                                    <div class="col-lg-2 col-md-6 mb-3">
+                                        <input type="text" class="form-control form-control-user" name="saldo"
+                                        id="saldo_abono" placeholder="Saldo" required>
+                                    </div>
+                                </div>
+                                <div class="row justify-content-md-center">
+                                    <input type="submit" onclick=""
+                                        class="btn btn-primary btn-user btn-block col-lg-4"
+                                        id="btn_ingresar_abono" value="Guardar arriendo">
+                                </div>
                             </form>
                         </div>
                     </div>

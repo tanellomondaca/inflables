@@ -985,6 +985,7 @@
 
     <!-- Core plugin JavaScript-->
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    
    <!-- JS propios -->  
       <script src="js/arriendos_nuevo.js"></script>
     
