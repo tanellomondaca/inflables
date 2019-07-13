@@ -1,9 +1,3 @@
-<!DOCTYPE HTML>
-<!--
-	Editorial by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
 <?php
    session_start();
    if($_SESSION["oficina"]== null || $_SESSION["oficina"] != "si"){
@@ -11,6 +5,13 @@
       header("Location: http://pdc.arcadesamuel.cl/clientes.php");
    }
 ?>
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+
 <html>
 	<head>
 		<title>Panel de control</title>
