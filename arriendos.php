@@ -217,7 +217,7 @@
                                                 <td><?= $pre_arriendo["nombre"]." ".$pre_arriendo["apellido"]; ?></td>
                                                 <td><?= $pre_arriendo["comuna"]; ?></td>
                                                 <td><?= $pre_arriendo["valor_total"]; ?></td>
-                                                <td><button class="btn btn-danger" id="btn_abono" data-toggle="modal" data-target="#ingresar_abono" onclick="asignarId(<?= $id; ?>,<?= $pre_arriendo['valor_total']; ?>)">Ingresar</button></td>
+                                                <td><button class="btn btn-danger" id="btn_abono" data-toggle="modal" data-target="#ingresar_abono" onclick="asignarId('<?= $id; ?>','<?= $pre_arriendo['valor_total']; ?>')">Ingresar</button></td>
                                             </tr>    
                                             <?php
                                                 endwhile;
@@ -366,7 +366,7 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 mb-3">
                                         <input type="text" class="form-control form-control-user" name="total_abono"
-                                        id="total_abono" placeholder="Abono" value="" readonly>
+                                        id="total_abono" placeholder="Total del arriendo" value="" readonly>
                                     </div>
                                 </div>
                                 <div class="form-group row">
