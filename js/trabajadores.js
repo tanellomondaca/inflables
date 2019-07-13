@@ -11,4 +11,4 @@ function llenarTabla(){
     xhr_trabajadores.send();
 }
 
-llenarTabla();
+//llenarTabla();

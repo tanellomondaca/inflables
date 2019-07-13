@@ -3,8 +3,13 @@
 
     $v = $_GET['v'];
 
-    //Usado por arriendos.js en ariendos.php para ingresar abono
-    if($v==1):
+    switch ($v){
+        case 1:
+            //Usado por arriendos.js en ariendos.php para ingresar abono
+            insAbono();
+    }
+
+    function insAbono(){
         $id = $_POST["id_arriendo"];
         $abono = $_POST["abono_abono"];
         $saldo = $_POST["saldo"];
@@ -25,6 +30,8 @@
         } else {
             exit("Error: " . $consulta . "<br>" . mysqli_error($conexion)) ;
         }
-    endif;   
+    } 
+    
+  
 
 ?>

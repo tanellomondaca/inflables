@@ -27,7 +27,7 @@ function ingresarAbono(){
         alert(resultado_enviar);
     })
     xhr_enviar.send(new FormData(form_abono));
-    //setTimeout(function(){
-      //  location.href = "http://pdc.arcadesamuel.cl/arriendos.php";
-    //},3000);
+    setTimeout(function(){
+    location.href = "http://pdc.arcadesamuel.cl/arriendos.php";
+    },3000);
 }

@@ -1,4 +1,6 @@
 <?php
+   include 'conexion.php';
+
    session_start();
    if($_SESSION["oficina"]== null || $_SESSION["oficina"] != "si"){
       session_abort();
@@ -349,24 +351,43 @@
                            <!-- cuerpo de la tabla -->
                               <div class="card-body">
                                  <div class="table-responsive">
+                              <?php
+                                    $sql_trabajador = "SELECT * FROM trabajador";
+                                    $resultado = mysqli_query($conexion,$sql_trabajador);
+                              ?>
                                     <table class="table table-bordered" width="100%" cellspacing="0" id="dataTable">
-                                       <thead>
-                                          <tr>
-                                             <th>RUT</th>
-                                             <th>Nombre</th>
-                                             <th>Apellido</th>
-                                             <th>Telefono</th>
-                                             <th>Fecha de Nacimiento</th>
-                                             <th>N° Cuenta</th>
-                                             <th>Tipo de cuenta</th>
-                                             <th>Banco</th>
-                                             <th>Sueldo Base</th>
-                                          </tr>
-                                       </thead>
-                                       <tbody>
-                                       </tbody>
-                                       <tfoot>
-                                       </tfoot>
+                                          <thead>
+                                             <tr>
+                                                <th>RUT</th>
+                                                <th>Nombre</th>
+                                                <th>Apellido</th>
+                                                <th>Telefono</th>
+                                                <th>Fecha de Nacimiento</th>
+                                                <th>Chofer</th>
+                                                <th>N° Cuenta</th>
+                                                <th>Tipo de cuenta</th>
+                                                <th>Banco</th>
+                                                <th>Sueldo Base</th>
+                                             </tr>
+                                          </thead>
+                                          <tbody>
+                                             <?php while($trabajador = mysqli_fetch_array($resultado)): ?>
+                                             <tr>
+                                                <td> <?= $trabajador["rut"]; ?> </td>
+                                                <td> <?= $trabajador["nombre"]; ?> </td>
+                                                <td> <?= $trabajador["apellido"]; ?> </td>
+                                                <td> <?= $trabajador["telefono"]; ?> </td>
+                                                <td> <?= $trabajador["fecha_nac"]; ?> </td>
+                                                <td> <?= $trabajador["chofer"]; ?> </td>
+                                                <td> <?= $trabajador["n_cuenta_bco"]; ?> </td>
+                                                <td> <?= $trabajador["tipo_cta"]; ?> </td>
+                                                <td> <?= $trabajador["banco"]; ?> </td>
+                                                <td> <?= $trabajador["sueldo_base"]; ?> </td>
+                                             </tr>
+                                             <?php endwhile;?>
+                                          </tbody>
+                                          <tfoot>
+                                          </tfoot>
                                     </table>
                                  </div>
                               </div>
