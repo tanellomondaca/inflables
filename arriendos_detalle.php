@@ -124,12 +124,12 @@
             name="cant_juegos"
             id="cant_juegos" placeholder="Cantidad de juegos" value="<?php echo mysqli_num_rows($resul_juegos); ?>" readonly>
         </div>
-        <div class="col-lg-6 mt-2 mx-3 rounded border border-left-success text-lg" id="juegos">
+        <div class="col-lg-6 mt-2 mx-1 rounded border border-left-success text-lg" id="juegos">
             <ul class="pt-2" id="lista_juegos">
             <?php while($juegos = mysqli_fetch_array($resul_juegos)):?>
             <li class="list-group-item">
-                <div class="col-lg-10 mt-2">
-                    <h6 class="mt-3 font-weight-bold">
+                <div class="col-lg-10 mt-1">
+                    <h6 class="font-weight-bold">
                         <?= $juegos["nombre"]; ?>
                     </h6>
                 </div>
