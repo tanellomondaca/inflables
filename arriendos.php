@@ -202,6 +202,7 @@
                                                 
                                                 while($pre_arriendo=mysqli_fetch_array($resultado)):
                                             ?>
+                                            <tr>
                                                 <td><?= $pre_arriendo["Fecha"]; ?></td>
                                                 <td>
                                                     <?php
@@ -217,6 +218,7 @@
                                                 <td><?= $pre_arriendo["comuna"]; ?></td>
                                                 <td><?= $pre_arriendo["valor_total"]; ?></td>
                                                 <td></td>
+                                            </tr>    
                                             <?php
                                                 endwhile;
                                             ?>
