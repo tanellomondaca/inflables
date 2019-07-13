@@ -4,6 +4,13 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
+<?php
+   session_start();
+   if($_SESSION["oficina"]== null || $_SESSION["oficina"] != "si"){
+      session_abort();
+      header("Location: http://pdc.arcadesamuel.cl/clientes.php");
+   }
+?>
 <html>
 	<head>
 		<title>Panel de control</title>
@@ -305,7 +312,7 @@
 
                   <div class="container-fluid">
                      <!-- Opciones de la pagina de clientes -->
-                     <h1 class="h1 mb-4 text-gray-800">Clientez</h1>
+                     <h1 class="h1 mb-4 text-gray-800">Clientes</h1>
                      <div class="row">
                         <div class="col-lg-12">
                            <div class="card shadow mb-4">

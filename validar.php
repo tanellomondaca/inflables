@@ -10,8 +10,12 @@
     while($trabajador=mysqli_fetch_array($resultado)){
         if($trabajador["rut"] == $rut && $trabajador["clave"] == $clave){
             if($trabajador["oficina"]=="si"){
+                session_start();
+                $_SESSION["oficina"] = $trabajador["oficina"];
                 header("Location: http://pdc.arcadesamuel.cl/clientes.php");
                 $flag = 1;
+            }else{
+                //Si es trabajador pero no tiene acceso a la oficina
             }
         }
     }
