@@ -32,14 +32,43 @@ function ingresarAbono(){
     },3000);
 }
 
-function calcularAdicional(){
-
-}
+var total_detalle = 0;
+var despacho_detalle = 0;
+var cobro_adicional_detalle = 0;
+var descuento_detalle = 0;
 
 function calcular(){
+    despacho_detalle = parseInt($("#valor_despacho").val());
+    cobro_adicional_detalle = parseInt($("#cobro_adicional").val());
+    descuento_detalle = parseInt($("#descuento").val());
+    total_detalle = $("#valor_total").val() + despacho + cobro_adicional - descuento;
 
+    $("#valor_total").val(total);
+
+    var abono = parseInt($("#abono").val());
+    var saldo = total_detalle - abono;
+
+    $("#saldo").val(saldo);
+}
+
+function calcularAdicional() {
+    var porc_add = $("#porc_add").val();
+
+    cobro_adicional_detalle = total_detalle * (porc_add / 100);
+    $("#descuento").val(cobro_adicional_detalle);
+
+    calcular();
 }
 
 function calcularDescuento(){
-    
+    var porcentaje = $("#porcentaje").val();
+
+    descuento_detalle = total_detalle * (porcentaje / 100);
+    $("#descuento").val(descuento_detalle);
+
+    calcularTotal();
+}
+
+function modificarArriendo(){
+
 }

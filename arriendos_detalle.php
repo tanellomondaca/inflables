@@ -19,9 +19,10 @@
    $comunas = mysqli_query($conexion,$consulta_comuna);
 
 ?>
-<form class="user" id="form_arriendo" method="POST">
+<form class="user" id="form_arriendo_detalle" method="POST">
     <input type="hidden" name="rut_arriendo" id="rut_arriendo" value="<?= $arriendo["rut_cliente"] ?>">
     <input type="hidden" name="id_arriendo" id="id_arriendo" value="<?= $id_arriendo ?>">
+    <input type="hidden" name="arrendado_por" value="<?= $arriendo["arrendado_por"] ?>">
     <div class="form-group row">
         <div class="col-lg-3 col-md-6">
             <h6 class="mt-3 font-weight-bold text-primary">
@@ -208,9 +209,9 @@
         </div>
     </div>
     <div class="row justify-content-md-center">
-        <input type="submit" onclick=""
+        <input type="submit" onclick="modificarArriendo()"
             class="btn btn-warning btn-user btn-block col-lg-4"
-            id="btn_agregar" value="Guardar como pre-arriendo">
+            id="btn_agregar" value="Modificar arriendo">
     </div>
     <hr>
     <div class="form-group row">
@@ -244,8 +245,8 @@
         </div>
     </div>
     <div class="row justify-content-md-center">
-        <input type="submit" onclick=""
+        <input type="submit" onclick="modificarArriendo()"
             class="btn btn-primary btn-user btn-block col-lg-4"
-            id="btn_agregar" value="Guardar arriendo">
+            id="btn_agregar" value="Modificar arriendo">
     </div>
 </form>

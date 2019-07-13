@@ -109,7 +109,7 @@ var e = 0;
         var porc_add = $("#porc_add").val();
 
         cobro_adicional = total * (porc_add / 100);
-        $("#descuento").val(descuento);
+        $("#cobro_adicional").val(cobro_adicional);
 
         calcularTotal();
     }

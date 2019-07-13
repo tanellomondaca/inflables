@@ -647,6 +647,7 @@
                                 <div class="card-body">
                                     <form class="user" id="form_arriendo" method="POST">
                                        <input type="hidden" name="rut_arriendo" id="rut_arriendo" value="">
+                                       <input type="hidden" name="arrendado_por" value="<?= $_SESSION["rut"] ?>">
                                        <div class="form-group row">
                                           <div class="col-lg-3 col-md-6">
                                              <h6 class="mt-3 font-weight-bold text-primary">
