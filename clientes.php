@@ -357,22 +357,61 @@
                            <!-- cuerpo de la tabla -->
                               <div class="card-body">
                                  <div class="table-responsive">
-                                    <table class="table table-bordered" width="100%" cellspacing="0" id="dataTable">
+                                    <?php
+                                       include "conexion.php";
+                                       $consulta = "SELECT * FROM cliente_persona";
+                                       $resultado = mysqli_query($conexion,$consulta);
+
+                                       $consulta_comuna = "SELECT * FROM comuna";
+                                       $comunas = mysqli_query($conexion,$consulta_comuna);
+                                    ?>
+                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                        <thead>
-                                          <tr>
-                                             <th>RUT</th>
-                                             <th>Nombre</th>
-                                             <th>Apellido</th>
-                                             <th>Telefono</th>
-                                             <th>Dirección</th>
-                                             <th>Comuna</th>
-                                             <th>Correo</th>
-                                          </tr>
-                                       </thead>
-                                       <tbody>
-                                       </tbody>
+                                             <tr>
+                                                <th>Empresa</th>
+                                                <th>RUT</th>
+                                                <th>Nombre</th>
+                                                <th>Apellido</th>
+                                                <th>Telefono</th>
+                                                <th>Dirección</th>
+                                                <th>Comuna</th>
+                                                <th>Correo</th>
+                                             </tr>
                                        <tfoot>
+                                             <tr>
+                                                <th>Empresa</th>
+                                                <th>RUT</th>
+                                                <th>Nombre</th>
+                                                <th>Apellido</th>
+                                                <th>Telefono</th>
+                                                <th>Dirección</th>
+                                                <th>Comuna</th>
+                                                <th>Correo</th>
+                                             </tr>
                                        </tfoot>
+                                       </thead>
+
+                                       <tbody>
+                                          <?php while ($columna = mysqli_fetch_array( $resultado )): ?>
+                                                   <tr>
+                                                      <td><?php 
+                                                               if($columna['empresa']=="si"){
+                                                                  echo $columna['razon_social'];
+                                                               }else{
+                                                                  echo "No.";
+                                                               }
+                                                         ?>   
+                                                      </td>
+                                                      <td><?php echo $columna['rut']; ?></td>
+                                                      <td><?php echo $columna['nombre']; ?></td>
+                                                      <td><?php echo $columna['apellido']; ?></td>
+                                                      <td><?php echo $columna['telefono']; ?></td>
+                                                      <td><?php echo $columna['direccion']; ?></td>
+                                                      <td><?php echo $columna['comuna']; ?></td>
+                                                      <td><?php echo $columna['correo']; ?></td>
+                                                   </tr>
+                                          <?php endwhile; ?>
+                                       </tbody>
                                     </table>
                                  </div>
                               </div>

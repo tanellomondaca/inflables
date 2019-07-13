@@ -1,5 +1,5 @@
 //Funciones para inicar enseguida
-mostrarClientes();
+//mostrarClientes();
 comunas();
 llenarListas();
 /////////////////
