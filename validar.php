@@ -10,10 +10,13 @@
     while($trabajador=mysqli_fetch_array($resultado)){
         if($trabajador["rut"] == $rut && $trabajador["clave"] == $clave){
             if($trabajador["oficina"]=="si"){
-                Location:("http://pdc.arcadesamuel.cl/clientes.php");
+                header("Location: http://pdc.arcadesamuel.cl/clientes.php");
+                $flag = 1;
             }
         }
-
+    }
+    if($flag==0){
+        header("Location: http://pdc.arcadesamuel.cl");
     }
     
 ?>
