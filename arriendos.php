@@ -203,7 +203,7 @@
                                                 while($pre_arriendo=mysqli_fetch_array($resultado)):
                                             ?>
                                             <tr>
-                                                <td><?= $pre_arriendo["Fecha"]; ?></td>
+                                                <td><?= $pre_arriendo["fecha"]; ?></td>
                                                 <td>
                                                     <?php
                                                         $id = $pre_arriendo["id"];
@@ -217,7 +217,7 @@
                                                 <td><?= $pre_arriendo["nombre"]." ".$pre_arriendo["apellido"]; ?></td>
                                                 <td><?= $pre_arriendo["comuna"]; ?></td>
                                                 <td><?= $pre_arriendo["valor_total"]; ?></td>
-                                                <td></td>
+                                                <td><button id="btn_abono" data-toggle="modal" data-target="#ingresar_abono" onclick="asignarId(<?= $pre_arriendo['valor_total']; ?>)">Ingresar</button></td>
                                             </tr>    
                                             <?php
                                                 endwhile;
@@ -342,6 +342,27 @@
                 </div>
             </div>
             <button id="btn_detalle" data-toggle="modal" data-target="#detalle_arriendo" style="display: none"></button>
+
+            <!-- Modal DETALLE ARRIENDO -->
+            <div class="modal fade" id="ingresar_abono" tabindex="-1" role="dialog"
+                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content shadow">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Ingresar Abono a arriendo
+                            </h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form class="user" id="form_arriendo" method="POST">
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
             
         </div>
     </div>
