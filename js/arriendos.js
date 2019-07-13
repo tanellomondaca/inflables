@@ -16,7 +16,7 @@ function calcularTotal() {
 }
 
 function ingresarAbono(){
-    var form_abono = $("#form_abono");
+    var form_abono = document.getElementById("form_abono");
     var xhr_enviar = new XMLHttpRequest;
 
     xhr_enviar.open('POST', "funciones.php?v=1");
