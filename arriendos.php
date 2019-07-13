@@ -356,7 +356,7 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form class="user" id="form_abono" method="POST">
+                            <form class="user" id="form_abono">
                                 <input type="hidden" name="id_arriendo" id="id_arriendo" value="">
                                 <div class="form-group row">
                                     <div class="col-lg-6 col-md-6">
