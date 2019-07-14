@@ -53,7 +53,7 @@ function detalleArriendo(id){
     xhr_detalle.addEventListener('load', (info) => {
         var resultado = new String;
         resultado = info.target.response;
-        document.getElementById("form_arriendo").innerHTML = resultado;
+        document.getElementById("form_arriendo_detalle").innerHTML = resultado;
             total_detalle = parseInt($("#valor_total").val());
             console.log($("#valor_total").val());
             console.log("total = " + total_detalle);
