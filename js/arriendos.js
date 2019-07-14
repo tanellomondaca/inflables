@@ -88,6 +88,22 @@ function modificarArriendo(){
     }, 3000);
 }
 
+function modificarJuegos(){
+    var cantidad_juegos = 0;
+    var id_juegos = new Array;
+    var url = ";"
+
+    $(".juego input").each(function () {
+        if ($(this).prop('checked') == true) {
+            id_juegos[cantidad_juegos] = $(this).data("id");
+            url += "&juego" + cantidad_juegos + "=" + $(this).data("id");
+            cantidad_juegos++;
+        
+        }
+    })
+    alert("funciones.php?cant="+cantidad_juegos+url)
+}
+
 $(document).ready(function () {
     $('#tabla_juegos').DataTable();
 });

@@ -87,6 +87,34 @@
             $confirmacion =1;
         }
     }
+
+    function modificarJuegos($conexion){
+        #Juegos seleccionados
+        $juegos[][] = "";
+
+        $cant_juegos = $_POST["cant_juegos"];
+
+        for($i=0;$i<$cant_juegos;$i++){
+            $juegos[$i][0] = $_POST["id".$i];
+            $juegos[$i][1] = $_POST["nombre".$i];
+        }
+
+        for($i=0 ; $i < $cant_juegos ; $i++){
+            $juegos_arriendo = "INSERT INTO juego_arriendo (id_arriendo, id_juego) VALUES ('".$id."', '".$juegos[$i][0]."')";
+            if (mysqli_query($conexion,$juegos_arriendo)) {
+                $confirmacion = 0;  
+            } else {
+                $confirmacion =1;
+            }
+        }
+        
+        if($confirmacion == 0){
+            echo "Arriendo guardado exitosamente";
+        }else{
+            echo "Error: " . $consulta . "<br>" . mysqli_error($conexion);
+            echo "Ocurrio un error. Intenté nuevamente.";
+        }
+    }
     
   
 

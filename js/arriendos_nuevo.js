@@ -167,7 +167,7 @@ function juegosSel(){
     total_persona = 0;
     total_empresa = 0;
 
-     $(".juego input").each(function(){
+    $(".juego input").each(function(){
         if( $(this).prop('checked') == true ){
             nombre_juegos[cantidad_juegos] = $(this).data("nombre");
             id_juegos[cantidad_juegos] = $(this).data("id");
