@@ -116,7 +116,7 @@ function marcarJuegos(){
     for(i=0; i < count; i++){
         $(".juego input").each(function () {
             if ($(this).data("id") == id_juegos[i]){
-                $(this).prop('checked') = true;
+                $(this).prop('checked', true);
             }
         })
     }
