@@ -75,7 +75,7 @@
             $color = "yellow";
         }
 
-        #Ingresar arriendo
+        #Modificar arriendo
         $consulta = "UPDATE arriendo SET fecha = '$fecha', fin = '$fin', telefono = '$telefono', start = '$start', end = '$end', valor_total = '$valor_total', cobro_adicional = '$cobro_adicional', descuento = '$descuento', despacho = '$despacho', abono = '$abono', fecha_abono = '$fecha_abono', saldo = '$saldo', estado = '$estado', color = '$color', direccion = '$direccion', comuna = '$comuna', direccion_notas = '$direccion_notas', comentarios = '$comentarios' WHERE arriendo.id = '$id_arriendo' ";
 
         $confirmacion = 0;

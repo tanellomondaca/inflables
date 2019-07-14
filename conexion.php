@@ -8,7 +8,7 @@
         Normalmente se envian 3 parametros (los datos del servidor, usuario y contraseña) a la función mysql_connect,
         si no hay ningún error la conexión será un éxito
         El @ que se ponde delante de la funcion, es para que no muestre el error al momento de ejecutarse, ya crearemos un código para eso*/
-        $conexion = @mysqli_connect($servidor, $usuario, $contrasenha);
+        $conexion = mysqli_connect($servidor, $usuario, $contrasenha, $BD);
          
         /* Aquí preguntamos si la conexión no pudo realizarse, de ser así lanza un mensaje en la pantalla con el siguiente texto "No pudo conectarse:"
         y le agrega el error ocurrido con "mysql_error()"
