@@ -165,7 +165,7 @@
             name="valor_despacho_original" id="valor_despacho_original" placeholder="Valor despacho" value="<?= $arriendo["despacho"] ?>" readonly>
         </div>
         <div class="col-lg-3 col-md-6 mb-3">
-            <input onkeydown="calcular()" type="text" class="form-control form-control-user"
+            <input onchange="calcular()" type="text" class="form-control form-control-user"
             name="valor_despacho" id="valor_despacho" placeholder="Valor despacho" value="0" required>
         </div>
     </div>

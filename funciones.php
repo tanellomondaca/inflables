@@ -82,6 +82,7 @@
 
         if (mysqli_query($conexion,$consulta)) {
             $confirmacion = 0; 
+            echo "Modificacion exitosa";
         } else {
             exit("Error: " . $consulta . "<br>" . mysqli_error($conexion)) ;
             $confirmacion =1;

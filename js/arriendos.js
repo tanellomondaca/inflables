@@ -79,6 +79,7 @@ function modificarArriendo(){
     xhr_enviar.addEventListener('load', (info) => {
         var resultado_enviar = new String;
         resultado_enviar = info.target.response;
+        console.log(resultado_enviar);
         alert(resultado_enviar);
     })
     xhr_enviar.send(new FormData(form_arriendo_detalle));
