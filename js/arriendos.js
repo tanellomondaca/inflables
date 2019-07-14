@@ -123,9 +123,9 @@ function marcarJuegos(){
             }
         })
     }
+    $(document).ready(function () {
+        $('#tabla_juegos').DataTable();
+    });
 
 }
 
-$(document).ready(function () {
-    $('#tabla_juegos').DataTable();
-});
