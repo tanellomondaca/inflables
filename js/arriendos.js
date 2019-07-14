@@ -116,6 +116,7 @@ function marcarJuegos(){
     
     for(i=0; i < count; i++){
         $(".juego input").each(function () {
+            console.log($(this).data("id"));
             if ($(this).data("id") == id_juegos[i]){
                 $(this).prop('checked', true);
                 console.log("checj¿keando "+id_juegos[count]);
