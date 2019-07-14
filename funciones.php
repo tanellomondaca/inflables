@@ -4,13 +4,12 @@
     $v = $_GET['v'];
 
     switch ($v){
-        case 1:
-            //Usado por arriendos.js en ariendos.php para ingresar abono
+        case 1: //Usado por arriendos.js en ariendos.php para ingresar abono
             insAbono($conexion);
-        case 2:
-            //arriendos.php - arriendos.js
+        case 2: //arriendos.php - arriendos.js
             modificarArriendo($conexion);
-
+        case 3:
+            modificarJuegos();
     }
 
     function insAbono($conexion){

@@ -109,8 +109,7 @@
         <div class="col-lg-8 col-md-6 mb-3">
             <input type="text" class="form-control form-control-user" name="dir_notas"
                 id="dir_notas"
-                placeholder="Ejemplo: Block, depto, parcela, referencias, etc" value=""
-                value="<?= $arriendo['direccion_notas']; ?>">
+                placeholder="Ejemplo: Block, depto, parcela, referencias, etc" value="<?= $arriendo['direccion_notas']; ?>">
         </div>    
     </div>
 
@@ -138,6 +137,10 @@
             <?php endwhile; ?>
             </ul>
         </div>
+    </div>
+
+    <div class="form-group row">
+        <button id="modal_juegos" data-toggle="modal" data-target="#modificar_juegos" class="btn btn-danger">Modificar juegos</button>
     </div>
 
     <div class="form-group row">

@@ -558,12 +558,7 @@
 
                                  <?php else: ?>
                                     <h3>No hay juegos disponibles para a fecha seleccionada fecha</h3>
-                                 <?php endif;
-                                    elseif($v==2):
-
-
-                                    endif;
-                                 ?>  
+                                                <?php endif; endif; ?>
                                                 </table>
                                           </div>
                                           <div class="row">

@@ -87,3 +87,7 @@ function modificarArriendo(){
         location.href = "http://pdc.arcadesamuel.cl/arriendos.php";
     }, 3000);
 }
+
+$(document).ready(function () {
+    $('#tabla_juegos').DataTable();
+});
