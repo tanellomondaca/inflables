@@ -84,7 +84,7 @@
             $confirmacion = 0; 
             echo "Modificacion exitosa";
         } else {
-            exit("Error: " . $consulta . "<br>" . mysqli_error($conexion)) ;
+            exit("Error: " . $modificar_arriendo . "<br>" . mysqli_error($conexion)) ;
             $confirmacion =1;
         }
     }
