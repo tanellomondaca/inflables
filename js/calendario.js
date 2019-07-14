@@ -54,12 +54,14 @@ function detalleArriendo(id){
         var resultado = new String;
         resultado = info.target.response;
         document.getElementById("form_arriendo").innerHTML = resultado;
+            total_detalle = parseInt($("#valor_total").val());
+            console.log($("#valor_total").val());
+            console.log("total = " + total_detalle);
+            
     })
     xhr_detalle.send()
-    total_detalle = parseInt($("#valor_total").val());
-    console.log($("#valor_total").val());
-    console.log("total = "+total_detalle);
 }
+
 
 function calcularTotal() {
 
