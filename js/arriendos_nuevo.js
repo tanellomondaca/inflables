@@ -262,7 +262,8 @@ function agregarCliente() {
         })
         xhr_agregar.send(new FormData(form_agregar));
     }
-    llenarListas();
+    setTimeout(llenarListas(),500);
+    //llenarListas();
 }
 //LLenar lista de opciones a eliminar y modificar
 function llenarListas() {
