@@ -6,14 +6,14 @@
     switch ($v){
         case 1:
             //Usado por arriendos.js en ariendos.php para ingresar abono
-            insAbono();
+            insAbono($conexion);
         case 2:
             //arriendos.php - arriendos.js
-            modificarArriendo();
+            modificarArriendo($conexion);
 
     }
 
-    function insAbono(){
+    function insAbono($conexion){
         $id = $_POST["id_arriendo"];
         $abono = $_POST["abono_abono"];
         $saldo = $_POST["saldo"];
