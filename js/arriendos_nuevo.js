@@ -110,6 +110,7 @@ var e = 0;
 
         cobro_adicional = total * (porc_add / 100);
         $("#cobro_adicional").val(cobro_adicional);
+        console.log(cobro_adicional);
 
         calcularTotal();
     }
