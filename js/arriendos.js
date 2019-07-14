@@ -55,7 +55,7 @@ function calcularAdicional() {
     var porc_add = $("#porc_add").val();
 
     cobro_adicional_detalle = total_detalle * (porc_add / 100);
-    $("#descuento").val(cobro_adicional_detalle);
+    $("#cobro_adicional").val(cobro_adicional_detalle);
 
     calcular();
 }
