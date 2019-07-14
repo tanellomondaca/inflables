@@ -160,9 +160,13 @@
             Valor de despacho
             </h6>
         </div>
-        <div class="col-lg-6 col-md-6 mb-3">
+        <div class="col-lg-3 col-md-6 mb-3">
+            <input type="text" class="form-control form-control-user"
+            name="valor_despacho_original" id="valor_despacho_original" placeholder="Valor despacho" value="<?= $arriendo["despacho"] ?>" readonly>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-3">
             <input onkeydown="calcular()" type="text" class="form-control form-control-user"
-            name="valor_despacho" id="valor_despacho" placeholder="Valor despacho" value="<?= $arriendo["despacho"] ?>" required>
+            name="valor_despacho" id="valor_despacho" placeholder="Valor despacho" value="0" required>
         </div>
     </div>
     <div class="form-group row">
@@ -171,14 +175,19 @@
             Cobro adicional (%)
             </h6>
         </div>
+        <div class="col-lg-3 col-md-6 mb-3">
+            <input type="text" class="form-control form-control-user"
+            name="cobro_adicional_original" id="cobro_adicional_original"
+            placeholder="Cobro adicional" value="<?= $arriendo["cobro_adicional"] ?>" readonly>
+        </div>
         <div class="col-lg-2 col-md-6 mb-3">
             <input onchange="calcularAdicional()" type="text" class="form-control form-control-user"
             name="porc_add" id="porc_add" placeholder="%" value="" required>
         </div>
-        <div class="col-lg-6 col-md-6 mb-3">
+        <div class="col-lg-3 col-md-6 mb-3">
             <input onchange="calcular()" type="text" class="form-control form-control-user"
             name="cobro_adicional" id="cobro_adicional"
-            placeholder="Cobro adicional" value="<?= $arriendo["cobro_adicional"] ?>" required>
+            placeholder="Cobro adicional" value="0" required>
         </div>
     </div>
     <div class="form-group row">
@@ -187,13 +196,17 @@
             Descuento (%)
             </h6>
         </div>
+        <div class="col-lg-3 col-md-6 mb-3">
+            <input type="text" class="form-control form-control-user"
+            name="descuento_original" id="descuento_original" placeholder="Descuento" value="<?= $arriendo["descuento"] ?>" readonly>
+        </div>
         <div class="col-lg-2 col-md-6 mb-3">
             <input onchange="calcularDescuento()" type="text" class="form-control form-control-user"
             name="porcentaje" id="porcentaje" placeholder="%"  required>
         </div>
-        <div class="col-lg-6 col-md-6 mb-3">
+        <div class="col-lg-3 col-md-6 mb-3">
             <input onchange="calcular()" type="text" class="form-control form-control-user"
-            name="descuento" id="descuento" placeholder="Descuento" value="<?= $arriendo["descuento"] ?>" required>
+            name="descuento" id="descuento" placeholder="Descuento" value="0" required>
         </div>
     </div>
 
