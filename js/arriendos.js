@@ -52,7 +52,6 @@ function calcular(){
 }
 
 function calcularAdicional() {
-    total_detalle = parseInt($("#valor_total").val());
     var porc_add = $("#porc_add").val();
 
     cobro_adicional_detalle = total_detalle * (porc_add / 100);
@@ -62,13 +61,12 @@ function calcularAdicional() {
 }
 
 function calcularDescuento(){
-    total_detalle = parseInt($("#valor_total").val());
     var porcentaje = $("#porcentaje").val();
 
     descuento_detalle = total_detalle * (porcentaje / 100);
     $("#descuento").val(descuento_detalle);
 
-    calcularTotal();
+    calcular();
 }
 
 function modificarArriendo(){

@@ -1,4 +1,5 @@
 var fecha = new String;
+var total_detalle = 0; 
 
 document.addEventListener('DOMContentLoaded', function() {
     var calendarEl = document.getElementById('calendar');
@@ -55,6 +56,7 @@ function detalleArriendo(id){
         document.getElementById("form_arriendo").innerHTML = resultado;
     })
     xhr_detalle.send()
+    total_detalle = parseInt($("#valor_total").val());
 }
 
 function calcularTotal() {
