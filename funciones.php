@@ -91,12 +91,11 @@
     function modificarJuegos($conexion){
         #Juegos seleccionados
         $juegos[][] = "";
-
-        $cant_juegos = $_POST["cant_juegos"];
+        $id = $_GET["id"];
+        $cant_juegos = $_GET["cant"];
 
         for($i=0;$i<$cant_juegos;$i++){
-            $juegos[$i][0] = $_POST["id".$i];
-            $juegos[$i][1] = $_POST["nombre".$i];
+            $juegos[$i][0] = $_GET["juego".$i];
         }
 
         for($i=0 ; $i < $cant_juegos ; $i++){

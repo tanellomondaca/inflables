@@ -21,7 +21,7 @@
 ?>
 <form class="user" id="form_arriendo_detalle">
     <input type="hidden" name="rut_arriendo" id="rut_arriendo" value="<?= $arriendo["rut_cliente"] ?>">
-    <input type="hidden" name="id_arriendo" id="id_arriendo" value="<?= $id_arriendo ?>">
+    <input type="hidden" name="id_arriendo" id="id_arriendo_modificar" value="<?= $id_arriendo ?>">
     <input type="hidden" name="arrendado_por" value="<?= $arriendo["arrendado_por"] ?>">
     <div class="form-group row">
         <div class="col-lg-3 col-md-6">
@@ -129,7 +129,7 @@
             <?php while($juegos = mysqli_fetch_array($resul_juegos)):?>
             <li class="list-group-item">
                 <div class="col-lg-10 mt-1">
-                    <h6 class="font-weight-bold">
+                    <h6 class="font-weight-bold juego_existente" data-id="<?= $juegos["id"]; ?>">
                         <?= $juegos["nombre"]; ?>
                     </h6>
                 </div>
@@ -140,7 +140,7 @@
     </div>
 
     <div class="form-group row">
-        <button id="modal_juegos" data-toggle="modal" data-target="#modificar_juegos" class="btn btn-danger">Modificar juegos</button>
+        <button id="modal_juegos" onclick="marcarJuegos()" data-toggle="modal" data-target="#modificar_juegos" class="btn btn-danger">Modificar juegos</button>
     </div>
 
     <div class="form-group row">

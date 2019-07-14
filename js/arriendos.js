@@ -91,7 +91,8 @@ function modificarArriendo(){
 function modificarJuegos(){
     var cantidad_juegos = 0;
     var id_juegos = new Array;
-    var url = ";"
+    var url = "";
+    var id_arriendo = $("#id_arriendo_modificar").val();
 
     $(".juego input").each(function () {
         if ($(this).prop('checked') == true) {
@@ -101,7 +102,25 @@ function modificarJuegos(){
         
         }
     })
-    alert("funciones.php?cant="+cantidad_juegos+url)
+    alert("funciones.php?id="+id_arriendo+"&cant="+cantidad_juegos+url)
+}
+
+function marcarJuegos(){
+    var id_juegos = new Array;
+    var count = 0;
+    $(".juego_existente").each(function () {
+        id_juegos[count] = $(this).data("id");
+        count++;
+    })
+
+    for(i=0; i < count; i++){
+        $(".juego input").each(function () {
+            if ($(this).data("id") == id_juegos[i]){
+                $(this).prop('checked') = true;
+            }
+        })
+    }
+
 }
 
 $(document).ready(function () {
