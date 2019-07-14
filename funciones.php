@@ -36,7 +36,7 @@
         }
     }
     
-    function modificarArriendo(){
+    function modificarArriendo($conexion){
         $id_arriendo = $_POST["id_arriendo"];
 
         $fecha = $_POST["fec_arriendo"];
