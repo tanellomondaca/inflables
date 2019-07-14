@@ -95,6 +95,9 @@ var e = 0;
             alert(resultado_enviar);
         })
         xhr_enviar.send(new FormData(form_arriendo));
+        setTimeout(function () {
+            location.href = "http://pdc.arcadesamuel.cl/arriendos.php";
+        }, 1000);
     }
 
     function calcularDescuento(){

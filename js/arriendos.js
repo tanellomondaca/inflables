@@ -41,7 +41,7 @@ function calcular(){
     despacho_detalle = parseInt($("#valor_despacho").val());
     cobro_adicional_detalle = parseInt($("#cobro_adicional").val());
     descuento_detalle = parseInt($("#descuento").val());
-    
+
     total = total_detalle + despacho_detalle + cobro_adicional_detalle - descuento_detalle;
 
     $("#valor_total").val(total);
@@ -71,5 +71,18 @@ function calcularDescuento(){
 }
 
 function modificarArriendo(){
+    var form_arriendo_detalle = document.getElementById("form_arriendo_detalle");
+    var xhr_enviar = new XMLHttpRequest;
 
+    xhr_enviar.open('POST', "funciones.php?v=2");
+
+    xhr_enviar.addEventListener('load', (info) => {
+        var resultado_enviar = new String;
+        resultado_enviar = info.target.response;
+        alert(resultado_enviar);
+    })
+    xhr_enviar.send(new FormData(form_arriendo_detalle));
+    setTimeout(function () {
+        location.href = "http://pdc.arcadesamuel.cl/arriendos.php";
+    }, 3000);
 }
