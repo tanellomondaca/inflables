@@ -41,9 +41,9 @@ function calcular(){
     despacho_detalle = parseInt($("#valor_despacho").val());
     cobro_adicional_detalle = parseInt($("#cobro_adicional").val());
     descuento_detalle = parseInt($("#descuento").val());
-    total_detalle = $("#valor_total").val() + despacho + cobro_adicional - descuento;
+    total_detalle = $("#valor_total").val() + despacho_detalle + cobro_adicional_detalle - descuento_detalle;
 
-    $("#valor_total").val(total);
+    $("#valor_total").val(total_detalle);
 
     var abono = parseInt($("#abono").val());
     var saldo = total_detalle - abono;

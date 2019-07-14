@@ -192,7 +192,7 @@
             name="porcentaje" id="porcentaje" placeholder="%"  required>
         </div>
         <div class="col-lg-6 col-md-6 mb-3">
-            <input onchange="calcularTotal()" type="text" class="form-control form-control-user"
+            <input onchange="calcular()" type="text" class="form-control form-control-user"
             name="descuento" id="descuento" placeholder="Descuento" value="<?= $arriendo["descuento"] ?>" required>
         </div>
     </div>
