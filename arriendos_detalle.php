@@ -19,7 +19,7 @@
    $comunas = mysqli_query($conexion,$consulta_comuna);
 
 ?>
-<form class="user" id="form_arriendo_detalle" method="POST">
+<form class="user" id="form_arriendo_detalle">
     <input type="hidden" name="rut_arriendo" id="rut_arriendo" value="<?= $arriendo["rut_cliente"] ?>">
     <input type="hidden" name="id_arriendo" id="id_arriendo" value="<?= $id_arriendo ?>">
     <input type="hidden" name="arrendado_por" value="<?= $arriendo["arrendado_por"] ?>">

@@ -334,7 +334,7 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form class="user" id="form_arriendo" method="POST">
+                            <form class="user" id="form_arriendo_detalle">
 
                             </form>
                         </div>
