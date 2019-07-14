@@ -57,7 +57,7 @@ function detalleArriendo(id){
     })
     xhr_detalle.send()
     total_detalle = parseInt($("#valor_total").val());
-    console.log("total = ".total_detalle);
+    console.log("total = "+total_detalle);
 }
 
 function calcularTotal() {
