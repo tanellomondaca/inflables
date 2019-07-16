@@ -116,14 +116,13 @@ function modificarJuegos(){
         var resultado = new String;
         resultado = info.target.response;
         document.getElementById("tabla_juegos").innerHTML = resultado;
-        $(document).ready(function () {
+
+        $(this).ready(function () {
             $('#tabla_juegos').DataTable();
         });
 
     })
     xhr_detalle.send()
-
-    alert("id: "+id_arriendo);
 }
 
 function marcarJuegos(){

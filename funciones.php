@@ -6,12 +6,16 @@
     switch ($v){
         case 1: //Usado por arriendos.js en ariendos.php para ingresar abono
             insAbono($conexion);
+            exit();
         case 2: //arriendos.php - arriendos.js
             modificarArriendo($conexion);
+            exit();
         case 3:
             modificarHorario($conexion);
+            exit();
         case 4:
             modificarJuegos($conexion);
+            exit();
     }
 
     function insAbono($conexion){
