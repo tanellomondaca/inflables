@@ -316,7 +316,19 @@
                                     </tbody>
                                     </table>                                                            
                                     <?php endif; ?>
-                                    <div></div>
+                                        <div class="row">
+                                            <div class="col-lg-3">
+                                            <button onclick="juegosSel()" class="btn btn-primary">Siguiente</button>
+                                            </div>
+                                            <div class="col-lg-3">
+                                            <h5>Total</h5>
+                                            <button class="btn btn-success" id="total_persona" onclick="totalJuegos(id)"></button>
+                                            </div>
+                                            <div class="col-lg-3">
+                                            <h5>Total Empresa</h5>
+                                            <button class="btn btn-success" id="total_empresa" onclick="totalJuegos(id)"></button>
+                                            </div>
+                                        </div>
                                 </div>
                             </div>
                         </div>

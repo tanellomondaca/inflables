@@ -126,27 +126,4 @@ function modificarJuegos(){
     xhr_detalle.send() */
 }
 
-function marcarJuegos(){
-    var id_juegos = new Array;
-    var count = 0;
-    $(".juego_existente").each(function () {
-        id_juegos[count] = $(this).data("id");
-        console.log(id_juegos[count]);
-        count++;
-    })
-    
-    for(i=0; i < count; i++){
-        $(".juego input").each(function () {
-            console.log($(this).data("id"));
-            if ($(this).data("id") == id_juegos[i]){
-                $(this).prop('checked', true);
-                console.log("checj¿keando "+id_juegos[i]);
-            }
-        })
-    }
-    $(document).ready(function () {
-        $('#tabla_juegos').DataTable();
-    });
-
-}
 
