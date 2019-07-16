@@ -53,3 +53,22 @@ function juegosSel() {
     $("#total_persona").text(total_persona);
     $("#total_empresa").text(total_empresa);
 }
+
+function juegoMarcado(){
+    if ($(this).prop('checked') == true) {
+        id_juegos[cantidad_juegos] = $(this).data("id");
+
+        total_persona += $(this).data("valor");
+        total_empresa += $(this).data("empresa");
+
+        cantidad_juegos++;
+    }else{
+        total_persona -= $(this).data("valor");
+        total_empresa -= $(this).data("empresa");
+
+        cantidad_juegos--;
+    }
+
+    $("#total_persona").text(total_persona);
+    $("#total_empresa").text(total_empresa);
+}

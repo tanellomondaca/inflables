@@ -288,7 +288,7 @@
                                         <tr>
                                             <td>
                                                 <div class="custom-control custom-checkbox mt-2 juego"> 
-                                                    <input type="checkbox" class="custom-control-input"
+                                                    <input onchange="juegoMarcado()" type="checkbox" class="custom-control-input"
                                                         data-id="<?php echo $juegos_disponibles[$i][1]; ?>"
                                                         data-nombre="<?php echo $juegos_disponibles[$i][0]; ?>" 
                                                         data-valor="<?php echo $juegos_disponibles[$i][2]; ?>"
