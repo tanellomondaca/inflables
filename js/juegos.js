@@ -54,6 +54,7 @@ var total_persona = 0;
 var total_empresa = 0;
 
 function juegoMarcado(){
+    console.log($(this).prop('checked'));
     if ($(this).prop('checked') == true) {
         id_juegos[cantidad_juegos] = $(this).data("id");
         console.log("Total ="+total_empresa);
