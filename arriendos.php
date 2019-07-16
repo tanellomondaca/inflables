@@ -448,7 +448,7 @@
                                 <table class="table table-bordered" width="100%" cellspacing="0" id="tabla_juegos">
                                 </table>
                                 <div class="row justify-content-md-center">
-                                        <button onclick="modificarJuegos()"
+                                        <button onclick=""
                                             class="btn btn-primary btn-user btn-block col-lg-4"
                                             id="btn_modificar_juegos" value="">Modificar juegos</button>
                                 </div>

@@ -111,7 +111,7 @@ function modificarJuegos(){
     var v = 4;
 
     var xhr_detalle = new XMLHttpRequest;
-    xhr_detalle.open('GET', 'funciones.php?id_arriendo=' + id_arriendo+"&v="+v);
+    xhr_detalle.open('GET', 'funciones.php?id_arriendo='+id_arriendo+"&v="+v);
     xhr_detalle.addEventListener('load', (info) => {
         var resultado = new String;
         resultado = info.target.response;
