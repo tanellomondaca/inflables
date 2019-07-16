@@ -38,7 +38,11 @@ var cobro_adicional_detalle = 0;
 var descuento_detalle = 0;
 
 function calcular(){
-    despacho_detalle = parseInt($("#valor_despacho").val());
+    if ($("#valor_despacho").val()== ""){
+        alert("valor vacio");    
+    }else{
+        despacho_detalle = parseInt($("#valor_despacho").val());
+    }
     cobro_adicional_detalle = parseInt($("#cobro_adicional").val());
     descuento_detalle = parseInt($("#descuento").val());
 

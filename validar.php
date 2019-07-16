@@ -13,7 +13,7 @@
                 session_start();
                 $_SESSION["oficina"] = $trabajador["oficina"];
                 $_SESSION["rut"] = $rut;
-                header("Location: http://pdc.arcadesamuel.cl/clientes.php");
+                header("Location: http://pdc.arcadesamuel.cl/arriendos.php");
                 $flag = 1;
             }else{
                 //Si es trabajador pero no tiene acceso a la oficina
