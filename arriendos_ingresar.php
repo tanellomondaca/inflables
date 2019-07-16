@@ -39,7 +39,7 @@
         $color = "green";
     }else{
         $estado = "pendiente";
-        $color = "yellow";
+        $color = "#FFA60B";
     }
     
     #Juegos seleccionados

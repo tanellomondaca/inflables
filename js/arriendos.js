@@ -85,11 +85,10 @@ function modificarArriendo(){
         resultado_enviar = info.target.response;
         console.log(resultado_enviar);
         alert(resultado_enviar);
+        location.href = "http://pdc.arcadesamuel.cl/arriendos.php";
     })
     xhr_enviar.send(new FormData(form_arriendo_detalle));
-    setTimeout(function () {
-        location.href = "http://pdc.arcadesamuel.cl/arriendos.php";
-    }, 3000);
+
 }
 function modificarDatos() {
     var form_arriendo_detalle = document.getElementById("form_arriendo_detalle");
@@ -102,11 +101,9 @@ function modificarDatos() {
         resultado_enviar = info.target.response;
         console.log(resultado_enviar);
         alert(resultado_enviar);
+        location.href = "http://pdc.arcadesamuel.cl/arriendos.php";
     })
     xhr_enviar.send(new FormData(form_arriendo_detalle));
-    setTimeout(function () {
-        location.href = "http://pdc.arcadesamuel.cl/arriendos.php";
-    }, 3000);
 }
 
 function modificarJuegos(){

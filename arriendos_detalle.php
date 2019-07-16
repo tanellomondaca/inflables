@@ -123,7 +123,9 @@
                 placeholder="Ejemplo: Se debe instalar dos horas antes, etc" value="<?= $arriendo['comentarios']; ?>">
         </div>    
     </div>
-    <button class="btn btn-warning" onclick="modificarDatos()">Modificar arriendo</button>
+    <div class="row justify-content-md-center">
+        <input type="submit" onclick="modificarDatos()" class="btn btn-warning btn-user btn-block col-lg-4" value="Modificar fecha/direccion de arriendo">
+    </div>    
     <hr>
     <div class="form-group row">
         <div class="col-lg-2 col-md-6">
@@ -227,9 +229,7 @@
         </div>
     </div>
     <div class="row justify-content-md-center">
-        <input type="submit" onclick="modificarArriendo()"
-            class="btn btn-warning btn-user btn-block col-lg-4"
-            id="btn_agregar" value="Modificar arriendo">
+        <input type="submit" onclick="modificarArriendo()" class="btn btn-warning btn-user btn-block col-lg-4" id="btn_agregar" value="Modificar arriendo">
     </div>
     <hr>
     <div class="form-group row">

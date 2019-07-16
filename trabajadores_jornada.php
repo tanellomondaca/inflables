@@ -29,12 +29,12 @@
 		<link href="css/sb-admin-2.min.css" rel="stylesheet">
 	</head>
 
-	<body id="page-top">
+	<body id="page-top" class="sidebar-toggled">
 
 		<!-- Wrapper - Toda la pagina está adentro de esto-->
 			<div id="wrapper">
             <!--Side bar-->
-            <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+            <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion toggled" id="accordionSidebar">
 
                <!-- Sidebar - Brand -->
                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">

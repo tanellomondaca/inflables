@@ -21,7 +21,7 @@
         $fecha_abono = $_POST["fecha_abono"];
 
         $estado = "pendiente";
-        $color = "yellow";
+        $color = "#FFA60B";
 
         if($saldo == 0){
             $estado = "pagado";
@@ -90,7 +90,7 @@
             $color = "green";
         }else{
             $estado = "pendiente";
-            $color = "yellow";
+            $color = "#FFA60B";
         }
 
         #Modificar arriendo
