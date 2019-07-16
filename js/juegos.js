@@ -55,25 +55,21 @@ var total_empresa = 0;
 
 $("input").on("click", function () {
     console.log($(this).prop('checked'));
-});
-
-function juegoMarcado(){
-    
     if ($(this).prop('checked') == true) {
         id_juegos[cantidad_juegos] = $(this).data("id");
-        console.log("Total ="+total_empresa);
-        console.log("juego =" + parseInt($(this).data("valor")));
         total_persona += parseInt($(this).data("valor"));
         total_empresa += parseInt($(this).data("empresa"));
 
         cantidad_juegos++;
-    }else{
+    } else {
         total_persona -= parseInt($(this).data("valor"));
         total_empresa -= parseInt($(this).data("empresa"));
 
         cantidad_juegos--;
     }
-    console.log(total_persona+" "+total_empresa);
     $("#total_persona").text(total_persona);
-    $("#total_empresa").text(total_empresa); 
+    $("#total_empresa").text(total_empresa);
+});
+
+function juegoMarcado(){ 
 }
