@@ -107,20 +107,23 @@ function modificarDatos() {
 }
 
 function modificarJuegos(){
-    var cantidad_juegos = 0;
-    var id_juegos = new Array;
-    var url = "";
     var id_arriendo = $("#id_arriendo_modificar").val();
+    var v = 4;
 
-    $(".juego input").each(function () {
-        if ($(this).prop('checked') == true) {
-            id_juegos[cantidad_juegos] = $(this).data("id");
-            url += "&juego" + cantidad_juegos + "=" + $(this).data("id");
-            cantidad_juegos++;
-        
-        }
+    var xhr_detalle = new XMLHttpRequest;
+    xhr_detalle.open('GET', 'funciones.php?id_arriendo=' + id_arriendo+"&v="+v);
+    xhr_detalle.addEventListener('load', (info) => {
+        var resultado = new String;
+        resultado = info.target.response;
+        document.getElementById("tabla_juegos").innerHTML = resultado;
+        $(document).ready(function () {
+            $('#tabla_juegos').DataTable();
+        });
+
     })
-    alert("funciones.php?id="+id_arriendo+"&cant="+cantidad_juegos+url)
+    xhr_detalle.send()
+
+    alert("id: "+id_arriendo);
 }
 
 function marcarJuegos(){
