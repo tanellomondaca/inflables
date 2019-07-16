@@ -3,7 +3,7 @@
     include "conexion.php";
 
     if($v==1):
-        $id_arriendo
+        $id_arriendo ="";
         $fecha = $_GET['fecha'];
         $fin = "";
         if(isset($_GET["fin"])){

@@ -263,11 +263,12 @@ function agregarCliente() {
             var resultado_agregar = new String;
             resultado_agregar = info.target.response;
             alert(resultado_agregar);
+            llenarListas();
         })
         xhr_agregar.send(new FormData(form_agregar));
     }
-    setTimeout(llenarListas(),500);
-    //llenarListas();
+
+    
 }
 //LLenar lista de opciones a eliminar y modificar
 function llenarListas() {
