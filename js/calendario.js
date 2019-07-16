@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
         dateClick: function(info) {
             fecha = info.dateStr;
             mostrarEventos(fecha);
+            $('#btn_eventos').click();
         },
         eventClick: function(info) {
             id = info.event.id;

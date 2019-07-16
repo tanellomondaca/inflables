@@ -253,23 +253,7 @@
                                 </div>
                                 <!-- Cuerpo tarjeta -->
                                 <div class="card-body">
-                                    <div class="table-responsive">
-                                        <table class="table table-bordered" width="100%" cellspacing="0" id="eventosDia">
-                                            <thead>
-                                                <tr>
-                                                    <th>Juegos</th>
-                                                    <th>Inicio</th>
-                                                    <th>Fin</th>
-                                                    <th>Comuna</th>
-                                                    <th>Dirección</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                            </tbody>
-                                            <tfoot>
-                                            </tfoot>
-                                        </table>
-                                    </div>
+
                                 </div>
                             </div>
                         </div>
@@ -298,6 +282,42 @@
 
                 </div>
             </div>
+
+            <!-- Modal ARRIENDOS DEL DIA -->
+            <div class="modal fade" id="modal_arriendos_dia" tabindex="-1" role="dialog"
+                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content shadow">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Arriendos del día
+                            </h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" width="100%" cellspacing="0" id="eventosDia">
+                                    <thead>
+                                        <tr>
+                                            <th>Juegos</th>
+                                            <th>Inicio</th>
+                                            <th>Fin</th>
+                                            <th>Comuna</th>
+                                            <th>Dirección</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                    <tfoot>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button id="btn_eventos" data-toggle="modal" data-target="#modal_arriendos_dia" style="display: none"></button>
 
             <!-- Modal Fecha arriendo -->
             <div class="modal fade" id="modal_fecha" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
