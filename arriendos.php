@@ -151,18 +151,6 @@
                                                 </span>
                                                 <span class="text">Ingresar nuevo arriendo</span>
                                             </a>
-                                            <a href="#" class="btn btn-warning btn-icon-split mt-1">
-                                                <span class="icon text-white-50">
-                                                    <i class="fas fa-exclamation-triangle"></i>
-                                                </span>
-                                                <span class="text">Modificar datos de arriendo</span>
-                                            </a>
-                                            <a href="#" class="btn btn-danger btn-icon-split mt-1">
-                                                <span class="icon text-white-50">
-                                                    <i class="fas fa-trash"></i>
-                                                </span>
-                                                <span class="text">Eliminar arriendo</span>
-                                            </a>
                                         </div>
                                     </div>
                                 </div>
@@ -240,25 +228,6 @@
                         </div>
                     </div>
                     <!-- Fin sección arriendos sin abono --->
-
-                    <!-- Seccion arriendos por día -->
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="card shadow mb-4">
-                                <!-- Titulo de la seccion -->
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">
-                                        Arriendos del día
-                                    </h6>
-                                </div>
-                                <!-- Cuerpo tarjeta -->
-                                <div class="card-body">
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Fin sección arriendos del día --->
 
 
                     <!-- Seccion ejemplo -->

@@ -109,20 +109,21 @@ function modificarDatos() {
 function modificarJuegos(){
     var id_arriendo = $("#id_arriendo_modificar").val();
     var v = 4;
+    location.href = "arriendos_modjuegos.php?id_arriendo="+id_arriendo;
 
-    var xhr_detalle = new XMLHttpRequest;
+    /* var xhr_detalle = new XMLHttpRequest;
     xhr_detalle.open('GET', 'funciones.php?id_arriendo='+id_arriendo+"&v="+v);
     xhr_detalle.addEventListener('load', (info) => {
         var resultado = new String;
         resultado = info.target.response;
         document.getElementById("tabla_juegos").innerHTML = resultado;
         $('#tabla_juegos').DataTable();
-        //$(this).ready(function () {
-        //    $('#tabla_juegos').DataTable();
-        //});
+        $(this).ready(function () {
+           $('#tabla_juegos').DataTable();
+        });
 
     })
-    xhr_detalle.send()
+    xhr_detalle.send() */
 }
 
 function marcarJuegos(){

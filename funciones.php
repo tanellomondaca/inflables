@@ -14,6 +14,7 @@
             modificarHorario($conexion);
             exit();
         case 4:
+            //Actualmente, sin uso
             modificarJuegos($conexion);
             exit();
     }
