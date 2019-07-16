@@ -1,8 +1,8 @@
 <?php
     include 'conexion.php';
     $fecha = $_GET['fecha'];
-    
-    $consulta = "SELECT * FROM arriendo WHERE fecha ='".$fecha."'";
+
+    $consulta = "SELECT * FROM arriendo WHERE fecha <= '$fecha' AND fin >= '$fecha'";
     $resultado = mysqli_query($conexion,$consulta);
 ?>
 <table class="table table-bordered" width="100%" cellspacing="0" id="eventosDia">
