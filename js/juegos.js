@@ -4,9 +4,6 @@ $(document).ready(function () {
 
 //Calcula el total de los juegos seleccionados segun sea empresa o persona
 function juegosSel() {
-
-    
-
     $(".juego input").each(function () {
         if ($(this).prop('checked') == true) {
             id_juegos[cantidad_juegos] = $(this).data("id");
@@ -70,7 +67,7 @@ function juegoMarcado(){
 
         cantidad_juegos--;
     }
-
+    console.log(total_persona+" "+total_empresa);
     $("#total_persona").text(total_persona);
     $("#total_empresa").text(total_empresa);
 }
