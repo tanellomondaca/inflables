@@ -6,10 +6,6 @@ $(document).ready(function () {
 function juegosSel() {
 
     
-    var nombre_juegos = new Array;
-    var id_juegos = new Array;
-    var total_persona = 0;
-    var total_empresa = 0;
 
     $(".juego input").each(function () {
         if ($(this).prop('checked') == true) {
@@ -53,7 +49,13 @@ function juegosSel() {
     $("#total_persona").text(total_persona);
     $("#total_empresa").text(total_empresa);
 }
+
 var cantidad_juegos = 0;
+var nombre_juegos = new Array;
+var id_juegos = new Array;
+var total_persona = 0;
+var total_empresa = 0;
+
 function juegoMarcado(){
     if ($(this).prop('checked') == true) {
         id_juegos[cantidad_juegos] = $(this).data("id");
