@@ -116,10 +116,10 @@ function modificarJuegos(){
         var resultado = new String;
         resultado = info.target.response;
         document.getElementById("tabla_juegos").innerHTML = resultado;
-
-        $(this).ready(function () {
-            $('#tabla_juegos').DataTable();
-        });
+        $('#tabla_juegos').DataTable();
+        //$(this).ready(function () {
+        //    $('#tabla_juegos').DataTable();
+        //});
 
     })
     xhr_detalle.send()
