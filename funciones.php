@@ -9,6 +9,8 @@
         case 2: //arriendos.php - arriendos.js
             modificarArriendo($conexion);
         case 3:
+            modificarHorario($conexion);
+        case 4:
             modificarJuegos($conexion);
     }
 
@@ -35,7 +37,7 @@
         }
     }
     
-    function modificarArriendo($conexion){
+    function modificarHorario($conexion){
         $id_arriendo = $_POST["id_arriendo"];
 
         $fecha = $_POST["fec_arriendo"];
@@ -45,6 +47,29 @@
         $end = $fin." ".$_POST["hora_termino"];
         $telefono = $_POST["telefono"];
 
+        $direccion = $_POST["direccion"];
+        $comuna = $_POST["comuna"];
+        $direccion_notas = $_POST["dir_notas"];
+
+        $comentarios = $_POST["comentarios"];
+
+        #Modificar arriendo (horario y telefono)
+        $modificar_arriendo = "UPDATE arriendo SET fecha = '$fecha', fin = '$fin', telefono = '$telefono', start = '$start', end = '$end',  direccion = '$direccion', comuna = '$comuna', direccion_notas = '$direccion_notas', comentarios = '$comentarios' WHERE arriendo.id = '$id_arriendo' ";
+
+        $confirmacion = 0;
+
+        if (mysqli_query($conexion,$modificar_arriendo)) {
+            $confirmacion = 0; 
+            echo "Modificacion exitosa";
+        } else {
+            exit("Error: " . $modificar_arriendo . "<br>" . mysqli_error($conexion)) ;
+            $confirmacion =1;
+        }
+    }
+
+    function modificarArriendo($conexion){
+        $id_arriendo = $_POST["id_arriendo"];
+
         $despacho = $_POST["valor_despacho"];
         $valor_total = $_POST["valor_total"];
         $cobro_adicional = $_POST["cobro_adicional"];
@@ -53,12 +78,6 @@
 
         $fecha_abono = $_POST["fecha_abono"];
         $saldo = $_POST["saldo"];
-
-        $direccion = $_POST["direccion"];
-        $comuna = $_POST["comuna"];
-        $direccion_notas = $_POST["dir_notas"];
-
-        $comentarios = $_POST["comentarios"];
 
         ///////////////////
         $color = ""; //Segun estado: prearrendado, abonado, o pagado

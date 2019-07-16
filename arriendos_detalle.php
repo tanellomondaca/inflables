@@ -63,7 +63,6 @@
             name="hora_termino" id="hora_termino" value="<?= substr($arriendo['end'],11,5); ?>" placeholder="" required>
         </div>
     </div>
-    <hr>
     <div class="form-group row">
         <div class="col-lg-6 col-md-12 mb-3 mb-sm-0">
             <input type="text" class="form-control form-control-user" name="cliente"
@@ -112,7 +111,20 @@
                 placeholder="Ejemplo: Block, depto, parcela, referencias, etc" value="<?= $arriendo['direccion_notas']; ?>">
         </div>    
     </div>
-
+    <div class="form-group row">
+        <div class="col-lg-4 col-md-4">
+            <h6 class="mt-3 font-weight-bold text-primary">
+            Comentarios del arriendo
+            </h6>
+        </div>
+        <div class="col-lg-8 col-md-6 mb-3">
+            <input type="text" class="form-control form-control-user" name="comentarios"
+                id="comentarios"
+                placeholder="Ejemplo: Se debe instalar dos horas antes, etc" value="<?= $arriendo['comentarios']; ?>">
+        </div>    
+    </div>
+    <button class="btn btn-warning" onclick="modificarDatos()">Modificar arriendo</button>
+    <hr>
     <div class="form-group row">
         <div class="col-lg-2 col-md-6">
             <h6 class="mt-3 font-weight-bold text-primary">
@@ -140,21 +152,11 @@
     </div>
 
     <div class="form-group row">
-        <button id="modal_juegos" onclick="marcarJuegos()" data-toggle="modal" data-target="#modificar_juegos" class="btn btn-danger">Modificar juegos</button>
+        <div class="col-lg-4 mt-1">
+            <button id="modal_juegos" onclick="marcarJuegos()" data-toggle="modal" data-target="#modificar_juegos" class="btn btn-danger">Modificar juegos</button>
+        </div>
     </div>
 
-    <div class="form-group row">
-        <div class="col-lg-4 col-md-4">
-            <h6 class="mt-3 font-weight-bold text-primary">
-            Comentarios del arriendo
-            </h6>
-        </div>
-        <div class="col-lg-8 col-md-6 mb-3">
-            <input type="text" class="form-control form-control-user" name="comentarios"
-                id="comentarios"
-                placeholder="Ejemplo: Se debe instalar dos horas antes, etc" value="<?= $arriendo['comentarios']; ?>">
-        </div>    
-    </div>
     <hr>
 
     <div class="form-group row">
