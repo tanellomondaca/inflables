@@ -254,7 +254,7 @@
                                 <!-- Cuerpo tarjeta -->
                                 <div class="card-body">
                                     <div class="table-responsive">
-                                        <table class="table table-bordered" width="100%" cellspacing="0" id="dataTable">
+                                        <table class="table table-bordered" width="100%" cellspacing="0" id="eventosDia">
                                             <thead>
                                                 <tr>
                                                     <th>Juegos</th>
@@ -278,23 +278,23 @@
 
 
                     <!-- Seccion ejemplo -->
-                    <div class="row">
+                    <!-- <div class="row">
                         <div class="col-lg-12">
                             <div class="card shadow mb-4">
-                                <!-- Titulo de la seccion -->
+                                 Titulo de la seccion 
                                 <div class="card-header py-3">
                                     <h6 class="m-0 font-weight-bold text-primary">
                                         Ejemplo de tarjeta/card
                                     </h6>
                                 </div>
-                                <!-- Cuerpo tarjeta -->
+                                 Cuerpo tarjeta 
                                 <div class="card-body">
 
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- Fin sección ejemplo --->
+                    </div> -->
+                    <!-- Fin sección ejemplo - -->
 
                 </div>
             </div>
@@ -621,7 +621,7 @@
     <script src='fullcalendar/interaction/main.js'></script>
     <script src='fullcalendar/timegrid/main.js'></script>
     <script src='fullcalendar/core/locales/es.js'></script>
-    <script src="js/calendario.js"></script>
+    
  
 
     <!-- Custom scripts for all pages-->
@@ -632,7 +632,7 @@
     <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
     <script src="js/arriendos.js"></script>
-                                                
+    <script src="js/calendario.js"></script>                                            
     <!-- Page level custom scripts -->
     <script src="js/demo/datatables-demo.js"></script>
 

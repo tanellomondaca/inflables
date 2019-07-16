@@ -9,7 +9,7 @@
         case 2: //arriendos.php - arriendos.js
             modificarArriendo($conexion);
         case 3:
-            modificarJuegos();
+            modificarJuegos($conexion);
     }
 
     function insAbono($conexion){

@@ -2,10 +2,10 @@
     include 'conexion.php';
     $fecha = $_GET['fecha'];
     
-    $consulta = "SELECT id, start, end, comuna, calle, numero FROM arriendo WHERE fecha ='".$fecha."'";
+    $consulta = "SELECT * FROM arriendo WHERE fecha ='".$fecha."'";
     $resultado = mysqli_query($conexion,$consulta);
 ?>
-<table class="table table-bordered" width="100%" cellspacing="0" id="dataTable">
+<table class="table table-bordered" width="100%" cellspacing="0" id="eventosDia">
     <thead>
         <th>Juegos</th>
         <th>Inicio</th>
@@ -28,7 +28,7 @@
         </td>
         <td> <?php echo substr($evento['start'],11,5); ?> </td>
         <td> <?php echo substr($evento['end'],11,5);?> </td>
-        <td> <?php echo $evento['calle']." ".$evento['numero'];?> </td>
+        <td> <?php echo $evento['direccion'];?> </td>
         <td> <?php echo $evento['comuna'];?> </td>
     </tr>
 <?php endwhile; ?>

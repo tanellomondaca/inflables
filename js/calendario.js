@@ -41,7 +41,11 @@ function mostrarEventos(fecha){
     xhr_eventos.addEventListener('load',(info) => {
         var resultado = new String;
         resultado  = info.target.response;
-        document.getElementById("dataTable").innerHTML = resultado;
+        document.getElementById("eventosDia").innerHTML = resultado;
+        $(document).ready(function () {
+            $('#eventosDia').DataTable();
+        });
+
     })
 
     xhr_eventos.send()
