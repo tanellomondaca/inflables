@@ -563,9 +563,6 @@
                                           </div>
                                           <div class="row">
                                              <div class="col-lg-3">
-                                                <button onclick="juegosSel()" class="btn btn-primary">Siguiente</button>
-                                             </div>
-                                             <div class="col-lg-3">
                                                 <h5>Total</h5>
                                                 <button class="btn btn-success" id="total_persona" onclick="totalJuegos(id)"></button>
                                              </div>
@@ -755,7 +752,18 @@
                                           </div>    
                                        </div>
                                        <hr>
-
+                                       
+                                       <div class="form-group row">
+                                          <div class="col-lg-6 col-md-6">
+                                             <h6 class="mt-3 font-weight-bold text-primary">
+                                                Total de los juegos
+                                             </h6>
+                                          </div>
+                                          <div class="col-lg-6 col-md-6 mb-3">
+                                             <input onchange="calcularTotal()" type="text" class="form-control form-control-user"
+                                                name="total_juegos" id="total_juegos" placeholder="Total juegos" value="0" required>
+                                          </div>
+                                       </div>
                                        <div class="form-group row">
                                           <div class="col-lg-6 col-md-6">
                                              <h6 class="mt-3 font-weight-bold text-primary">
@@ -763,8 +771,8 @@
                                              </h6>
                                           </div>
                                           <div class="col-lg-6 col-md-6 mb-3">
-                                             <input onkeydown="calcularTotal()" type="text" class="form-control form-control-user"
-                                                name="valor_despacho" id="valor_despacho" placeholder="Valor despacho" required>
+                                             <input onchange="calcularTotal()" type="text" class="form-control form-control-user"
+                                                name="valor_despacho" id="valor_despacho" placeholder="Valor despacho" value="0" required>
                                           </div>
                                        </div>
                                        <div class="form-group row">

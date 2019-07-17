@@ -63,7 +63,7 @@ var e = 0;
     }
 
     function calcularTotal(){
-        
+        total_juegos = parseInt($("#total_juegos").val());
         despacho = parseInt($("#valor_despacho").val());
         cobro_adicional = parseInt($("#cobro_adicional").val());
         descuento = parseInt($("#descuento").val());
@@ -83,7 +83,7 @@ var e = 0;
         }else{
             total_juegos = total_empresa;
         }
-        $("#valor_total").val(total);
+        $("#total_juegos").val(total_juegos);
         alert("Total de los juegos guardado");
         calcularTotal();
     }
@@ -215,54 +215,6 @@ $("input").on("click", function () {
 
 });
 
-function juegosSel(){
-    
-    
-    $(".juego input").each(function(){
-
-        if( $(this).prop('checked') == true ){
-            nombre_juegos[cantidad_juegos] = $(this).data("nombre");
-            id_juegos[cantidad_juegos] = $(this).data("id");
-            
-
-            total_persona += $(this).data("valor");
-            total_empresa += $(this).data("empresa");
-
-            cantidad_juegos++;
-        }
-    })
-
-    $("#lista_juegos li").remove();
-    $("#lista_juegos input").remove();
-
-    for(i=0;i<cantidad_juegos;i++){
-            $("#lista_juegos").append(
-                $('<input>',{
-                    'type' : 'hidden',
-                    'name' : 'nombre'+i,
-                    'value' : nombre_juegos[i]
-                })
-            );
-            $("#lista_juegos").append(
-                $('<input>', {
-                    'type': 'hidden',
-                    'name': 'id' + i,
-                    'value': id_juegos[i]
-                })
-            );
-            $("#lista_juegos").append(
-                $('<li>',{
-                    'html' : nombre_juegos[i]
-                })
-            )
-    }
-
-
-    $("#cant_juegos").val(cantidad_juegos);
-
-    $("#total_persona").text(total_persona);
-    $("#total_empresa").text(total_empresa);
-}
 //Cambiar cambiar cosas en el formulario para cliente empresa
 function clienteEmpresa() {
     var btn = document.getElementById("btn_cliente");
