@@ -59,6 +59,14 @@
 
     if (mysqli_query($conexion,$consulta)) {
         $confirmacion = 0;  
+        for($i=0 ; $i < $cant_juegos ; $i++){
+            $juegos_arriendo = "INSERT INTO juego_arriendo (id_arriendo, id_juego, cantidad) VALUES ('$id', '$juegos[$i][0]', '$juegos[$i][1]')";
+            if (mysqli_query($conexion,$juegos_arriendo)) {
+                $confirmacion = 0;      
+            } else {
+            $confirmacion =1;
+            }
+        }
     } else {
         exit("Error arriendo: " . $consulta . "<br>" . mysqli_error($conexion)) ;
         $confirmacion =1;
@@ -70,14 +78,7 @@
     //mysqli_data_seek ($resultado, 0);
     //$fila = mysqli_fetch_assoc($resultado); 
     
-    for($i=0 ; $i < $cant_juegos ; $i++){
-        $juegos_arriendo = "INSERT INTO juego_arriendo (id_arriendo, id_juego, cantidad) VALUES ('$id', '$juegos[$i][0]', '$juegos[$i][1]')";
-        if (mysqli_query($conexion,$juegos_arriendo)) {
-            $confirmacion = 0;  
-        } else {
-            $confirmacion =1;
-        }
-    }
+    
     
     if($confirmacion == 0){
         echo "Arriendo guardado exitosamente";
