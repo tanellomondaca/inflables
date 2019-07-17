@@ -577,7 +577,7 @@
                                                    value="<?php echo $juegos_disponibles[$i][0]; ?>" 
                                                    name="<?php echo $juegos_disponibles[$i][0]; ?>" 
                                                    id="<?= $juegos_disponibles[$i][1]; ?>">
-                                             <label class="custom-control-label" for="<?php echo $juegos_disponibles[$i][0]."&id=".$juegos_disponibles[$i][1]; ?>"> <?php echo $juegos_disponibles[$i][0]; ?> </label>
+                                             <label class="custom-control-label" for="<?= $juegos_disponibles[$i][1]; ?>"> <?php echo $juegos_disponibles[$i][0]; ?> </label>
                                           </div>
                                        </td>
                                        <td><?= $juegos_disponibles[$i][5]; ?></td>
