@@ -218,7 +218,7 @@ $("input.juego").on("click", function () {
             $('<input>', {
                 'type': 'hidden',
                 'name': 'stock' + i,
-                'value': stock_juegos[id_juegos[i]];
+                'value': stock_juegos[id_juegos[i]]
             })
         );
         $("#lista_juegos").append(
