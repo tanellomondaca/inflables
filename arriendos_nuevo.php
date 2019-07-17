@@ -491,7 +491,7 @@
                                                                      if($juegos_todos[$i][1] == $juegos_arrendados[$j][1]){
                                                                         $fila = $j;
                                                                         $validador = 1;
-                                                                        if($juegos_todos[$i][4]!=1){
+                                                                        if($juegos_todos[$i][4]!=0){
                                                                            $validador = 2;
                                                                         }
                                                                      }
