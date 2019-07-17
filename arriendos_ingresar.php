@@ -59,6 +59,7 @@
 
     if (mysqli_query($conexion,$consulta)) {
         $confirmacion = 0;  
+        $id = mysqli_insert_id($conexion);
         for($i=0 ; $i < $cant_juegos ; $i++){
             $juegos_arriendo = "INSERT INTO juego_arriendo (id_arriendo, id_juego, cantidad) VALUES ('$id', '$juegos[$i][0]', '$juegos[$i][1]')";
             if (mysqli_query($conexion,$juegos_arriendo)) {
@@ -71,7 +72,7 @@
         exit("Error arriendo: " . $consulta . "<br>" . mysqli_error($conexion)) ;
         $confirmacion =1;
     }
-    $id = mysqli_insert_id($conexion);
+    
     //$consulta = "SELECT id FROM arriendo WHERE rut_cliente ='".$rut_cliente."' AND start='".$start."' AND calle='".$calle."' AND numero = '".$numero."'";
 
     //$resultado = mysqli_query($conexion,$consulta);
