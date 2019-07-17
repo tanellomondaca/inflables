@@ -49,7 +49,7 @@
 
     for($i=0;$i<$cant_juegos;$i++){
         $juegos[$i][0] = $_POST["id".$i];
-        $juegos[$i][1] = $_POST["nombre".$i];
+        $juegos[$i][1] = $_POST["stock".$i];
     }
 
     #Ingresar arriendo
@@ -71,7 +71,7 @@
     //$fila = mysqli_fetch_assoc($resultado); 
     
     for($i=0 ; $i < $cant_juegos ; $i++){
-        $juegos_arriendo = "INSERT INTO juego_arriendo (id_arriendo, id_juego) VALUES ('".$id."', '".$juegos[$i][0]."')";
+        $juegos_arriendo = "INSERT INTO juego_arriendo (id_arriendo, id_juego, cantidad) VALUES ('$id', '$juegos[$i][0]', '$juegos[$i][1]')";
         if (mysqli_query($conexion,$juegos_arriendo)) {
             $confirmacion = 0;  
         } else {

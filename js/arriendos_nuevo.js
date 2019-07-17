@@ -186,6 +186,7 @@ $("input.juego").on("click", function () {
 
             cantidad_juegos++
         }else{
+            stock_juegos[id] = 1;
             nombre_juegos[cantidad_juegos] = $(this).data("nombre");
             id_juegos[cantidad_juegos] = $(this).data("id");
 
@@ -216,8 +217,8 @@ $("input.juego").on("click", function () {
         $("#lista_juegos").append(
             $('<input>', {
                 'type': 'hidden',
-                'name': 'nombre' + i,
-                'value': nombre_juegos[i]
+                'name': 'stock' + i,
+                'value': stock_juegos[id_juegos[i]];
             })
         );
         $("#lista_juegos").append(
