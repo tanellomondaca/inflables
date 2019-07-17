@@ -177,11 +177,11 @@ $("input").on("click", function () {
 
         cantidad_juegos++;
     }else{
-        total_persona += $(this).data("valor");
-        total_empresa += $(this).data("empresa");
+        total_persona -= $(this).data("valor");
+        total_empresa -= $(this).data("empresa");
         cantidad_juegos--;
     }
-    
+
     $("#lista_juegos li").remove();
     $("#lista_juegos input").remove();
 
