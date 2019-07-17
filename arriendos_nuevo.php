@@ -422,8 +422,8 @@
                                                          $juegos_todos[$cont][4] = "Todo el día Todos";
                                                          $juegos_todos[$cont][5] = $aux["categoria"];
                                                          $juegos_todos[$cont][6] = 0;
+                                                         $juegos_todos[$cont][7] = $aux["stock"];
                                                          if($aux["stock"] > 1){
-                                                            $juegos_todos[$cont][7] = $aux["stock"];
                                                             $juegos_todos[$cont][6] = 1;
                                                          }
                                                          $cont++;
