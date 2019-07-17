@@ -422,7 +422,7 @@
                                                          $juegos_todos[$cont][4] = "Todo el día Todos";
                                                          $juegos_todos[$cont][5] = $aux["categoria"];
                                                          $juegos_todos[$cont][6] = 0;
-                                                         if($aux["stock"]!= 1){
+                                                         if($aux["stock"] > 1){
                                                             $juegos_todos[$cont][4] = $aux["stock"];
                                                             $juegos_todos[$cont][6] = 1;
                                                          }
@@ -491,7 +491,7 @@
                                                                      if($juegos_todos[$i][1] == $juegos_arrendados[$j][1]){
                                                                         $fila = $j;
                                                                         $validador = 1;
-                                                                        if($juegos_todos[$i][4]!=0){
+                                                                        if($juegos_todos[$i][4]!=1){
                                                                            $validador = 2;
                                                                         }
                                                                      }
