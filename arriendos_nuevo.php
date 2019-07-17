@@ -423,7 +423,7 @@
                                                          $juegos_todos[$cont][5] = $aux["categoria"];
                                                          $juegos_todos[$cont][6] = 0;
                                                          if($aux["stock"] > 1){
-                                                            $juegos_todos[$cont][4] = $aux["stock"];
+                                                            $juegos_todos[$cont][7] = $aux["stock"];
                                                             $juegos_todos[$cont][6] = 1;
                                                          }
                                                          $cont++;
@@ -505,8 +505,8 @@
                                                                $juegos_disponibles[$cont][5] = $juegos_arrendados[$cont][5];
                                                                $juegos_disponibles[$cont][6] = 0;
 
-                                                               if($juegos_todos[$i][4]!=1){
-                                                                  $juegos_disponibles[$cont][4] = $juegos_todos[$i][4];
+                                                               if($juegos_todos[$i][7]!=1){
+                                                                  $juegos_disponibles[$cont][4] = $juegos_todos[$i][7];
                                                                   $juegos_disponibles[$cont][6] = 1;
                                                                }
 
