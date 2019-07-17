@@ -177,7 +177,7 @@ $("input.juego").on("click", function () {
             var id = $(this).data("id");
             stock_juegos[id] = cantidad;
 
-            nombre_juegos[cantidad_juegos] = $(this).data("nombre");
+            nombre_juegos[cantidad_juegos] = cantidad+" "+$(this).data("nombre");
             id_juegos[cantidad_juegos] = $(this).data("id");
 
 
@@ -185,7 +185,7 @@ $("input.juego").on("click", function () {
             total_empresa += cantidad*$(this).data("empresa");
 
             cantidad_juegos++
-        }
+        }else{
             nombre_juegos[cantidad_juegos] = $(this).data("nombre");
             id_juegos[cantidad_juegos] = $(this).data("id");
 
@@ -194,10 +194,18 @@ $("input.juego").on("click", function () {
             total_empresa += $(this).data("empresa");
 
             cantidad_juegos++;
-        
+        }
     }else{
-        total_persona -= $(this).data("valor");
-        total_empresa -= $(this).data("empresa");
+        if ($(this).data("stock") == '1') {
+            var id = $(this).data("id");
+            var cantidad = stock_juegos[id];
+
+            total_persona -= cantidad*$(this).data("valor");
+            total_empresa -= cantidad*$(this).data("empresa");
+        }else{
+            total_persona -= $(this).data("valor");
+            total_empresa -= $(this).data("empresa");
+        }
         cantidad_juegos--;
     }
 
