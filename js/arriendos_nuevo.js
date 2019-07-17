@@ -18,6 +18,7 @@ var e = 0;
     var cantidad_juegos = 0;
     var nombre_juegos = new Array;
     var id_juegos = new Array;
+    var stock_juegos = new Array;
 
 
     function tiempoArriendo(){
@@ -164,23 +165,36 @@ function cambiarFecha(tipo){
         }    
     }
 }
-//juegos con stock
+//calcular total juegos con stock al hacer click
+function stock(){
 
+}
 //Calcula el total de los juegos seleccionados segun sea empresa o persona
 $("input.juego").on("click", function () {
-    if($(this).data("stock")== '1'){
-        alert("Juego con stock!")
-    }
-
     if ($(this).prop('checked') == true) {
-        nombre_juegos[cantidad_juegos] = $(this).data("nombre");
-        id_juegos[cantidad_juegos] = $(this).data("id");
+        if ($(this).data("stock") == '1') {
+            var cantidad = prompt("Inserte cantidad para arrendar:","Ej: 8");
+            var id = $(this).data("id");
+            stock_juegos[id] = cantidad;
+
+            nombre_juegos[cantidad_juegos] = $(this).data("nombre");
+            id_juegos[cantidad_juegos] = $(this).data("id");
 
 
-        total_persona += $(this).data("valor");
-        total_empresa += $(this).data("empresa");
+            total_persona += cantidad*$(this).data("valor");
+            total_empresa += cantidad*$(this).data("empresa");
 
-        cantidad_juegos++;
+            cantidad_juegos++
+        }
+            nombre_juegos[cantidad_juegos] = $(this).data("nombre");
+            id_juegos[cantidad_juegos] = $(this).data("id");
+
+
+            total_persona += $(this).data("valor");
+            total_empresa += $(this).data("empresa");
+
+            cantidad_juegos++;
+        
     }else{
         total_persona -= $(this).data("valor");
         total_empresa -= $(this).data("empresa");
