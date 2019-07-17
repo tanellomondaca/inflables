@@ -536,8 +536,8 @@
                                  <?php for($i=0;$i<count($juegos_disponibles);$i++):?>
                                  <tr>
                                        <td>
-                                          <div class="custom-control custom-checkbox mt-2 juego"> 
-                                             <input type="checkbox" class="custom-control-input"
+                                          <div class="custom-control custom-checkbox mt-2"> 
+                                             <input type="checkbox" class="custom-control-input juego"
                                                    data-id="<?php echo $juegos_disponibles[$i][1]; ?>"
                                                    data-nombre="<?php echo $juegos_disponibles[$i][0]; ?>" 
                                                    data-valor="<?php echo $juegos_disponibles[$i][2]; ?>"
