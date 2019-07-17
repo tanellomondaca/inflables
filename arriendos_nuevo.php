@@ -421,8 +421,8 @@
                                                          $juegos_todos[$cont][3] = $aux["valor_empresa"];
                                                          $juegos_todos[$cont][4] = "Todo el día";
                                                          $juegos_todos[$cont][5] = $aux["categoria"];
-                                                         $juegos_todos[$cont][6] = 0;
-                                                         $juegos_todos[$cont][7] = $aux["stock"];
+                                                         $juegos_todos[$cont][6] = 0; // si es igual a 1 hay mas de un juego de estos
+                                                         $juegos_todos[$cont][7] = $aux["stock"]; //stock total del juego
                                                          if($aux["stock"] > 1){
                                                             $juegos_todos[$cont][6] = 1;
                                                          }
@@ -503,7 +503,7 @@
                                                                $juegos_disponibles[$cont][3] = $juegos_todos[$i][3];
                                                                $juegos_disponibles[$cont][4] = "Todo el día";
                                                                $juegos_disponibles[$cont][5] = $juegos_arrendados[$cont][5];
-                                                               $juegos_disponibles[$cont][6] = 0;
+                                                               $juegos_disponibles[$cont][6] = $juegos_todos[$i][6];
 
                                                                if($juegos_todos[$i][7]!=1){
                                                                   $juegos_disponibles[$cont][4] = $juegos_todos[$i][7];
@@ -525,7 +525,7 @@
                                                                $juegos_disponibles[$cont][1] = $juegos_todos[$i][1];
                                                                $juegos_disponibles[$cont][2] = $juegos_todos[$i][2];
                                                                $juegos_disponibles[$cont][3] = $juegos_todos[$i][3];
-                                                                  $stock = $juegos_todos[$i][4] - $juegos_arrendados[$fila][4];
+                                                                  $stock = $juegos_todos[$i][7] - $juegos_arrendados[$fila][4];
                                                                $juegos_disponibles[$cont][4] = $stock;
                                                                $juegos_disponibles[$cont][5] = $juegos_arrendados[$cont][5];
                                                                $juegos_disponibles[$cont][6] = 1;
