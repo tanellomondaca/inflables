@@ -422,7 +422,7 @@
                                                          $juegos_todos[$cont][4] = "Todo el día";
                                                          $juegos_todos[$cont][5] = $aux["categoria"];
                                                          if($aux["stock"]!= 1){
-                                                            $juegos_todos[$cont][4] = "Stock: ".$aux["stock"];
+                                                            $juegos_todos[$cont][4] = $aux["stock"];
                                                          }
                                                          $cont++;
                                                    }
@@ -503,7 +503,7 @@
                                                                $juegos_disponibles[$cont][5] = $juegos_arrendados[$cont][5];
 
                                                                if($juegos_todos[$i][4]!=1){
-                                                                  $juegos_disponibles[$cont][4] = "Stock: ".$juegos_todos[$i][4];
+                                                                  $juegos_disponibles[$cont][4] = $juegos_todos[$i][4];
                                                                }
 
                                                                $cont++;
@@ -521,7 +521,7 @@
                                                                $juegos_disponibles[$cont][2] = $juegos_todos[$i][2];
                                                                $juegos_disponibles[$cont][3] = $juegos_todos[$i][3];
                                                                $stock = $juegos_todos[$i][4] - $juegos_arrendados[$fila][4];
-                                                               $juegos_disponibles[$cont][4] = "Stock: '$stock'";
+                                                               $juegos_disponibles[$cont][4] = $stock;
                                                                $juegos_disponibles[$cont][5] = $juegos_arrendados[$cont][5];
                                                                $cont++;
                                                             }
