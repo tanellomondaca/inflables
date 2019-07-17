@@ -164,8 +164,13 @@ function cambiarFecha(tipo){
         }    
     }
 }
+//juegos con stock
+
 //Calcula el total de los juegos seleccionados segun sea empresa o persona
 $("input.juego").on("click", function () {
+    if($(this).data("stock")==1){
+        alert("Juego con stock!")
+    }
 
     if ($(this).prop('checked') == true) {
         nombre_juegos[cantidad_juegos] = $(this).data("nombre");

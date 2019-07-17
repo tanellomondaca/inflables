@@ -501,9 +501,11 @@
                                                                $juegos_disponibles[$cont][3] = $juegos_todos[$i][3];
                                                                $juegos_disponibles[$cont][4] = "Todo el día";
                                                                $juegos_disponibles[$cont][5] = $juegos_arrendados[$cont][5];
+                                                               $juegos_disponibles[$cont][6] = 0;
 
                                                                if($juegos_todos[$i][4]!=1){
                                                                   $juegos_disponibles[$cont][4] = $juegos_todos[$i][4];
+                                                                  $juegos_disponibles[$cont][6] = 1;
                                                                }
 
                                                                $cont++;
@@ -514,6 +516,7 @@
                                                                $juegos_disponibles[$cont][3] = $juegos_todos[$i][3];
                                                                $juegos_disponibles[$cont][4] = "Arrendado entre: ".substr($juegos_arrendados[$fila][2],11,5)." - ".substr($juegos_arrendados[$fila][3],11,5);
                                                                $juegos_disponibles[$cont][5] = $juegos_arrendados[$cont][5];
+                                                               $juegos_disponibles[$cont][6] = 0;
                                                                $cont++;
                                                             }else{ // Juego arrendado con stock en base
                                                                $juegos_disponibles[$cont][0] = $juegos_todos[$i][0];
@@ -523,6 +526,7 @@
                                                                $stock = $juegos_todos[$i][4] - $juegos_arrendados[$fila][4];
                                                                $juegos_disponibles[$cont][4] = $stock;
                                                                $juegos_disponibles[$cont][5] = $juegos_arrendados[$cont][5];
+                                                               $juegos_disponibles[$cont][6] = 1;
                                                                $cont++;
                                                             }
                                                          }
@@ -559,13 +563,20 @@
                                        <td>
                                           <div class="custom-control custom-checkbox mt-2"> 
                                              <input type="checkbox" class="custom-control-input juego"
+                                                   <?php
+                                                   if($juegos_disponibles[$cont][6] == 1){
+                                                      echo 'data-stock="1"';
+                                                   }else{
+                                                      echo 'data-stock="0"';
+                                                   }
+                                                   ?>
                                                    data-id="<?php echo $juegos_disponibles[$i][1]; ?>"
                                                    data-nombre="<?php echo $juegos_disponibles[$i][0]; ?>" 
                                                    data-valor="<?php echo $juegos_disponibles[$i][2]; ?>"
                                                    data-empresa = "<?php echo $juegos_disponibles[$i][3]; ?>" 
                                                    value="<?php echo $juegos_disponibles[$i][0]; ?>" 
                                                    name="<?php echo $juegos_disponibles[$i][0]; ?>" 
-                                                   id="<?php echo $juegos_disponibles[$i][0]."&id=".$juegos_disponibles[$i][1]; ?>">
+                                                   id="<?= $juegos_disponibles[$i][1]; ?>">
                                              <label class="custom-control-label" for="<?php echo $juegos_disponibles[$i][0]."&id=".$juegos_disponibles[$i][1]; ?>"> <?php echo $juegos_disponibles[$i][0]; ?> </label>
                                           </div>
                                        </td>
