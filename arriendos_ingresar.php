@@ -60,7 +60,7 @@
     if (mysqli_query($conexion,$consulta)) {
         $confirmacion = 0;  
     } else {
-        exit("Error: " . $consulta . "<br>" . mysqli_error($conexion)) ;
+        exit("Error arriendo: " . $consulta . "<br>" . mysqli_error($conexion)) ;
         $confirmacion =1;
     }
     $id = mysqli_insert_id($conexion);
@@ -82,7 +82,7 @@
     if($confirmacion == 0){
         echo "Arriendo guardado exitosamente";
     }else{
-        echo "Error: " . $consulta . "<br>" . mysqli_error($conexion);
+        echo "Error Juegos: " . $consulta . "<br>" . mysqli_error($conexion);
         echo "Ocurrio un error. Intenté nuevamente.";
     }
     
