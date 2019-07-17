@@ -422,7 +422,7 @@
                                                          $juegos_todos[$cont][4] = "Todo el día";
                                                          $juegos_todos[$cont][5] = $aux["categoria"];
                                                          if($aux["stock"]!= 1){
-                                                            $juegos_todos[$cont][4] = $aux["stock"];
+                                                            $juegos_todos[$cont][4] = "Stock: ".$aux["stock"];
                                                          }
                                                          $cont++;
                                                    }
@@ -503,7 +503,7 @@
                                                                $juegos_disponibles[$cont][5] = $juegos_arrendados[$cont][5];
 
                                                                if($juegos_todos[$i][4]!=1){
-                                                                  $juegos_disponibles[$cont][4] = "Stock: '$juegos_todos[$i][4]'";
+                                                                  $juegos_disponibles[$cont][4] = "Stock: ".$juegos_todos[$i][4];
                                                                }
 
                                                                $cont++;
@@ -571,8 +571,8 @@
                                        </td>
                                        <td><?= $juegos_disponibles[$i][5]; ?></td>
                                        <td><?= $juegos_disponibles[$i][4]; ?></td>
-                                       <td><?php echo $juegos_disponibles[$i][2]; ?></td>
-                                       <td><?php echo $juegos_disponibles[$i][3]; ?></td>
+                                       <td><?= $juegos_disponibles[$i][2]; ?></td>
+                                       <td><?= $juegos_disponibles[$i][3]; ?></td>
                                  </tr>
                                  <?php endfor; ?>
                               </tbody>
