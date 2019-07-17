@@ -165,7 +165,7 @@ function cambiarFecha(tipo){
     }
 }
 //Calcula el total de los juegos seleccionados segun sea empresa o persona
-$("input .juego").on("click", function () {
+$("input.juego").on("click", function () {
 
     if ($(this).prop('checked') == true) {
         nombre_juegos[cantidad_juegos] = $(this).data("nombre");
