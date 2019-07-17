@@ -419,7 +419,7 @@
                                                          $juegos_todos[$cont][1] = $aux["id"];
                                                          $juegos_todos[$cont][2] = $aux["valor_persona"];
                                                          $juegos_todos[$cont][3] = $aux["valor_empresa"];
-                                                         $juegos_todos[$cont][4] = "Todo el día Todos";
+                                                         $juegos_todos[$cont][4] = "Todo el día";
                                                          $juegos_todos[$cont][5] = $aux["categoria"];
                                                          $juegos_todos[$cont][6] = 0;
                                                          $juegos_todos[$cont][7] = $aux["stock"];
@@ -491,7 +491,7 @@
                                                                      if($juegos_todos[$i][1] === $juegos_arrendados[$j][1]){
                                                                         $fila = $j;
                                                                         $validador = 1;
-                                                                        if($juegos_todos[$i][4]!=0){
+                                                                        if($juegos_todos[$i][6]!=0){
                                                                            $validador = 2;
                                                                         }
                                                                      }
