@@ -409,7 +409,7 @@
                                                          $fin=$fecha;
                                                       }
                                                    //1. Seleccionar todos los juegos existentes
-                                                   $consulta = "SELECT nombre, id, valor_persona, valor_empresa, categoria FROM juego";
+                                                   $consulta = "SELECT nombre, id, valor_persona, valor_empresa, categoria, stock FROM juego";
                                                    $resultado1 = mysqli_query($conexion,$consulta);
 
                                                    $juegos_todos[][] = "";
@@ -421,6 +421,9 @@
                                                          $juegos_todos[$cont][3] = $aux["valor_empresa"];
                                                          $juegos_todos[$cont][4] = "Todo el día";
                                                          $juegos_todos[$cont][5] = $aux["categoria"];
+                                                         if($aux["stock"]!= 1){
+                                                            $juegos_todos[$cont][4] = $aux["stock"];
+                                                         }
                                                          $cont++;
                                                    }
                                                    $cont = 0;
@@ -429,7 +432,7 @@
                                                    $juegos_disponibles[][] = "";
                                                    //2. Seleccionar todos los juegos arrendados
                                                          //Consultar por juegos arrendados más de un día
-                                                   $consulta_dias = "SELECT JA.id_juego, A.fecha, A.fin, A.start, A.end, J.categoria FROM juego J, juego_arriendo JA, arriendo A WHERE JA.id_arriendo = A.id";
+                                                   $consulta_dias = "SELECT JA.id_juego, A.fecha, A.fin, A.start, A.end, J.categoria, J.stock, JA.cantidad FROM juego J, juego_arriendo JA, arriendo A WHERE JA.id_arriendo = A.id";
                                                    $result_dias = mysqli_query($conexion,$consulta_dias);
                                                    $linea=0;
                                                    while($juegos = mysqli_fetch_array($result_dias)){
@@ -465,7 +468,7 @@
                                                          //echo "<br>";
                                                    }
 
-                                                   $consulta = "SELECT JA.id_juego, A.start, A.end, J.categoria FROM juego J, juego_arriendo JA, arriendo A WHERE JA.id_arriendo = A.id AND A.fecha = '".$fecha."'";
+                                                   $consulta = "SELECT JA.id_juego, A.start, A.end, J.categoria, JA.cantidad FROM juego J, juego_arriendo JA, arriendo A WHERE JA.id_arriendo = A.id AND A.fecha = '".$fecha."'";
                                                    $resultado2 = mysqli_query($conexion,$consulta);
                                                    
                                                    if(mysqli_num_rows($resultado2) != 0 || $cont >0 ){
@@ -473,6 +476,7 @@
                                                             $juegos_arrendados[$cont][1] = $aux["id_juego"];
                                                             $juegos_arrendados[$cont][2] = $aux["start"];
                                                             $juegos_arrendados[$cont][3] = $aux["end"];
+                                                            $juegos_arrendados[$cont][4] = $aux["cantidad"];
                                                             $juegos_arrendados[$cont][5] = $aux["categoria"];
                                                             $cont++;
                                                          }
@@ -485,6 +489,9 @@
                                                                      if($juegos_todos[$i][1] == $juegos_arrendados[$j][1]){
                                                                         $fila = $j;
                                                                         $validador = 1;
+                                                                        if($juegos_todos[$i][4]!=0){
+                                                                           $validador = 2;
+                                                                        }
                                                                      }
                                                             }
                                                             if($validador==0){ //Juego no arrendado
@@ -494,6 +501,11 @@
                                                                $juegos_disponibles[$cont][3] = $juegos_todos[$i][3];
                                                                $juegos_disponibles[$cont][4] = "Todo el día";
                                                                $juegos_disponibles[$cont][5] = $juegos_arrendados[$cont][5];
+
+                                                               if($juegos_todos[$i][4]!=1){
+                                                                  $juegos_disponibles[$cont][4] = "Stock: '$juegos_todos[$i][4]'";
+                                                               }
+
                                                                $cont++;
                                                             }elseif($validador==1){ //Juego arrendado
                                                                $juegos_disponibles[$cont][0] = $juegos_todos[$i][0];
@@ -501,6 +513,15 @@
                                                                $juegos_disponibles[$cont][2] = $juegos_todos[$i][2];
                                                                $juegos_disponibles[$cont][3] = $juegos_todos[$i][3];
                                                                $juegos_disponibles[$cont][4] = "Arrendado entre: ".substr($juegos_arrendados[$fila][2],11,5)." - ".substr($juegos_arrendados[$fila][3],11,5);
+                                                               $juegos_disponibles[$cont][5] = $juegos_arrendados[$cont][5];
+                                                               $cont++;
+                                                            }else{ // Juego arrendado con stock en base
+                                                               $juegos_disponibles[$cont][0] = $juegos_todos[$i][0];
+                                                               $juegos_disponibles[$cont][1] = $juegos_todos[$i][1];
+                                                               $juegos_disponibles[$cont][2] = $juegos_todos[$i][2];
+                                                               $juegos_disponibles[$cont][3] = $juegos_todos[$i][3];
+                                                               $stock = $juegos_todos[$i][4] - $juegos_arrendados[$fila][4];
+                                                               $juegos_disponibles[$cont][4] = "Stock: '$stock'";
                                                                $juegos_disponibles[$cont][5] = $juegos_arrendados[$cont][5];
                                                                $cont++;
                                                             }
