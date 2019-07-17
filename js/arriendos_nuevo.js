@@ -15,6 +15,11 @@ var e = 0;
     var cobro_adicional = 0;
     var descuento = 0;
 
+    var cantidad_juegos = 0;
+    var nombre_juegos = new Array;
+    var id_juegos = new Array;
+
+
     function tiempoArriendo(){
         var fecha = $("#fecha_arriendo").val();
         var fin = $("#fecha_fin").val();
@@ -108,6 +113,7 @@ var e = 0;
         
         calcularTotal();
     }
+    3
     function calcularAdicional() {
         var porc_add = $("#porc_add").val();
 
@@ -159,15 +165,61 @@ function cambiarFecha(tipo){
     }
 }
 //Calcula el total de los juegos seleccionados segun sea empresa o persona
+$("input").on("click", function () {
+
+    if ($(this).prop('checked') == true) {
+        nombre_juegos[cantidad_juegos] = $(this).data("nombre");
+        id_juegos[cantidad_juegos] = $(this).data("id");
+
+
+        total_persona += $(this).data("valor");
+        total_empresa += $(this).data("empresa");
+
+        cantidad_juegos++;
+    }else{
+        total_persona += $(this).data("valor");
+        total_empresa += $(this).data("empresa");
+        cantidad_juegos--;
+    }
+    
+    $("#lista_juegos li").remove();
+    $("#lista_juegos input").remove();
+
+    for (i = 0; i < cantidad_juegos; i++) {
+        $("#lista_juegos").append(
+            $('<input>', {
+                'type': 'hidden',
+                'name': 'nombre' + i,
+                'value': nombre_juegos[i]
+            })
+        );
+        $("#lista_juegos").append(
+            $('<input>', {
+                'type': 'hidden',
+                'name': 'id' + i,
+                'value': id_juegos[i]
+            })
+        );
+        $("#lista_juegos").append(
+            $('<li>', {
+                'html': nombre_juegos[i]
+            })
+        )
+    }
+
+
+    $("#cant_juegos").val(cantidad_juegos);
+
+    $("#total_persona").text(total_persona);
+    $("#total_empresa").text(total_empresa);
+
+});
+
 function juegosSel(){
     
-    var cantidad_juegos = 0;
-    var nombre_juegos = new Array;
-    var id_juegos = new Array;
-    total_persona = 0;
-    total_empresa = 0;
-
+    
     $(".juego input").each(function(){
+
         if( $(this).prop('checked') == true ){
             nombre_juegos[cantidad_juegos] = $(this).data("nombre");
             id_juegos[cantidad_juegos] = $(this).data("id");
