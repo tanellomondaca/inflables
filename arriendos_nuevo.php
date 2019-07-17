@@ -1012,36 +1012,6 @@
     </div>
     <!--Fin modal cliente nuevo-->
 
-    <!-- modal cliente nuevo -->
-    <div class="modal fade" id="modal_cantidad" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-       aria-hidden="true">
-      <div class="modal-dialog modal-lg" role="document">
-         <div class="modal-content">
-            <div class="modal-header">
-               <h5 class="modal-title" id="exampleModalLabel">Seleccione cantidad de juegos</h5>
-               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-               </button>
-            </div>
-            <div class="modal-body">
-            </div>
-               <div class="form_group row">
-                  <div class="form-group row">
-                     <div class="col-lg-6 col-md-6">
-                        <h6 class="mt-3 font-weight-bold text-primary">
-                           Cantidad a arrendar
-                        </h6>
-                     </div>
-                     <div class="col-lg-6 col-md-6 mb-3">
-                        <input type="text" class="form-control form-control-user"
-                           name="cantidad_juegos" id="cantidad_juegos" placeholder="Cantidad" value="0" required>
-                     </div>
-                  </div>                                               
-               </div>
-           </div>
-      </div>
-   </div>
-
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
