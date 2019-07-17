@@ -168,7 +168,7 @@ function cambiarFecha(tipo){
 
 //Calcula el total de los juegos seleccionados segun sea empresa o persona
 $("input.juego").on("click", function () {
-    if($(this).data("stock")==1){
+    if($(this).data("stock")== '1'){
         alert("Juego con stock!")
     }
 
