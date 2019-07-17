@@ -61,7 +61,7 @@
         $confirmacion = 0;  
         $id = mysqli_insert_id($conexion);
         for($i=0 ; $i < $cant_juegos ; $i++){
-            $juegos_arriendo = "INSERT INTO juego_arriendo (id_arriendo, id_juego, cantidad) VALUES ('$id', '$juegos[$i][0]', '$juegos[$i][1]')";
+            $juegos_arriendo = "INSERT INTO juego_arriendo (id_arriendo, id_juego, cantidad) VALUES ('$id', '".$juegos[$i][0]."', '".$juegos[$i][1]."')";
             echo "/// $juegos_arriendo ///";
             if (mysqli_query($conexion,$juegos_arriendo)) {
                 $confirmacion = 0;      
