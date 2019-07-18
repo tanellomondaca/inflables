@@ -13,6 +13,7 @@ function eliminarJuegos(){
         xhr_eliminar.addEventListener('load', (info) => {
             var resultado_agregar = info.target.response;
             alert(resultado_agregar);
+            location.reload();
         })
         xhr_eliminar.send(new FormData(form_eliminar));
 
@@ -27,6 +28,7 @@ function agregarJuegos() {
     xhr_agregar.addEventListener('load', (info) => {
         var resultado_agregar = info.target.response;
         alert(resultado_agregar);
+        location.reload();
     })
     xhr_agregar.send(new FormData(form_agregar));
 
