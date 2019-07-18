@@ -360,7 +360,7 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 mb-3">
                                         <input type="text" class="form-control form-control-user" name="total_abono"
-                                        id="total_abono" placeholder="Total del arriendo" value="" readonly>
+                                        id="total_abono_modal" placeholder="Total del arriendo" value="" readonly>
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -370,7 +370,7 @@
                                         </h6>
                                     </div>
                                     <div class="col-lg-2 col-md-6 mb-3">
-                                        <input onchange="calcularTotal()" type="text" class="form-control form-control-user" name="abono_abono"
+                                        <input onchange="calcularAbono()" type="text" class="form-control form-control-user" name="abono_abono"
                                         id="abono_abono" placeholder="Abono" value="0" required>
                                     </div>
 

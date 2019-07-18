@@ -6,11 +6,11 @@ function fechaArriendo(){
 
 function asignarId(id,total){
     $("#id_arriendo").val(id);
-    $("#total_abono").val(total);
+    $("#total_abono_modal").val(total);
 }
 
-function calcularTotal() {
-    var total = $("#total_abono").val();
+function calcularAbono() {
+    var total = $("#total_abono_modal").val();
     var abono = $("#abono_abono").val();
     $("#saldo_abono").val(total-abono);
 }
