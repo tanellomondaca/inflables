@@ -18,6 +18,20 @@ function eliminarJuegos(){
 
 }
 
+function agregarJuegos() {
+    var form_agregar = document.getElementById("juegos_agregar");
+
+    var xhr_agregar = new XMLHttpRequest;
+
+    xhr_agregar.open('POST', "funciones.php?v=5");
+    xhr_agregar.addEventListener('load', (info) => {
+        var resultado_agregar = info.target.response;
+        alert(resultado_agregar);
+    })
+    xhr_agregar.send(new FormData(form_agregar));
+
+}
+
 //Calcula el total de los juegos seleccionados segun sea empresa o persona
 var stock_juegos = new Array;
 var id_juegos = new Array;
