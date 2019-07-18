@@ -31,7 +31,7 @@
         </div>
         <div class="col-lg-3 col-md-6 mb-3">
             <input type="date" class="form-control form-control-user" name="fec_arriendo"
-            id="fec_arriendo" placeholder="" value="<?= $arriendo['fecha']; ?>" required>
+            id="fec_arriendo" placeholder="" value="<?= $arriendo['fecha']; ?>" >
         </div>
         <div class="col-lg-3 col-md-6">
             <h6 class="mt-3 font-weight-bold text-primary">
@@ -40,7 +40,7 @@
         </div>
         <div class="col-lg-3 col-md-6 mb-3">
             <input type="date" class="form-control form-control-user" name="fin_arriendo"
-            id="fin_arriendo" placeholder="" value="<?= $arriendo['fin']; ?>" required>
+            id="fin_arriendo" placeholder="" value="<?= $arriendo['fin']; ?>" >
         </div>
     </div>
     <div class="form-group row">
@@ -51,7 +51,7 @@
         </div>
         <div class="col-lg-3 col-md-6 mb-3">
             <input type="time" class="form-control form-control-user"
-            name="hora_inicio" id="hora_inicio" value="<?= substr($arriendo['start'],11,5); ?>" placeholder="" required>
+            name="hora_inicio" id="hora_inicio" value="<?= substr($arriendo['start'],11,5); ?>" placeholder="" >
         </div>
         <div class="col-lg-3 col-md-6">
             <h6 class="mt-3 font-weight-bold text-primary">
@@ -60,17 +60,17 @@
         </div>
         <div class="col-lg-3 col-md-6 mb-3">
             <input type="time" class="form-control form-control-user"
-            name="hora_termino" id="hora_termino" value="<?= substr($arriendo['end'],11,5); ?>" placeholder="" required>
+            name="hora_termino" id="hora_termino" value="<?= substr($arriendo['end'],11,5); ?>" placeholder="" >
         </div>
     </div>
     <div class="form-group row">
         <div class="col-lg-6 col-md-12 mb-3 mb-sm-0">
             <input type="text" class="form-control form-control-user" name="cliente"
-            id="cliente" placeholder="Cliente" value="<?= $cliente["rut"]." ".$cliente["nombre"]." ".$cliente["apellido"]." ".$cliente["razon_social"]; ?>" readonly required>
+            id="cliente" placeholder="Cliente" value="<?= $cliente["rut"]." ".$cliente["nombre"]." ".$cliente["apellido"]." ".$cliente["razon_social"]; ?>" readonly >
         </div>
         <div class="col-lg-6 col-md-12 mb-3 mb-sm-0">
             <input type="text" class="form-control form-control-user" name="telefono"
-            id="telefono" placeholder="Telefono" value="<?= $arriendo['telefono']; ?>" required>
+            id="telefono" placeholder="Telefono" value="<?= $arriendo['telefono']; ?>" >
         </div>
         
     </div>
@@ -78,7 +78,7 @@
     <div class="form-group row">
         <div class="col-lg-6 col-md-6 mb-3">
             <input type="text" class="form-control form-control-user" name="direccion"
-            id="direccion" placeholder="Direccion" value="<?= $arriendo['direccion']; ?>" required>
+            id="direccion" placeholder="Direccion" value="<?= $arriendo['direccion']; ?>" >
         </div>
         <div class="col-lg-2 col-md-4">
             <h6 class="mt-3 font-weight-bold text-primary">
@@ -181,7 +181,7 @@
         </div>
         <div class="col-lg-3 col-md-6 mb-3">
             <input onchange="calcular()" class="form-control form-control-user"
-            name="total_juegos" id="total_juegos" placeholder="Total juegos" value="<?= $arriendo["total_juegos"] ?>" required>
+            name="total_juegos" id="total_juegos" placeholder="Total juegos" value="<?= $arriendo["total_juegos"] ?>" >
         </div>
     </div>
     <div class="form-group row">
@@ -198,7 +198,7 @@
         </div>
         <div class="col-lg-3 col-md-6 mb-3">
             <input onchange="calcular()" type="text" class="form-control form-control-user"
-            name="valor_despacho" id="valor_despacho" placeholder="Valor despacho" value="<?= $arriendo["despacho"] ?>" required>
+            name="valor_despacho" id="valor_despacho" placeholder="Valor despacho" value="<?= $arriendo["despacho"] ?>" >
         </div>
     </div>
     <div class="form-group row">
@@ -214,12 +214,12 @@
         </div>
         <div class="col-lg-2 col-md-6 mb-3">
             <input onchange="calcularAdicional()" type="text" class="form-control form-control-user"
-            name="porc_add" id="porc_add" placeholder="%" value="" required>
+            name="porc_add" id="porc_add" placeholder="%" value="" >
         </div>
         <div class="col-lg-3 col-md-6 mb-3">
             <input onchange="calcular()" type="text" class="form-control form-control-user"
             name="cobro_adicional" id="cobro_adicional"
-            placeholder="Cobro adicional" value="<?= $arriendo["cobro_adicional"] ?>" required>
+            placeholder="Cobro adicional" value="<?= $arriendo["cobro_adicional"] ?>" >
         </div>
     </div>
     <div class="form-group row">
@@ -234,11 +234,11 @@
         </div>
         <div class="col-lg-2 col-md-6 mb-3">
             <input onchange="calcularDescuento()" type="text" class="form-control form-control-user"
-            name="porcentaje" id="porcentaje" placeholder="%"  required>
+            name="porcentaje" id="porcentaje" placeholder="%"  >
         </div>
         <div class="col-lg-3 col-md-6 mb-3">
             <input onchange="calcular()" type="text" class="form-control form-control-user"
-            name="descuento" id="descuento" placeholder="Descuento" value="0" required>
+            name="descuento" id="descuento" placeholder="Descuento" value="0" >
         </div>
     </div>
 
@@ -256,7 +256,7 @@
         </div>
         <div class="col-lg-3 col-md-6 mb-3">
             <input type="text" class="form-control form-control-user"
-            name="valor_total" id="valor_total" placeholder="Valor total" value="<?= $arriendo["valor_total"] ?>" required>
+            name="valor_total" id="valor_total" placeholder="Valor total" value="<?= $arriendo["valor_total"] ?>" >
         </div>
     </div>
     <div class="row justify-content-md-center">
@@ -271,7 +271,7 @@
         </div>
         <div class="col-lg-2 col-md-6 mb-3">
             <input onchange="calcular()" type="text" class="form-control form-control-user" name="abono"
-            id="abono" placeholder="Abono" value="<?= $arriendo["abono"] ?>" required>
+            id="abono" placeholder="Abono" value="<?= $arriendo["abono"] ?>" readonly>
         </div>
 
         <div class="col-lg-2 col-md-6">
@@ -281,7 +281,7 @@
         </div>
         <div class="col-lg-3 col-md-6 mb-3">
             <input type="date" class="form-control form-control-user" name="fecha_abono"
-            id="fecha_abono" placeholder="" value="<?= $arriendo["fecha_abono"] ?>" required>
+            id="fecha_abono" placeholder="" value="<?= $arriendo["fecha_abono"] ?>" readonly>
         </div>
         <div class="col-lg-1 col-md-6">
             <h6 class="mt-3 font-weight-bold text-primary">
@@ -290,12 +290,6 @@
         </div>
         <div class="col-lg-2 col-md-6 mb-3">
             <input type="text" class="form-control form-control-user" name="saldo"
-            id="saldo" placeholder="Saldo" value="<?= $arriendo["saldo"] ?>" required>
-        </div>
-    </div>
-    <div class="row justify-content-md-center">
-        <input type="submit" onclick="modificarArriendo()"
-            class="btn btn-primary btn-user btn-block col-lg-4"
-            id="btn_agregar" value="Modificar arriendo">
+            id="saldo" placeholder="Saldo" value="<?= $arriendo["saldo"] ?>" readonly>
     </div>
 </form>
