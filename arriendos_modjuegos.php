@@ -404,6 +404,11 @@
                                        <ul id="lista_juegos">
                                        </ul>
                                     </form>
+                                    <div class="form-group row">
+                                        <div class="col lg-4">
+                                            <button class="btn btn-success">Agregar juegos</button>
+                                        </div>                                                                
+                                    </div>
                                 </div>
                             </div>
                         </div>
