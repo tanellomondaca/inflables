@@ -9,7 +9,7 @@ function eliminarJuegos(){
 
         var xhr_eliminar = new XMLHttpRequest;
 
-        xhr_eliminar.open('POST', "funciones.php?v=2");
+        xhr_eliminar.open('POST', "funciones.php?v=4");
         xhr_eliminar.addEventListener('load', (info) => {
             var resultado_agregar = info.target.response;
             alert(resultado_agregar);
