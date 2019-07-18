@@ -158,6 +158,10 @@
             if( isset($_POST[$nombre]) ){
                 $juegos[$j][0] = $_POST[$nombre];
                 $juegos[$j][1] = $_POST[$stock];
+                if($juegos[$j][1]==0){
+                    $juegos[$j][1]=1;
+                }
+
                 $j++;
             }
         }
