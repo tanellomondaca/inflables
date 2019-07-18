@@ -1,6 +1,22 @@
 $(document).ready(function () {
     $('#tabla_juegos').DataTable();
+    $('#tabla_eliminar').DataTable();
 });
+
+//Mandar los juegos a eliminar
+function eliminarJuegos(){
+        var form_eliminar = document.getElementById("juegos_eliminar");
+
+        var xhr_eliminar = new XMLHttpRequest;
+
+        xhr_eliminar.open('POST', "funciones.php?v=2");
+        xhr_eliminar.addEventListener('load', (info) => {
+            var resultado_agregar = info.target.response;
+            alert(resultado_agregar);
+        })
+        xhr_eliminar.send(new FormData(form_eliminar));
+
+}
 
 //Calcula el total de los juegos seleccionados segun sea empresa o persona
 function juegosSel() {
@@ -71,5 +87,3 @@ $("input").on("click", function () {
     $("#total_empresa").text(total_empresa);
 });
 
-function juegoMarcado(){ 
-}

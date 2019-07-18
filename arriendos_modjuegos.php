@@ -182,6 +182,11 @@
                                         </tbody>
                                     </table>
                                 </form> 
+                                <div class="form-group row">
+                                    <div class="col-lg-4">
+                                        <button onclick="eliminarJuegos()" class="btn btn-danger">Eliminar juegos</button>
+                                    </div>
+                                </div>
 
                                 </div>
                             </div>
