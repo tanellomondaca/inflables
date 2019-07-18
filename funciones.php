@@ -116,11 +116,13 @@
         $j=0;
         $juegos[] = "";
         for($i=0; $i<$cantidad; $i++){
-            if( isset($_POST["juego".$i]) ){
-                $juegos[$j] = $_POST["juego".$i];
+            $nombre = "juego".$i;
+            if( isset($_POST[$nombre]) ){
+                $juegos[$j] = $_POST[$nombre];
                 $j++;
             }
         }
+        echo $cantidad."///////////////////////77";
         var_dump($juegos);
         
     }
