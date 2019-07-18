@@ -239,12 +239,16 @@
     </div>
 
     <div class="form-group row">
-        <div class="col-lg-6 col-md-6 rounded bg-gradient-primary py-2 ">
+        <div class="col-lg-4 col-md-6 rounded bg-gradient-primary py-2 ">
             <h6 class="mt-3 font-weight-bold text-gray-100 text-center ">
             Total
             </h6>
         </div>
-        <div class="col-lg-6 col-md-6 mb-3">
+        <div class="col-lg-3 col-md-6 mb-3">
+            <input type="text" class="form-control form-control-user"
+            name="valor_total_original" id="valor_total_original" placeholder="Valor total" value="<?= $arriendo["valor_total"] ?>" readonly>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-3">
             <input type="text" class="form-control form-control-user"
             name="valor_total" id="valor_total" placeholder="Valor total" value="<?= $arriendo["valor_total"] ?>" required>
         </div>

@@ -31,22 +31,37 @@ function ingresarAbono(){
     location.href = "http://pdc.arcadesamuel.cl/arriendos.php";
     },3000);
 }
-
+var total_juegos = 0;
 var total_detalle = 0;
 var despacho_detalle = 0;
 var cobro_adicional_detalle = 0;
 var descuento_detalle = 0;
 
 function calcular(){
+    if ($("#total_juegos").val() == "") {
+        alert("Ingrese valor");
+    } else {
+        total_juegos = parseInt($("#total_juegos").val());
+    }
     if ($("#valor_despacho").val()== ""){
-        alert("valor vacio");    
+        alert("Ingrese valor");    
     }else{
         despacho_detalle = parseInt($("#valor_despacho").val());
     }
-    cobro_adicional_detalle = parseInt($("#cobro_adicional").val());
-    descuento_detalle = parseInt($("#descuento").val());
+    if ($("#cobro_adicional").val() == "") {
+        alert("Ingrese valor");
+    } else {
+        cobro_adicional_detalle = parseInt($("#cobro_adicional").val());
+    }
+    if ($("#descuento").val() == "") {
+        alert("Ingrese valor");
+    } else {
+        descuento_detalle = parseInt($("#descuento").val());
+    }
+    
+    
 
-    total = total_detalle + despacho_detalle + cobro_adicional_detalle - descuento_detalle;
+    total = total_juegos + despacho_detalle + cobro_adicional_detalle - descuento_detalle;
 
     $("#valor_total").val(total);
 
@@ -108,22 +123,8 @@ function modificarDatos() {
 
 function modificarJuegos(){
     var id_arriendo = $("#id_arriendo_modificar").val();
-    var v = 4;
     location.href = "arriendos_modjuegos.php?id_arriendo="+id_arriendo;
 
-    /* var xhr_detalle = new XMLHttpRequest;
-    xhr_detalle.open('GET', 'funciones.php?id_arriendo='+id_arriendo+"&v="+v);
-    xhr_detalle.addEventListener('load', (info) => {
-        var resultado = new String;
-        resultado = info.target.response;
-        document.getElementById("tabla_juegos").innerHTML = resultado;
-        $('#tabla_juegos').DataTable();
-        $(this).ready(function () {
-           $('#tabla_juegos').DataTable();
-        });
-
-    })
-    xhr_detalle.send() */
 }
 
 
