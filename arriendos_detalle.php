@@ -127,6 +127,7 @@
         <input type="submit" onclick="modificarDatos()" class="btn btn-warning btn-user btn-block col-lg-4" value="Modificar fecha/direccion de arriendo">
     </div>    
     <hr>
+    <!-- Juegos -->
     <div class="form-group row">
         <div class="col-lg-2 col-md-6">
             <h6 class="mt-3 font-weight-bold text-primary">

@@ -186,10 +186,11 @@ $("input.juego").on("click", function () {
 
             cantidad_juegos++
         }else{
-            stock_juegos[id] = 1;
+            
             nombre_juegos[cantidad_juegos] = $(this).data("nombre");
             id_juegos[cantidad_juegos] = $(this).data("id");
-
+            var id = $(this).data("id");
+            stock_juegos[id] = 1;
 
             total_persona += $(this).data("valor");
             total_empresa += $(this).data("empresa");
