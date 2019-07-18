@@ -9,6 +9,13 @@
 
    //solo de esta pagina
    $id_arriendo = $_GET["id_arriendo"];
+
+   //SELECCION DE JUEGOS DEL ARRIENDO PARA ELIMINAR
+   $eliminar = "SELECT * FROM juego_arriendo JA, juego J WHERE JA.id_arriendo = '$id_arriendo' AND JA.id_juego = J.id ";
+   $resultado_eliminar = mysqli_query($conexion, $eliminar);
+   $cantidad_juegos = mysqli_num_rows($resultado_eliminar);
+
+   // FIN SELECCION DE JUEGOS PARA ELIMINAR
 ?>
 <!DOCTYPE HTML>
 <!--
@@ -129,7 +136,61 @@
                     <!-- Titulo de la pagina -->
                     <h1 class="h1 mb-4 text-gray-800">Modificar juegos de arriendo</h1>
 
-                    <!-- Seccion ejemplo -->
+                    <!-- Seccion JUEGOS A ELIMINAR -->
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="card shadow mb-4">
+                                 <!-- Titulo de la seccion  -->
+                                <div class="card-header py-3">
+                                    <h4 class="m-0 font-weight-bold text-primary">
+                                        Seleccione juegos a <strong>ELIMINAR</strong> del arriendo
+                                    </h4>
+                                </div>
+                                 <!-- Cuerpo tarjeta  -->
+                                <div class="card-body">
+                                <form id="juegos_eliminar">
+                                    <input type="hidden" name="cantidad_juegos" value="'$cantidad_juegos'">
+                                    <table class="table table-bordered" width="100%" cellspacing="0" id="tabla_eliminar">
+                                        <thead>
+                                            <tr>
+                                                <th>Nombre</th>
+                                            </tr>
+                                        </thead>
+                                        <tfoot>
+                                            <tr>
+                                                <th>Nombre</th>
+                                            </tr>
+                                        </tfoot>
+                                        <tbody>
+                                        <?php $i = 0; ?>
+                                        <?php while($juego = mysqli_fetch_array($resultado_eliminar)): ?>
+                                            <tr>
+                                                <td>
+                                                    <div class="custom-control custom-checkbox mt-2 juego"> 
+                                                        <input type="checkbox" class="custom-control-input"
+                                                            value="<?= $juego["id_juego"]?>" 
+                                                            name="juego<?= $i; ?>" 
+                                                            id="<?= $juego["id_juego"]?>" 
+                                                            >
+                                                        <label class="custom-control-label" for="<?= $juego["id_juego"]?>"> <?php echo $juegos_disponibles[$i][0]; ?> </label>
+                                                    </div>
+                                                </td>
+
+                                            </tr>
+                                        <?php $i++; ?>
+                                        <?php endwhile; ?>
+                                        </tbody>
+                                    </table>
+                                </form> 
+
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+                    <!-- Fin sección JUEGOS A ELIMINAR - -->
+
+
+                    <!-- Seccion JUEGOS A AGREGAR -->
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="card shadow mb-4">
@@ -333,7 +394,7 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Fin sección ejemplo - -->
+                    <!-- Fin sección JUEGOS A AGREGAR - -->
 
                 </div>
             </div>
@@ -367,7 +428,7 @@
     <script src="vendor/datatables/jquery.dataTables.min.js"></script>
     <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
-    <script src="js/juegos.js"></script>
+    <script src="js/juegos_mod.js"></script>
 
     <!-- <script src="js/arriendos.js"></script>
     <script src="js/calendario.js"></script>                                             -->

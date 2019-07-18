@@ -195,7 +195,7 @@
                                                 <td>
                                                     <?php
                                                         $id = $pre_arriendo["id"];
-                                                        $query = "SELECT J.nombre FROM juego J, juego_arriendo JA WHERE JA.id_arriendo = '$id' AND JA.id_juego = J.id ";
+                                                        $query = "SELECT * FROM juego J, juego_arriendo JA WHERE JA.id_arriendo = '$id' AND JA.id_juego = J.id ";
                                                         $resultado1 = mysqli_query($conexion,$query);
                                                         while($juegos = mysqli_fetch_array($resultado1) ){
                                                             if($juegos["cantidad"]!=1){
