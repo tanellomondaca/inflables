@@ -37,6 +37,7 @@ function ingresarAbono(){
     location.href = "http://pdc.arcadesamuel.cl/arriendos.php";
     },3000);
 }
+
 var total_juegos = 0;
 var total_detalle = 0;
 var despacho_detalle = 0;
