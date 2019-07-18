@@ -142,9 +142,9 @@
                             <div class="card shadow mb-4">
                                  <!-- Titulo de la seccion  -->
                                 <div class="card-header py-3">
-                                    <h4 class="m-0 font-weight-bold text-primary">
+                                    <h5 class="m-0 font-weight-bold text-primary">
                                         Seleccione juegos a <strong>ELIMINAR</strong> del arriendo
-                                    </h4>
+                                    </h5>
                                 </div>
                                  <!-- Cuerpo tarjeta  -->
                                 <div class="card-body">
@@ -172,7 +172,7 @@
                                                             name="juego<?= $i; ?>" 
                                                             id="<?= $juego["id_juego"]?>" 
                                                             >
-                                                        <label class="custom-control-label" for="<?= $juego["id_juego"]?>"> <?php echo $juegos_disponibles[$i][0]; ?> </label>
+                                                        <label class="custom-control-label" for="<?= $juego["id_juego"]?>"> <?= $juego["nombre"]; ?> </label>
                                                     </div>
                                                 </td>
 
