@@ -144,7 +144,13 @@
             <li class="list-group-item">
                 <div class="col-lg-10 mt-1">
                     <h6 class="font-weight-bold juego_existente" data-id="<?= $juegos["id"]; ?>">
-                        <?= $juegos["nombre"]; ?>
+                        <?php
+                         if($juegos["cantidad"]!=1){
+                             echo $juegos["cantidad"]." ".$juegos["nombre"];
+                         }else{
+                            echo $juegos["nombre"];
+                         }
+                        ?>
                     </h6>
                 </div>
             </li>

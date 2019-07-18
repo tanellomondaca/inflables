@@ -18,10 +18,14 @@
 ?>
     <tr>
         <td><?php
-            $cons_juegos = "SELECT J.nombre FROM juego_arriendo JA, juego J WHERE JA.id_juego = J.id AND JA.id_arriendo = '".$evento["id"]."'";
+            $cons_juegos = "SELECT * FROM juego_arriendo JA, juego J WHERE JA.id_juego = J.id AND JA.id_arriendo = '".$evento["id"]."'";
             $result_juegos = mysqli_query($conexion,$cons_juegos);
             while($juegos = mysqli_fetch_array( $result_juegos) ){
-                echo $juegos['nombre'];
+                if($juegos["cantidad"]!=1){
+                    echo $juegos["cantidad"]." ".$juegos["nombre"];
+                }else{
+                echo $juegos["nombre"];
+                }
                 echo "<br>";
             }
         ?>
