@@ -16,6 +16,9 @@
         case 4:
             eliminarJuegos($conexion);
             exit();
+        case 5:
+            agregarJuegos($conexion);
+            exit();
     }
 
     function insAbono($conexion){
@@ -142,5 +145,39 @@
             echo "Error, intente nuevamente";
         }
         
+    }
+
+    function agregarJuegos($conexion){
+        $cantidad = $_POST["cantidad_juegos"];
+        $id = $_POST["id_arriendo"];
+        $j=0;
+        $juegos[][] = "";
+        for($i=0; $i<$cantidad; $i++){
+            $nombre = "juego".$i;
+            $stock = "stock".$i;
+            if( isset($_POST[$nombre]) ){
+                $juegos[$j][0] = $_POST[$nombre];
+                $juegos[$j][1] = $_POST[$stock];
+                $j++;
+            }
+        }
+        if($j == 0){
+            echo "No hay juegos seleccionados";
+            exit();
+        }
+        $estado = 0;
+        for($i=0; $i<$j; $i++){
+            $sql_agregar = "INSERT INTO juego_arriendo (id_arriendo, id_juego, cantidad) VALUES ('$id', '".$juegos[$i][0]."', '".$juegos[$i][1]."')";
+            if(mysqli_query($conexion, $sql_agregar)){
+                $estado = 0;
+            }else{
+                $estado = 1;
+            }
+        }
+        if($estado==0){
+            echo "Juegos agregados exitosamente";
+        }else{
+            echo "Error, intente nuevamente";
+        }
     }
 ?>

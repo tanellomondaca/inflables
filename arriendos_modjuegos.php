@@ -420,9 +420,10 @@
                                     </div>
                                     <form id="juegos_agregar">
                                        <!--Aqui se agrega-->
-                                       <input type="hidden" name="cantidad_juegos" id="agregar_cantidad_juegos">
-                                       <ul id="lista_juegos">
-                                       </ul>
+                                        <input type="hidden" name="id_arriendo"     value="<?= $id_arriendo;    ?>">
+                                        <input type="hidden" name="cantidad_juegos" id="agregar_cantidad_juegos">
+                                        <ul id="lista_juegos">
+                                        </ul>
                                     </form>
                                     <div class="form-group row">
                                         <div class="col lg-4">
