@@ -192,7 +192,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div> -->
+                    </div>
                     <!-- Fin sección JUEGOS A ELIMINAR - -->
 
 
@@ -202,200 +202,208 @@
                             <div class="card shadow mb-4">
                                  <!-- Titulo de la seccion  -->
                                 <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">
-                                        Agregar/eliminar juegos
-                                    </h6>
+                                    <h5 class="m-0 font-weight-bold text-primary">
+                                        Selecciones juegos a <strong>AGREGAR</strong>
+                                    </h5>
                                 </div>
                                  <!-- Cuerpo tarjeta  -->
                                 <div class="card-body">
-                                <?php
-                                    $c = "SELECT * FROM juego_arriendo WHERE id_arriendo = '$id_arriendo'";
-                                    $r1 = mysqli_query($conexion,$c);
-                                    $contador = 0;
-                                    $arriendo_juegos[] = "" ;
-                                    
-                                    while($juego = mysqli_fetch_array($r1)){
-                                        $arriendo_juegos[$contador] = $juego["id_juego"];
-                                        $contador++;
-                                    }
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered" width="100%" cellspacing="0" id="dataTable">
+                                            <?php
+                                                $v=1;//$_GET["v"];
+                                                include "conexion.php";
 
+                                                if($v==1):
+                                                
+                                                    $fecha = $_GET['fecha'];
+                                                    $fin = "";
+                                                    if(isset($_GET["fin"])){
+                                                        $fin=$_GET["fin"];
+                                                    }else{
+                                                        $fin=$fecha;
+                                                    }
+                                                    //1. Seleccionar todos los juegos existentes
+                                                    $consulta = "SELECT nombre, id, valor_persona, valor_empresa, categoria, stock FROM juego";
+                                                    $resultado1 = mysqli_query($conexion,$consulta);
 
-                                    $fecha = $_GET['fecha'];
-                                    $fin = "";
-                                    if(isset($_GET["fin"])){
-                                        $fin=$_GET["fin"];
-                                    }else{
-                                        $fin=$fecha;
-                                    }
-                                    //1. Seleccionar todos los juegos existentes
-                                    $consulta = "SELECT nombre, id, valor_persona, valor_empresa, categoria FROM juego";
-                                    $resultado1 = mysqli_query($conexion,$consulta);
+                                                    $juegos_todos[][] = "";
+                                                    $cont = 0;
+                                                    while($aux = mysqli_fetch_array( $resultado1 )){
+                                                        $juegos_todos[$cont][0] = $aux["nombre"];
+                                                        $juegos_todos[$cont][1] = $aux["id"];
+                                                        $juegos_todos[$cont][2] = $aux["valor_persona"];
+                                                        $juegos_todos[$cont][3] = $aux["valor_empresa"];
+                                                        $juegos_todos[$cont][4] = "Todo el día";
+                                                        $juegos_todos[$cont][5] = $aux["categoria"];
+                                                        $juegos_todos[$cont][6] = 0; // si es igual a 1 hay mas de un juego de estos
+                                                        $juegos_todos[$cont][7] = $aux["stock"]; //stock total del juego
+                                                        if($aux["stock"] > 1){
+                                                            $juegos_todos[$cont][6] = 1;
+                                                        }
+                                                        $cont++;
+                                                    }
+                                                    $cont = 0;
 
-                                    $juegos_todos[][] = "";
-                                    $cont = 0;
-                                    while($aux = mysqli_fetch_array( $resultado1 )){
-                                        $juegos_todos[$cont][0] = $aux["nombre"];
-                                        $juegos_todos[$cont][1] = $aux["id"];
-                                        $juegos_todos[$cont][2] = $aux["valor_persona"];
-                                        $juegos_todos[$cont][3] = $aux["valor_empresa"];
-                                        $juegos_todos[$cont][4] = "Todo el día";
-                                        $juegos_todos[$cont][5] = $aux["categoria"];
-                                        $cont++;
-                                    }
-                                    $cont = 0;
-
-                                    $juegos_arrendados[][] =""; 
-                                    $juegos_disponibles[][] = "";
-                                    //2. Seleccionar todos los juegos arrendados
-                                            //Consultar por juegos arrendados más de un día
-                                    $consulta_dias = "SELECT JA.id_juego, A.fecha, A.fin, A.start, A.end, J.categoria FROM juego J, juego_arriendo JA, arriendo A WHERE JA.id_arriendo = A.id";
-                                    $result_dias = mysqli_query($conexion,$consulta_dias);
-                                    $linea=0;
-                                    while($juegos = mysqli_fetch_array($result_dias)){
-                                        $z=0;
-                                        //Fechas de consulta
-                                        $fecha_aux = strtotime($fecha);
-                                        $fin_aux = strtotime($fin);
-                                        //echo "Fechas de consulta: ".date ( 'Y-m-j' , $fecha_aux )." / ".date ( 'Y-m-j' , $fin_aux )."<br>";
-                                        while($fecha_aux<=$fin_aux){
-                                            $i = date ( 'Y-m-j' , $fecha_aux );
-                                            
-                                            if($i==$juegos['fecha'] || $i==$juegos['fin']){
-                                                    $z=1;
-                                            }
-                                            //echo $i." ".$z."<br>";
-                                            $fecha_aux = strtotime('+1 day',$fecha_aux);
-                                            
-                                        }
-                                        if($z==1){
-                                            
-                                            $juegos_arrendados[$cont][1] = $juegos["id_juego"];
-                                            $inicio = strtotime($juegos['fecha']);
-                                            $fin_j = strtotime($juegos['fin']);
-                                            $juegos_arrendados[$cont][2] = "-----------".date("d/m",$inicio);
-                                            $juegos_arrendados[$cont][3] = "-----------".date("d/m",$fin_j);
-                                            $juegos_arrendados[$cont][5] = $juegos["categoria"];
-                                            $cont++;
-                                        }
-                                        //}
-                                        $linea++;
-                                        //echo "<br>";
-                                    }
-
-                                    $consulta = "SELECT JA.id_juego, A.start, A.end, J.categoria FROM juego J, juego_arriendo JA, arriendo A WHERE JA.id_arriendo = A.id AND A.fecha = '".$fecha."'";
-                                    $resultado2 = mysqli_query($conexion,$consulta);
-                                    
-                                    if(mysqli_num_rows($resultado2) != 0 || $cont >0 ){
-                                        while($aux = mysqli_fetch_array( $resultado2 )){
-                                            $juegos_arrendados[$cont][1] = $aux["id_juego"];
-                                            $juegos_arrendados[$cont][2] = $aux["start"];
-                                            $juegos_arrendados[$cont][3] = $aux["end"];
-                                            $juegos_arrendados[$cont][5] = $aux["categoria"];
-                                            $cont++;
-                                        }
-                                        //3. Comparar ambas listas y colocar juegos disponibles en una nueva lista
-                                        $cont = 0;
-                                        
-                                        for($i=0;$i<count($juegos_todos);$i++){
-                                            $validador = 0; //Si este contador permanec en cero significa que el juego no esta en la lista de arrendados
-                                            for($j=0;$j<count($juegos_arrendados);$j++){
-                                                if($juegos_todos[$i][1] == $juegos_arrendados[$j][1]){
-                                                    $fila = $j;
-                                                    $validador = 1;
-                                                }
-                                            }
-                                            if($validador==0){ //Juego no arrendado
-                                                $juegos_disponibles[$cont][0] = $juegos_todos[$i][0];
-                                                $juegos_disponibles[$cont][1] = $juegos_todos[$i][1];
-                                                $juegos_disponibles[$cont][2] = $juegos_todos[$i][2];
-                                                $juegos_disponibles[$cont][3] = $juegos_todos[$i][3];
-                                                $juegos_disponibles[$cont][4] = "Todo el día";
-                                                $juegos_disponibles[$cont][5] = $juegos_arrendados[$cont][5];
-                                                $cont++;
-                                            }elseif($validador==1){ //Juego arrendado
-                                                $juegos_disponibles[$cont][0] = $juegos_todos[$i][0];
-                                                $juegos_disponibles[$cont][1] = $juegos_todos[$i][1];
-                                                $juegos_disponibles[$cont][2] = $juegos_todos[$i][2];
-                                                $juegos_disponibles[$cont][3] = $juegos_todos[$i][3];
-                                                $juegos_disponibles[$cont][4] = "Arrendado entre: ".substr($juegos_arrendados[$fila][2],11,5)." - ".substr($juegos_arrendados[$fila][3],11,5);
-                                                $juegos_disponibles[$cont][5] = $juegos_arrendados[$cont][5];
-                                                $cont++;
-                                            }
-                                        }
-                                    }else{
-                                            $juegos_disponibles = $juegos_todos;
-                                    }
-
-
-
-                                    //4. Imprimir
-                                    if(count($juegos_disponibles) !=0 && $juegos_disponibles != ""):
-                                    ?>
-                                <table class="table table-bordered" width="100%" cellspacing="0" id="tabla_juegos">
-                                    <thead>
-                                        <tr>
-                                            <th>Nombre</th>
-                                            <th>Categoria</th>
-                                            <th>Disponibilidad</th>
-                                            <th>Valor</th>
-                                            <th>Valor empresa</th>
-                                        </tr>
-                                    </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>Nombre</th>
-                                            <th>Categoria</th>
-                                            <th>Disponibilidad</th>
-                                            <th>Valor</th>
-                                            <th>Valor empresa</th>
-                                        </tr>
-                                    </tfoot>
-                                    <tbody>
-                                        <?php for($i=0;$i<count($juegos_disponibles);$i++):?>
-                                        <tr>
-                                            <td>
-                                                <div class="custom-control custom-checkbox mt-2 juego"> 
-                                                    <input onchange="juegoMarcado()" type="checkbox" class="custom-control-input"
-                                                        data-id="<?php echo $juegos_disponibles[$i][1]; ?>"
-                                                        data-nombre="<?php echo $juegos_disponibles[$i][0]; ?>" 
-                                                        data-valor="<?php echo $juegos_disponibles[$i][2]; ?>"
-                                                        data-empresa = "<?php echo $juegos_disponibles[$i][3]; ?>" 
-                                                        value="<?php echo $juegos_disponibles[$i][0]; ?>" 
-                                                        name="<?php echo $juegos_disponibles[$i][0]; ?>" 
-                                                        id="<?php echo $juegos_disponibles[$i][0]."&id=".$juegos_disponibles[$i][1]; ?>" 
-                                                        <?php
-                                                            for($x=0; $x<$contador; $x++){
-                                                                if($juegos_disponibles[$i][1]==$arriendo_juegos[$x]){
-                                                                    echo "checked";
+                                                    $juegos_arrendados[][] =""; 
+                                                    $juegos_disponibles[][] = "";
+                                                    //2. Seleccionar todos los juegos arrendados
+                                                        //Consultar por juegos arrendados más de un día
+                                                    $consulta_dias = "SELECT JA.id_juego, A.fecha, A.fin, A.start, A.end, J.categoria, J.stock, JA.cantidad FROM juego J, juego_arriendo JA, arriendo A WHERE JA.id_arriendo = A.id";
+                                                    $result_dias = mysqli_query($conexion,$consulta_dias);
+                                                    $linea=0;
+                                                    while($juegos = mysqli_fetch_array($result_dias)){
+                                                        //if($juegos['fecha'] != $juegos['fin']){
+                                                            //echo "Fila = ".$linea."<br>";
+                                                            $z=0;
+                                                            //Fechas de consulta
+                                                            $fecha_aux = strtotime($fecha);
+                                                            $fin_aux = strtotime($fin);
+                                                            //echo "Fechas de consulta: ".date ( 'Y-m-j' , $fecha_aux )." / ".date ( 'Y-m-j' , $fin_aux )."<br>";
+                                                            while($fecha_aux<=$fin_aux){
+                                                                $i = date ( 'Y-m-j' , $fecha_aux );
+                                                                
+                                                                if($i==$juegos['fecha'] || $i==$juegos['fin']){
+                                                                    $z=1;
                                                                 }
+                                                                //echo $i." ".$z."<br>";
+                                                                $fecha_aux = strtotime('+1 day',$fecha_aux);
+                                                                
                                                             }
-                                                        ?>
-                                                        >
-                                                    <label class="custom-control-label" for="<?= $juegos_disponibles[$i][1]; ?>"> <?php echo $juegos_disponibles[$i][0]; ?> </label>
-                                                </div>
-                                            </td>
-                                            <td><?= $juegos_disponibles[$i][5]; ?></td>
-                                            <td><?= $juegos_disponibles[$i][4]; ?></td>
-                                            <td><?php echo $juegos_disponibles[$i][2]; ?></td>
-                                            <td><?php echo $juegos_disponibles[$i][3]; ?></td>
-                                        </tr>
-                                        <?php endfor; ?>
-                                    </tbody>
-                                    </table>                                                            
-                                    <?php endif; ?>
-                                        <div class="row">
-                                            <div class="col-lg-3">
-                                            <button onclick="juegosSel()" class="btn btn-primary">Siguiente</button>
-                                            </div>
-                                            <div class="col-lg-3">
-                                            <h5>Total</h5>
-                                            <button class="btn btn-success" id="total_persona" onclick="totalJuegos(id)"></button>
-                                            </div>
-                                            <div class="col-lg-3">
-                                            <h5>Total Empresa</h5>
-                                            <button class="btn btn-success" id="total_empresa" onclick="totalJuegos(id)"></button>
-                                            </div>
-                                        </div>
+                                                            if($z==1){
+                                                                
+                                                                $juegos_arrendados[$cont][1] = $juegos["id_juego"];
+                                                                $inicio = strtotime($juegos['fecha']);
+                                                                $fin_j = strtotime($juegos['fin']);
+                                                                $juegos_arrendados[$cont][2] = "-----------".date("d/m",$inicio);
+                                                                $juegos_arrendados[$cont][3] = "-----------".date("d/m",$fin_j);
+                                                                $juegos_arrendados[$cont][5] = $juegos["categoria"];
+                                                                $cont++;
+                                                            }
+                                                        //}
+                                                        $linea++;
+                                                        //echo "<br>";
+                                                    }
+
+                                                    $consulta = "SELECT JA.id_juego, A.start, A.end, J.categoria, JA.cantidad FROM juego J, juego_arriendo JA, arriendo A WHERE JA.id_arriendo = A.id AND A.fecha = '".$fecha."'";
+                                                    $resultado2 = mysqli_query($conexion,$consulta);
+                                                    
+                                                    if(mysqli_num_rows($resultado2) != 0 || $cont >0 ){
+                                                        while($aux = mysqli_fetch_array( $resultado2 )){
+                                                            $juegos_arrendados[$cont][1] = $aux["id_juego"];
+                                                            $juegos_arrendados[$cont][2] = $aux["start"];
+                                                            $juegos_arrendados[$cont][3] = $aux["end"];
+                                                            $juegos_arrendados[$cont][4] = $aux["cantidad"];
+                                                            $juegos_arrendados[$cont][5] = $aux["categoria"];
+                                                            $cont++;
+                                                        }
+                                                        //3. Comparar ambas listas y colocar juegos disponibles en una nueva lista
+                                                        $cont = 0;
+                                                        
+                                                        for($i=0;$i<count($juegos_todos);$i++){
+                                                            $validador = 0; //Si este contador permanec en cero significa que el juego no esta en la lista de arrendados
+                                                            for($j=0;$j<count($juegos_arrendados);$j++){
+                                                                    if($juegos_todos[$i][1] === $juegos_arrendados[$j][1]){
+                                                                        $fila = $j;
+                                                                        $validador = 1;
+                                                                        if($juegos_todos[$i][6]!=0){
+                                                                            $validador = 2;
+                                                                        }
+                                                                    }
+                                                            }
+                                                            if($validador==0){ //Juego no arrendado
+                                                                $juegos_disponibles[$cont][0] = $juegos_todos[$i][0];
+                                                                $juegos_disponibles[$cont][1] = $juegos_todos[$i][1];
+                                                                $juegos_disponibles[$cont][2] = $juegos_todos[$i][2];
+                                                                $juegos_disponibles[$cont][3] = $juegos_todos[$i][3];
+                                                                $juegos_disponibles[$cont][4] = "Todo el día";
+                                                                $juegos_disponibles[$cont][5] = $juegos_arrendados[$cont][5];
+                                                                $juegos_disponibles[$cont][6] = $juegos_todos[$i][6];
+
+                                                                if($juegos_todos[$i][7]!=1){
+                                                                $juegos_disponibles[$cont][4] = $juegos_todos[$i][7];
+                                                                $juegos_disponibles[$cont][6] = 1;
+                                                                }
+
+                                                                $cont++;
+                                                            }elseif($validador==1){ //Juego arrendado
+                                                                $juegos_disponibles[$cont][0] = $juegos_todos[$i][0];
+                                                                $juegos_disponibles[$cont][1] = $juegos_todos[$i][1];
+                                                                $juegos_disponibles[$cont][2] = $juegos_todos[$i][2];
+                                                                $juegos_disponibles[$cont][3] = $juegos_todos[$i][3];
+                                                                $juegos_disponibles[$cont][4] = "Arrendado entre: ".substr($juegos_arrendados[$fila][2],11,5)." - ".substr($juegos_arrendados[$fila][3],11,5);
+                                                                $juegos_disponibles[$cont][5] = $juegos_arrendados[$cont][5];
+                                                                $juegos_disponibles[$cont][6] = 0;
+                                                                $cont++;
+                                                            }else{ // Juego arrendado con stock en base
+                                                                $juegos_disponibles[$cont][0] = $juegos_todos[$i][0];
+                                                                $juegos_disponibles[$cont][1] = $juegos_todos[$i][1];
+                                                                $juegos_disponibles[$cont][2] = $juegos_todos[$i][2];
+                                                                $juegos_disponibles[$cont][3] = $juegos_todos[$i][3];
+                                                                $stock = $juegos_todos[$i][7] - $juegos_arrendados[$fila][4];
+                                                                $juegos_disponibles[$cont][4] = $stock;
+                                                                $juegos_disponibles[$cont][5] = $juegos_arrendados[$cont][5];
+                                                                $juegos_disponibles[$cont][6] = 1;
+                                                                $cont++;
+                                                            }
+                                                        }
+                                                    }else{
+                                                        $juegos_disponibles = $juegos_todos;
+                                                    }
+
+
+
+                                                //4. Imprimir
+                                                if(count($juegos_disponibles) !=0 && $juegos_disponibles != ""):
+                                            ?>
+                                            <thead>
+                                                <tr>
+                                                    <th>Nombre</th>
+                                                </tr>
+                                            </thead>
+                                            <tfoot>
+                                                <tr>
+                                                    <th>Nombre</th>
+                                                </tr>
+                                            </tfoot>
+                                            <tbody>
+                                                <?php for($i=0;$i<count($juegos_disponibles);$i++):?>
+                                                <tr>
+                                                    <td>
+                                                        <div class="custom-control custom-checkbox mt-2"> 
+                                                            <input type="checkbox" class="custom-control-input juego"
+                                                                <?php
+                                                                if($juegos_disponibles[$i][6] == 1){
+                                                                    echo 'data-stock="1"';
+                                                                }else{
+                                                                    echo 'data-stock="0"';
+                                                                }
+                                                                ?>
+                                                                data-id="<?php echo $juegos_disponibles[$i][1]; ?>"
+                                                                data-nombre="<?php echo $juegos_disponibles[$i][0]; ?>" 
+                                                                data-valor="<?php echo $juegos_disponibles[$i][2]; ?>"
+                                                                data-empresa = "<?php echo $juegos_disponibles[$i][3]; ?>" 
+                                                                value="<?php echo $juegos_disponibles[$i][0]; ?>" 
+                                                                name="<?php echo $juegos_disponibles[$i][0]; ?>" 
+                                                                id="<?= $juegos_disponibles[$i][1]; ?>">
+                                                            <label class="custom-control-label" for="<?= $juegos_disponibles[$i][1]; ?>"> <?php echo $juegos_disponibles[$i][0]; ?> </label>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <?php endfor; ?>
+                                            </tbody>
+
+                                          <?php else: ?>
+                                             <h3>No hay juegos disponibles para a fecha seleccionada fecha</h3>
+                                                         <?php endif; endif; ?>
+                                        </table>
+                                    </div>
+                                    <form id="juegos_agregar">
+                                       <!--Aqui se agrega-->
+                                       <input type="hidden" name="cantidad_juegos" id="agregar_cantidad_juegos">
+                                       <ul id="lista_juegos">
+                                       </ul>
+                                    </form>
                                 </div>
                             </div>
                         </div>

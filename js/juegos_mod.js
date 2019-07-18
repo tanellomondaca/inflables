@@ -19,27 +19,59 @@ function eliminarJuegos(){
 }
 
 //Calcula el total de los juegos seleccionados segun sea empresa o persona
-function juegosSel() {
-    $(".juego input").each(function () {
-        if ($(this).prop('checked') == true) {
+var stock_juegos = new Array;
+var id_juegos = new Array;
+var cant_juegos = 0;
+
+$("input.juego").on("click", function () {
+    if ($(this).prop('checked') == true) {
+        if ($(this).data("stock") == '1') {
+            var cantidad = prompt("Inserte cantidad para arrendar:", "Ej: 8");
+            var id = $(this).data("id");
+            stock_juegos[id] = cantidad;
+
+            nombre_juegos[cantidad_juegos] = cantidad + " " + $(this).data("nombre");
             id_juegos[cantidad_juegos] = $(this).data("id");
 
-            total_persona += $(this).data("valor");
-            total_empresa += $(this).data("empresa");
+
+            // total_persona += cantidad * $(this).data("valor");
+            // total_empresa += cantidad * $(this).data("empresa");
+
+            cantidad_juegos++
+        } else {
+            stock_juegos[id] = 1;
+            nombre_juegos[cantidad_juegos] = $(this).data("nombre");
+            id_juegos[cantidad_juegos] = $(this).data("id");
+
+
+            // total_persona += $(this).data("valor");
+            // total_empresa += $(this).data("empresa");
 
             cantidad_juegos++;
         }
-    })
+    } else {
+        if ($(this).data("stock") == '1') {
+            var id = $(this).data("id");
+            var cantidad = stock_juegos[id];
 
-    //$("#lista_juegos li").remove();
-    //$("#lista_juegos input").remove();
+            // total_persona -= cantidad * $(this).data("valor");
+            // total_empresa -= cantidad * $(this).data("empresa");
+        } else {
+            // total_persona -= $(this).data("valor");
+            // total_empresa -= $(this).data("empresa");
+        }
+        cantidad_juegos--;
+    }
 
-    /*for (i = 0; i < cantidad_juegos; i++) {
+    $("#lista_juegos li").remove();
+    $("#lista_juegos input").remove();
+
+    for (i = 0; i < cantidad_juegos; i++) {
         $("#lista_juegos").append(
             $('<input>', {
                 'type': 'hidden',
-                'name': 'nombre' + i,
-                'value': nombre_juegos[i]
+                'name': 'stock' + i,
+                'value': stock_juegos[id_juegos[i]]
             })
         );
         $("#lista_juegos").append(
@@ -54,36 +86,13 @@ function juegosSel() {
                 'html': nombre_juegos[i]
             })
         )
-    }*/
-
-
-    //$("#cant_juegos").val(cantidad_juegos);
-
-    $("#total_persona").text(total_persona);
-    $("#total_empresa").text(total_empresa);
-}
-
-var cantidad_juegos = 0;
-var nombre_juegos = new Array;
-var id_juegos = new Array;
-var total_persona = 0;
-var total_empresa = 0;
-
-$("input").on("click", function () {
-    console.log($(this).prop('checked'));
-    if ($(this).prop('checked') == true) {
-        id_juegos[cantidad_juegos] = $(this).data("id");
-        total_persona += parseInt($(this).data("valor"));
-        total_empresa += parseInt($(this).data("empresa"));
-
-        cantidad_juegos++;
-    } else {
-        total_persona -= parseInt($(this).data("valor"));
-        total_empresa -= parseInt($(this).data("empresa"));
-
-        cantidad_juegos--;
     }
-    $("#total_persona").text(total_persona);
-    $("#total_empresa").text(total_empresa);
+
+
+    $("#agregar_cantidad_juegos").val(cantidad_juegos);
+
+    // $("#total_persona").text(total_persona);
+    // $("#total_empresa").text(total_empresa);
+
 });
 
