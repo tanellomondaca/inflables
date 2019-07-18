@@ -425,6 +425,7 @@
                                                          $juegos_todos[$cont][7] = $aux["stock"]; //stock total del juego
                                                          if($aux["stock"] > 1){
                                                             $juegos_todos[$cont][6] = 1;
+                                                            $juegos_todos[$cont][4] = $aux["stock"];
                                                          }
                                                          $cont++;
                                                    }
