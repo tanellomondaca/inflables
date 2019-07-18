@@ -13,6 +13,7 @@
     $end = $fin." ".$_POST["hora_termino"];
     $telefono = $_POST["telefono"];
 
+    $total_juegos = $_POST["total_juegos"];
     $despacho = $_POST["valor_despacho"];
     $valor_total = $_POST["valor_total"];
     $cobro_adicional = $_POST["cobro_adicional"];
@@ -53,7 +54,7 @@
     }
 
     #Ingresar arriendo
-    $consulta = "INSERT INTO arriendo (id, fecha, fin, fecha_creacion, arrendado_por, rut_cliente, telefono, start, end, valor_total, abono, fecha_abono, saldo, estado, color, direccion, comuna, direccion_notas, comentarios, cobro_adicional, descuento, despacho) VALUES (NULL, '$fecha', '$fin', current_timestamp(), '".$arrendado_por."', '".$rut_cliente."', '".$telefono."', '".$start."', '".$end."', '".$valor_total."', '".$abono."', '".$fecha_abono."', '".$saldo."', '".$estado."', '".$color."', '".$direccion."', '".$comuna."', '".$direccion_notas."', '".$comentarios."', '$cobro_adicional', '$descuento', '$despacho')";
+    $consulta = "INSERT INTO arriendo (id, fecha, fin, fecha_creacion, arrendado_por, rut_cliente, telefono, start, end, valor_total, abono, fecha_abono, saldo, estado, color, direccion, comuna, direccion_notas, comentarios, cobro_adicional, descuento, despacho, total_juegos) VALUES (NULL, '$fecha', '$fin', current_timestamp(), '".$arrendado_por."', '".$rut_cliente."', '".$telefono."', '".$start."', '".$end."', '".$valor_total."', '".$abono."', '".$fecha_abono."', '".$saldo."', '".$estado."', '".$color."', '".$direccion."', '".$comuna."', '".$direccion_notas."', '".$comentarios."', '$cobro_adicional', '$descuento', '$despacho', '$total_juegos')";
 
     $confirmacion = 0;
 

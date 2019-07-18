@@ -167,7 +167,21 @@
     </div>
 
     <hr>
-
+    <div class="form-group row">
+        <div class="col-lg-6 col-md-6">
+            <h6 class="mt-3 font-weight-bold text-primary">
+            Total de los juegos
+            </h6>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-3">
+            <input type="text" class="form-control form-control-user"
+            name="total_juegos_original" id="total_juegos_original" value="<?= $arriendo["total_juegos"] ?>" readonly>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-3">
+            <input onchange="calcular()" class="form-control form-control-user"
+            name="total_juegos" id="total_juegos" placeholder="Total juegos" value="<?= $arriendo["total_juegos"] ?>" required>
+        </div>
+    </div>
     <div class="form-group row">
         <div class="col-lg-6 col-md-6">
             <h6 class="mt-3 font-weight-bold text-primary">
@@ -180,7 +194,7 @@
         </div>
         <div class="col-lg-3 col-md-6 mb-3">
             <input onchange="calcular()" type="text" class="form-control form-control-user"
-            name="valor_despacho" id="valor_despacho" placeholder="Valor despacho" value="0" required>
+            name="valor_despacho" id="valor_despacho" placeholder="Valor despacho" value="<?= $arriendo["despacho"] ?>" required>
         </div>
     </div>
     <div class="form-group row">
@@ -201,7 +215,7 @@
         <div class="col-lg-3 col-md-6 mb-3">
             <input onchange="calcular()" type="text" class="form-control form-control-user"
             name="cobro_adicional" id="cobro_adicional"
-            placeholder="Cobro adicional" value="0" required>
+            placeholder="Cobro adicional" value="<?= $arriendo["cobro_adicional"] ?>" required>
         </div>
     </div>
     <div class="form-group row">

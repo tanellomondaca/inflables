@@ -77,6 +77,7 @@
     function modificarArriendo($conexion){
         $id_arriendo = $_POST["id_arriendo"];
 
+        $total_juegos = $_POST["total_juegos"];
         $despacho = $_POST["valor_despacho"];
         $valor_total = $_POST["valor_total"];
         $cobro_adicional = $_POST["cobro_adicional"];
