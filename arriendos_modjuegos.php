@@ -10,6 +10,8 @@
    //solo de esta pagina
    $id_arriendo = $_GET["id_arriendo"];
 
+   
+
    //SELECCION DE JUEGOS DEL ARRIENDO PARA ELIMINAR
    $eliminar = "SELECT * FROM juego_arriendo JA, juego J WHERE JA.id_arriendo = '$id_arriendo' AND JA.id_juego = J.id ";
    $resultado_eliminar = mysqli_query($conexion, $eliminar);
@@ -215,14 +217,20 @@
                                                 include "conexion.php";
 
                                                 if($v==1):
-                                                
-                                                    $fecha = $_GET['fecha'];
-                                                    $fin = "";
-                                                    if(isset($_GET["fin"])){
-                                                        $fin=$_GET["fin"];
-                                                    }else{
-                                                        $fin=$fecha;
+                                                    //pequeña seccion para etregar la misma fech del arriendo consultado
+                                                    $sql_fecha = "SELECT fecha, fin FROM arriendo WHERE id = '$id_arriendo' ";
+                                                    $resul_fecha = mysqli_query($conexion,$sql_fecha);
+                                                    while($a = mysqli_fetch_array($resul_fecha)){
+                                                        $fecha = $a['fecha'];
+                                                        $fin = $a["fin"];
                                                     }
+                                                    //
+                                                    
+                                                    // if(isset($_GET["fin"])){
+                                                    //     $fin=$_GET["fin"];
+                                                    // }else{
+                                                    //     $fin=$fecha;
+                                                    // }
                                                     //1. Seleccionar todos los juegos existentes
                                                     $consulta = "SELECT nombre, id, valor_persona, valor_empresa, categoria, stock FROM juego";
                                                     $resultado1 = mysqli_query($conexion,$consulta);
