@@ -58,11 +58,15 @@ function calcular(){
     } else {
         descuento_detalle = parseInt($("#descuento").val());
     }
-    
+    console.log("juegos = "+total_juegos);
+    console.log("despacho = "+despacho_detalle);
+    console.log("adicionl ="+cobro_adicional_detalle);
+    console.log("descuento ="+descuento_detalle);
     
 
     total = total_juegos + despacho_detalle + cobro_adicional_detalle - descuento_detalle;
 
+    console.log("total = "+total);
     $("#valor_total").val(total);
 
     var abono = parseInt($("#abono").val());
