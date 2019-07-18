@@ -168,7 +168,7 @@
 
     <hr>
     <div class="form-group row">
-        <div class="col-lg-6 col-md-6">
+        <div class="col-lg-4 col-md-6">
             <h6 class="mt-3 font-weight-bold text-primary">
             Total de los juegos
             </h6>
@@ -177,13 +177,15 @@
             <input type="text" class="form-control form-control-user"
             name="total_juegos_original" id="total_juegos_original" value="<?= $arriendo["total_juegos"] ?>" readonly>
         </div>
+        <div class="col-lg-2 col-md-6 mb-3">
+        </div>
         <div class="col-lg-3 col-md-6 mb-3">
             <input onchange="calcular()" class="form-control form-control-user"
             name="total_juegos" id="total_juegos" placeholder="Total juegos" value="<?= $arriendo["total_juegos"] ?>" required>
         </div>
     </div>
     <div class="form-group row">
-        <div class="col-lg-6 col-md-6">
+        <div class="col-lg-4 col-md-6">
             <h6 class="mt-3 font-weight-bold text-primary">
             Valor de despacho
             </h6>
@@ -191,6 +193,8 @@
         <div class="col-lg-3 col-md-6 mb-3">
             <input type="text" class="form-control form-control-user"
             name="valor_despacho_original" id="valor_despacho_original" placeholder="Valor despacho" value="<?= $arriendo["despacho"] ?>" readonly>
+        </div>
+        <div class="col-lg-2 col-md-6 mb-3">
         </div>
         <div class="col-lg-3 col-md-6 mb-3">
             <input onchange="calcular()" type="text" class="form-control form-control-user"
@@ -247,6 +251,8 @@
         <div class="col-lg-3 col-md-6 mb-3">
             <input type="text" class="form-control form-control-user"
             name="valor_total_original" id="valor_total_original" placeholder="Valor total" value="<?= $arriendo["valor_total"] ?>" readonly>
+        </div>
+        <div class="col-lg-2 col-md-6 mb-3">
         </div>
         <div class="col-lg-3 col-md-6 mb-3">
             <input type="text" class="form-control form-control-user"
