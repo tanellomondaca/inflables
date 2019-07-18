@@ -96,9 +96,7 @@ function calcularDescuento(){
 function modificarArriendo(){
     var form_arriendo_detalle = document.getElementById("form_arriendo_detalle");
     var xhr_enviar = new XMLHttpRequest;
-
     xhr_enviar.open('POST', "funciones.php?v=2");
-
     xhr_enviar.addEventListener('load', (info) => {
         var resultado_enviar = new String;
         resultado_enviar = info.target.response;
@@ -107,7 +105,6 @@ function modificarArriendo(){
         location.href = "http://pdc.arcadesamuel.cl/arriendos.php";
     })
     xhr_enviar.send(new FormData(form_arriendo_detalle));
-
 }
 function modificarDatos() {
     var form_arriendo_detalle = document.getElementById("form_arriendo_detalle");

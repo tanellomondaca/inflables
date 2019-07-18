@@ -82,27 +82,15 @@
         $valor_total = $_POST["valor_total"];
         $cobro_adicional = $_POST["cobro_adicional"];
         $descuento = $_POST["descuento"];
-        $abono = $_POST["abono"];
-
-        $fecha_abono = $_POST["fecha_abono"];
-        $saldo = $_POST["saldo"];
-
-        ///////////////////
-        $color = ""; //Segun estado: prearrendado, abonado, o pagado
-        $estado = "";
-        if($abono == 0){
-            $estado = "pre-arrendado";
-            $color = "red";
-        }elseif($saldo==0){
-            $estado = "pagado";
-            $color = "green";
-        }else{
-            $estado = "pendiente";
-            $color = "#FFA60B";
-        }
 
         #Modificar arriendo
-        $modificar_arriendo = "UPDATE arriendo SET fecha = '$fecha', fin = '$fin', telefono = '$telefono', start = '$start', end = '$end', valor_total = '$valor_total', cobro_adicional = '$cobro_adicional', descuento = '$descuento', despacho = '$despacho', abono = '$abono', fecha_abono = '$fecha_abono', saldo = '$saldo', estado = '$estado', color = '$color', direccion = '$direccion', comuna = '$comuna', direccion_notas = '$direccion_notas', comentarios = '$comentarios' WHERE arriendo.id = '$id_arriendo' ";
+        $modificar_arriendo = "UPDATE arriendo SET
+        total_juegos = '$total_juegos', 
+        valor_total = '$valor_total', 
+        cobro_adicional = '$cobro_adicional', 
+        descuento = '$descuento', 
+        despacho = '$despacho'  
+        WHERE arriendo.id = '$id_arriendo' ";
 
         $confirmacion = 0;
 
