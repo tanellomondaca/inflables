@@ -11,7 +11,13 @@ function asignarId(id,total){
 
 function calcularAbono() {
     var total = $("#total_abono_modal").val();
-    var abono = $("#abono_abono").val();
+    if ($("#abono_abono").val() == ""){
+        alert("Ingrese un valor valido");
+        var abono = 0;
+    }else{
+        var abono = $("#abono_abono").val();
+    }
+    
     $("#saldo_abono").val(total-abono);
 }
 
