@@ -113,6 +113,11 @@
 
     function eliminarJuegos($conexion){
         $cantidad = $_POST["cantidad_juegos"];
+        $id = $_POST["id_arriendo"];
+        if($cantidad == 0){
+            echo "No hay juegos seleccionados";
+            exit();
+        }
         $j=0;
         $juegos[] = "";
         for($i=0; $i<$cantidad; $i++){
@@ -122,8 +127,21 @@
                 $j++;
             }
         }
-        echo $cantidad."///////////////////////77";
-        var_dump($juegos);
+
+        $estado = 0;
+        for($i=0; $i<$j; $i++){
+            $sql_eliminar = "DELETE FROM juego_arriendo WHERE juego_arriendo.id_arriendo = '$id' AND juego_arriendo.id_juego = '".$juegos[$i]."' ";
+            if(mysqli_query($conexion, $sql_eliminar)){
+                $estado = 0;
+            }else{
+                $estado = 1;
+            }
+        }
+        if($estado==0){
+            echo "Juegos eliminados exitosamente";
+        }else{
+            echo "Error, intente nuevamente";
+        }
         
     }
 ?>

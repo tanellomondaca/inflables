@@ -149,6 +149,7 @@
                                  <!-- Cuerpo tarjeta  -->
                                 <div class="card-body">
                                 <form id="juegos_eliminar">
+                                    <input type="hidden" name="id_arriendo"     value="<?= $id_arriendo;    ?>">
                                     <input type="hidden" name="cantidad_juegos" value="<?= $cantidad_juegos ?>">
                                     <table class="table table-bordered" width="100%" cellspacing="0" id="tabla_eliminar">
                                         <thead>
