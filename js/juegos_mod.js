@@ -21,7 +21,8 @@ function eliminarJuegos(){
 //Calcula el total de los juegos seleccionados segun sea empresa o persona
 var stock_juegos = new Array;
 var id_juegos = new Array;
-var cant_juegos = 0;
+var cantidad_juegos = 0;
+var nombre_juegos = new Array;
 
 $("input.juego").on("click", function () {
     if ($(this).prop('checked') == true) {

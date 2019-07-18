@@ -357,46 +357,58 @@
                                                 if(count($juegos_disponibles) !=0 && $juegos_disponibles != ""):
                                             ?>
                                             <thead>
-                                                <tr>
-                                                    <th>Nombre</th>
-                                                </tr>
-                                            </thead>
-                                            <tfoot>
-                                                <tr>
-                                                    <th>Nombre</th>
-                                                </tr>
-                                            </tfoot>
-                                            <tbody>
-                                                <?php for($i=0;$i<count($juegos_disponibles);$i++):?>
-                                                <tr>
-                                                    <td>
-                                                        <div class="custom-control custom-checkbox mt-2"> 
-                                                            <input type="checkbox" class="custom-control-input juego"
-                                                                <?php
-                                                                if($juegos_disponibles[$i][6] == 1){
-                                                                    echo 'data-stock="1"';
-                                                                }else{
-                                                                    echo 'data-stock="0"';
-                                                                }
-                                                                ?>
-                                                                data-id="<?php echo $juegos_disponibles[$i][1]; ?>"
-                                                                data-nombre="<?php echo $juegos_disponibles[$i][0]; ?>" 
-                                                                data-valor="<?php echo $juegos_disponibles[$i][2]; ?>"
-                                                                data-empresa = "<?php echo $juegos_disponibles[$i][3]; ?>" 
-                                                                value="<?php echo $juegos_disponibles[$i][0]; ?>" 
-                                                                name="<?php echo $juegos_disponibles[$i][0]; ?>" 
-                                                                id="<?= $juegos_disponibles[$i][1]; ?>">
-                                                            <label class="custom-control-label" for="<?= $juegos_disponibles[$i][1]; ?>"> <?php echo $juegos_disponibles[$i][0]; ?> </label>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <?php endfor; ?>
-                                            </tbody>
+                                             <tr>
+                                                   <th>Nombre</th>
+                                                   <th>Categoria</th>
+                                                   <th>Disponibilidad</th>
+                                                   <th>Valor</th>
+                                                   <th>Valor empresa</th>
+                                             </tr>
+                                          </thead>
+                                          <tfoot>
+                                             <tr>
+                                                   <th>Nombre</th>
+                                                   <th>Categoria</th>
+                                                   <th>Disponibilidad</th>
+                                                   <th>Valor</th>
+                                                   <th>Valor empresa</th>
+                                             </tr>
+                                          </tfoot>
+                                          <tbody>
+                                             <?php for($i=0;$i<count($juegos_disponibles);$i++):?>
+                                             <tr>
+                                                   <td>
+                                                      <div class="custom-control custom-checkbox mt-2"> 
+                                                         <input type="checkbox" class="custom-control-input juego"
+                                                               <?php
+                                                               if($juegos_disponibles[$i][6] == 1){
+                                                                  echo 'data-stock="1"';
+                                                               }else{
+                                                                  echo 'data-stock="0"';
+                                                               }
+                                                               ?>
+                                                               data-id="<?php echo $juegos_disponibles[$i][1]; ?>"
+                                                               data-nombre="<?php echo $juegos_disponibles[$i][0]; ?>" 
+                                                               data-valor="<?php echo $juegos_disponibles[$i][2]; ?>"
+                                                               data-empresa = "<?php echo $juegos_disponibles[$i][3]; ?>" 
+                                                               value="<?php echo $juegos_disponibles[$i][0]; ?>" 
+                                                               name="<?php echo $juegos_disponibles[$i][0]; ?>" 
+                                                               id="<?= $juegos_disponibles[$i][1]; ?>">
+                                                         <label class="custom-control-label" for="<?= $juegos_disponibles[$i][1]; ?>"> <?php echo $juegos_disponibles[$i][0]; ?> </label>
+                                                      </div>
+                                                   </td>
+                                                   <td><?= $juegos_disponibles[$i][5]; ?></td>
+                                                   <td><?= $juegos_disponibles[$i][4]; ?></td>
+                                                   <td><?= $juegos_disponibles[$i][2]; ?></td>
+                                                   <td><?= $juegos_disponibles[$i][3]; ?></td>
+                                             </tr>
+                                             <?php endfor; ?>
+                                          </tbody>
 
-                                          <?php else: ?>
-                                             <h3>No hay juegos disponibles para a fecha seleccionada fecha</h3>
-                                                         <?php endif; endif; ?>
-                                        </table>
+                                             <?php else: ?>
+                                                <h3>No hay juegos disponibles para a fecha seleccionada fecha</h3>
+                                                            <?php endif; endif; ?>
+                                       </table>
                                     </div>
                                     <form id="juegos_agregar">
                                        <!--Aqui se agrega-->
