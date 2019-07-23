@@ -132,9 +132,9 @@
                             <div class="card shadow mb-4">
                                 <!-- Titulo de la seccion -->
                                 <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">
+                                    <h5 class="m-0 font-weight-bold text-primary">
                                         Calendario de Arriendos
-                                    </h6>
+                                    </h5>
                                 </div>
                                 <!-- Cuerpo tarjeta -->
                                 <div class="card-body">
@@ -165,9 +165,9 @@
                             <div class="card shadow mb-4">
                                 <!-- Titulo de la seccion -->
                                 <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">
+                                    <h5 class="m-0 font-weight-bold text-primary">
                                         Arriendos sin abono
-                                    </h6>
+                                    </h5>
                                 </div>
                                 <!-- Cuerpo tarjeta -->
                                 <div class="card-body">

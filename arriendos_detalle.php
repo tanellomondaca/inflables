@@ -18,11 +18,26 @@
    $consulta_comuna = "SELECT * FROM comuna";
    $comunas = mysqli_query($conexion,$consulta_comuna);
 
+   $rut = $arriendo["arrendado_por"];
+   $sql_quien = "SELECT * FROM trabajador WHERE rut = '$rut'";
+   $r_tra = mysqli_query($conexion, $sql_quien);
+   mysqli_data_seek($r_tra,0);
+   $trabajador = mysqli_fetch_assoc($r_tra);
+
+
 ?>
 <form class="user" id="form_arriendo_detalle">
     <input type="hidden" name="rut_arriendo" id="rut_arriendo" value="<?= $arriendo["rut_cliente"] ?>">
     <input type="hidden" name="id_arriendo" id="id_arriendo_modificar" value="<?= $id_arriendo ?>">
     <input type="hidden" name="arrendado_por" value="<?= $arriendo["arrendado_por"] ?>">
+    <div class="form-group row">
+        <div class="col-lg-6">
+            <h6 class="mt-3 font-weight-bold text-primary">
+            Arrendado por <?= $trabajador["nombre"]." ".$trabajador["apellido"] ?>
+            </h6>
+        </div>
+    </div>
+    <hr>
     <div class="form-group row">
         <div class="col-lg-3 col-md-6">
             <h6 class="mt-3 font-weight-bold text-primary">
@@ -162,7 +177,7 @@
 
     <div class="form-group row">
         <div class="col-lg-4 mt-1">
-            <a href="arriendos_modjuegos.php?id_arriendo=<?= $id_arriendo?>" class="btn btn-danger">Modificar Juegos 2</a>
+            <a href="arriendos_modjuegos.php?id_arriendo=<?= $id_arriendo?>" class="btn btn-danger">Modificar Juegos</a>
         </div>
     </div>
 
