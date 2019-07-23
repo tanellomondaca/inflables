@@ -131,6 +131,7 @@ function modificarDatos() {
 
 function modificarJuegos(){
     var id_arriendo = $("#id_arriendo_modificar").val();
+    alert("funcina");
     location.href = "arriendos_modjuegos.php?id_arriendo="+id_arriendo;
 
 }
