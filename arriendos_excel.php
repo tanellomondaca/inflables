@@ -29,9 +29,9 @@
         <td>
             <?php
                 if($evento["fecha"] != $evento["fin"]){
-                    if($fecha = $evento["fecha"] ){
+                    if($fecha == $evento["fecha"] ){
                         echo "SOLO INSTALACION";
-                    }else{
+                    }elseif($fecha == $evento["fin"]){
                         ECHO "SOLO RETIRO";
                     }
                 }
