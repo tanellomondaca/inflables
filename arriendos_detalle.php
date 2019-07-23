@@ -162,7 +162,7 @@
 
     <div class="form-group row">
         <div class="col-lg-4 mt-1">
-            <a href="arriendos_modjuegos.php?id_arriendo<?= $id_arriendo?>" class="btn btn-danger">Modificar Juegos 2</a>
+            <a href="arriendos_modjuegos.php?id_arriendo=<?= $id_arriendo?>" class="btn btn-danger">Modificar Juegos 2</a>
         </div>
     </div>
 
