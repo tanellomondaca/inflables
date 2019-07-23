@@ -1,12 +1,12 @@
 <?php
     $fecha = $_GET['fecha'];
-    header('Content-type: application/vnd.ms-excel;charset=iso-8859-15');
-    header("Content-Disposition: attachment; filename=arriendos'$fecha'.xls");
+    //header('Content-type: application/vnd.ms-excel;charset=iso-8859-15');
+   // header("Content-Disposition: attachment; filename=arriendos'$fecha'.xls");
 
     include 'conexion.php';
     
 
-    $consulta = "SELECT * FROM arriendo WHERE fecha <= '$fecha' AND fin >= '$fecha'";
+    $consulta = "SELECT * FROM arriendo WHERE fecha = '$fecha' OR fin = '$fecha'";
     $resultado = mysqli_query($conexion,$consulta);
 
 ?>
