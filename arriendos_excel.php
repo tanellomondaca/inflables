@@ -38,7 +38,7 @@
         </td>
         <td>
             <?php
-                $rut_cliente = $evento['direccion'];
+                $rut_cliente = $evento['rut_cliente'];
                 $sql_cons = "SELECT * FROM cliente_persona WHERE rut = '$rut_cliente'";
                 $resultado_cliente = mysqli_query($conexion, $sql_cons);
                 mysqli_data_seek($resultado_cliente,0);
