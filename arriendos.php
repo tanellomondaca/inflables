@@ -260,7 +260,7 @@
             <!-- Modal ARRIENDOS DEL DIA -->
             <div class="modal fade" id="modal_arriendos_dia" tabindex="-1" role="dialog"
                 aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-dialog modal-xl" role="document">
                     <div class="modal-content shadow">
                         <div class="modal-header">
                             <h5 class="modal-title" id="exampleModalLabel">Arriendos del día
