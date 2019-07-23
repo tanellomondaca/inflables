@@ -163,6 +163,7 @@
     <div class="form-group row">
         <div class="col-lg-4 mt-1">
             <button id="modal_juegos" onclick="modificarJuegos()" class="btn btn-danger">Modificar juegos</button>
+            <a href="pdc.arcadesamuel/arriendos_modjuegos.php?id_arriendo<?= $id_arriendo?>">Modificar Juegos 2</a>
         </div>
     </div>
 
