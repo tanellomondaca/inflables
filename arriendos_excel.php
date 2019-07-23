@@ -1,7 +1,7 @@
 <?php
     $fecha = $_GET['fecha'];
-    //header('Content-type: application/vnd.ms-excel;charset=iso-8859-15');
-   // header("Content-Disposition: attachment; filename=arriendos'$fecha'.xls");
+    header('Content-type: application/vnd.ms-excel;charset=iso-8859-15');
+    header("Content-Disposition: attachment; filename=arriendos'$fecha'.xls");
 
     include 'conexion.php';
     
@@ -18,8 +18,10 @@
         <th>Juegos</th>
         <th>Direccion</th>
         <th>Comuna</th>
+        <th>Notas de direccion</th>
         <th>Inicio</th>
         <th>Fin</th>
+        <th>Comentarios</th>
         <th>Saldo</th>
     </tr>
 <?php
@@ -63,8 +65,10 @@
         </td>
         <td> <?= $evento['direccion'];?> </td>
         <td> <?= $evento['comuna'];?> </td>
+        <td> <?= $evento['direccion_notas'];?> </td>
         <td> <?= substr($evento['start'],11,5); ?> </td>
         <td> <?= substr($evento['end'],11,5);?> </td>
+        <td> <?= $evento['comentarios'];?> </td>
         <td><?= $evento["saldo"]; ?></td>
         
     </tr>
