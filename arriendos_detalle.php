@@ -162,7 +162,7 @@
 
     <div class="form-group row">
         <div class="col-lg-4 mt-1">
-            <button id="modal_juegos" onclick="modificarJuegos()" data-toggle="modal" data-target="#modificar_juegos" class="btn btn-danger">Modificar juegos</button>
+            <button id="modal_juegos" onclick="modificarJuegos()" class="btn btn-danger">Modificar juegos</button>
         </div>
     </div>
 

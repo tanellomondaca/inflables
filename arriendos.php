@@ -404,34 +404,7 @@
                 </div>
             </div>
 
-            
-            <!-- Modal MODIFICR JUEGOS-->
-            <div class="modal fade" id="modificar_juegos" tabindex="-1" role="dialog"
-                aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg" role="document">
-                    <div class="modal-content shadow">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Modificar Juegos
-                            </h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="table-responsive" id="tabla-juegos">
-                                <table class="table table-bordered" width="100%" cellspacing="0" id="tabla_juegos">
-                                </table>
-                                <div class="row justify-content-md-center">
-                                        <button onclick=""
-                                            class="btn btn-primary btn-user btn-block col-lg-4"
-                                            id="btn_modificar_juegos" value="">Modificar juegos</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
+        
         </div>
     </div>
     <a class="scroll-to-top rounded" href="#page-top">
