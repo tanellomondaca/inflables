@@ -132,7 +132,7 @@ function modificarDatos() {
 function modificarJuegos(){
     var id_arriendo = $("#id_arriendo_modificar").val();
     alert("funcina");
-    location.replace("arriendos_modjuegos.php?id_arriendo=" + id_arriendo);
+    location.assign("pdc.arcadesamuel.cl/arriendos_modjuegos.php?id_arriendo=" + id_arriendo);
     //location.href = ;
 
 }
