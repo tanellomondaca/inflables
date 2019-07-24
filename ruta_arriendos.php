@@ -18,21 +18,20 @@
 
     while($arriendo = mysqli_fetch_array($resultado) ){
         $nombre_juego[$cant_arr][0] = $arriendo["id"];
-
-        $info_arriendo[$cant_arr][0] = $arriendo["start"];
-        $info_arriendo[$cant_arr][1] = $arriendo["end"];
-        $info_arriendo[$cant_arr][2] = $arriendo["calle"];
+        $info_arriendo[$cant_arr][0] = substr($arriendo["start"],11,5);
+        $info_arriendo[$cant_arr][1] = substr($arriendo["end"],11,5);
+        $info_arriendo[$cant_arr][2] = $arriendo["direccion"];
         $info_arriendo[$cant_arr][3] = $arriendo["comuna"];
 
         $cant_arr++;
     }
 
     for($i=0 ; $i<$cant_arr ; $i++){
-        $cons_juegos = "SELECT nombre_juego FROM juego_arriendo WHERE id_arriendo = '".$nombre_juego[$i][0]."'";
+        $cons_juegos = "SELECT J.nombre, JA.cantidad FROM juego_arriendo JA, juego J WHERE JA.id_arriendo = '".$nombre_juego[$i][0]."' JA.id_juego = J.id";
         $resul_juegos = mysqli_query($conexion,$cons_juegos);
 
         for($j=1; $juegos = mysqli_fetch_array($resul_juegos) ; $j++ ){
-            $nombre_juego[$i][$j] = $juegos["nombre_juego"];
+            $nombre_juego[$i][$j] = $juegos["cantidad"]." ".$juegos["nombre_juego"];
         }
     }
 

@@ -145,7 +145,7 @@
                                        } ?>                         
                                  </div>
                                  <div class="col-lg-2">
-                                       <div class="btn btn-primary">Arriendo</div>
+                                       <?= $info_arriendo[$i][0]." - ".$info_arriendo[$i][1];?>
                                  </div>
                                  <div class="col-lg-3">
                                        <?php echo $info_arriendo[$i][2];?>
