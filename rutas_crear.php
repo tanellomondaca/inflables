@@ -5,8 +5,8 @@
       header("Location: http://pdc.arcadesamuel.cl");
    }
 
-   include 'conexion.php';
-   $fecha = $_GET["fecha"];
+   include 'ruta_arriendos.php';
+   // $fecha = $_GET["fecha"];
 ?>
 
 <!DOCTYPE HTML>
@@ -133,8 +133,8 @@
                         <div class="card-body" id="arriendos">
                            <!--Cada id corresponde al id del arriendo-->
                            <?php 
-                              $sql_arriendos = "SELECT * FROM arriendo A WHERE A.fecha = '$fecha' OR A.fin = '$fecha' ";
-                              $resultado_arriendo = mysqli_query($conexion, $sql_arriendos);
+                              //$sql_arriendos = "SELECT * FROM arriendo A WHERE A.fecha = '$fecha' OR A.fin = '$fecha' ";
+                              //$resultado_arriendo = mysqli_query($conexion, $sql_arriendos);
                               
                            ?>
                               <?php for($i=0 ; $i<$cant_arr ; $i++): #este $i es el numero de arriendo ?>
@@ -194,9 +194,9 @@
                            <h6 class="m-0 font-weight-bold text-primary">Ruta 1 </h6>
                         </a>
                         <!-- Cuerpo tarjeta -->
-                        <div class="collapse show">
+                        <div class="collapse show"  id="ruta1">
                            <div class="card-body">
-                              <form id="ruta1">
+                              <form>
                                  <div class="row">
                                     <div id="ruta-chofer" class=" col-lg-12 rounded border-left-success py-3">
                                        <h4>Chofer</h4>
@@ -225,22 +225,22 @@
                <!-- FIN Elementos para rutas-->
 
                <!-- Seccion ejemplo -->
-               <div class="row">
+               <!-- <div class="row">
                   <div class="col-lg-12">
-                        <div class="card shadow mb-4">
+                        <div class="card shadow mb-4"> -->
                            <!-- Titulo de la seccion -->
-                           <div class="card-header py-3">
+                           <!-- <div class="card-header py-3">
                               <h6 class="m-0 font-weight-bold text-primary">
                                     Ejemplo de tarjeta/card
                               </h6>
-                           </div>
+                           </div> -->
                            <!-- Cuerpo tarjeta -->
-                           <div class="card-body">
+                           <!-- <div class="card-body">
 
                            </div>
                         </div>
                   </div>
-               </div>
+               </div> -->
                <!-- Fin sección ejemplo --->
 
             </div>

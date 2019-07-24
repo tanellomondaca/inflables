@@ -7,7 +7,7 @@
     # 1. Recibir fecha para consultar por arriendo
     $fecha = $_GET['fecha'];
     # 2. Consultar arriendos para esa fecha
-    $consulta = "SELECT * FROM arriendo WHERE fecha ='".$fecha."'";
+    $consulta = "SELECT * FROM arriendo WHERE fecha ='$fecha.' OR fin = '$fecha'";
     $resultado = mysqli_query($conexion,$consulta);
 
 
