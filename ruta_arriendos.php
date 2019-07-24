@@ -27,7 +27,7 @@
     }
 
     for($i=0 ; $i<$cant_arr ; $i++){
-        $cons_juegos = "SELECT J.nombre, JA.cantidad FROM juego_arriendo JA, juego J WHERE JA.id_arriendo = '".$nombre_juego[$i][0]."' JA.id_juego = J.id";
+        $cons_juegos = "SELECT J.nombre, JA.cantidad FROM juego_arriendo JA, juego J WHERE JA.id_arriendo = '".$nombre_juego[$i][0]."' AND JA.id_juego = J.id";
         $resul_juegos = mysqli_query($conexion,$cons_juegos);
 
         for($j=1; $juegos = mysqli_fetch_array($resul_juegos) ; $j++ ){
