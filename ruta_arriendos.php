@@ -31,7 +31,7 @@
         $resul_juegos = mysqli_query($conexion,$cons_juegos);
 
         for($j=1; $juegos = mysqli_fetch_array($resul_juegos) ; $j++ ){
-            $nombre_juego[$i][$j] = $juegos["cantidad"]." ".$juegos["nombre_juego"];
+            $nombre_juego[$i][$j] = $juegos["cantidad"]." ".$juegos["nombre"];
         }
     }
 
