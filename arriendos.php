@@ -270,6 +270,11 @@
                             </button>
                         </div>
                         <div class="modal-body">
+                        <div class="form-group row">
+                            <div class="col-lg-3">
+                                <a class="btn btn-success" href="" id="excel">Descargar en Excel</a>
+                            </div>
+                        </div>
                             <div class="table-responsive">
                                 <table class="table table-bordered" width="100%" cellspacing="0" id="eventosDia">
                                     <thead>
