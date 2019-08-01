@@ -489,7 +489,7 @@
                                                          for($i=0;$i<count($juegos_todos);$i++){
                                                             $validador = 0; //Si este contador permanec en cero significa que el juego no esta en la lista de arrendados
                                                             for($j=0;$j<count($juegos_arrendados);$j++){
-                                                                     if($juegos_todos[$i][1] === $juegos_arrendados[$j][1]){
+                                                                     if($juegos_todos[$i][1] == $juegos_arrendados[$j][1]){
                                                                         $fila = $j;
                                                                         $validador = 1;
                                                                         if($juegos_todos[$i][6]!=0){
