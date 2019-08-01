@@ -2,7 +2,7 @@
     include 'conexion.php';
     $fecha = $_GET['fecha'];
 
-    $consulta = "SELECT * FROM arriendo WHERE fecha <= '$fecha' AND fin >= '$fecha'";
+    $consulta = "SELECT * FROM arriendo WHERE fecha = '$fecha' OR fin = '$fecha'";
     $resultado = mysqli_query($conexion,$consulta);
 ?>
 <table class="table table-bordered" width="100%" cellspacing="0" id="eventosDia">
@@ -30,8 +30,22 @@
             }
         ?>
         </td>
-        <td> <?php echo substr($evento['start'],11,5); ?> </td>
-        <td> <?php echo substr($evento['end'],11,5);?> </td>
+        <td> <?php
+                if($evento['fin']!=$evento['fecha'] && $evento['fin']==$fecha){
+                    echo "SOLO RETIRO";
+                }else{  
+                    echo substr($evento['start'],11,5); 
+                }
+            ?> 
+        </td>
+        <td> <?php
+                if($evento['fin']!=$evento['fecha'] && $evento['fecha']==$fecha){
+                    echo "SOLO INSTALACION";
+                }else{  
+                    echo substr($evento['end'],11,5); 
+                }
+            ?> 
+        </td>
         <td> <?php echo $evento['direccion'];?> </td>
         <td> <?php echo $evento['comuna'];?> </td>
     </tr>
