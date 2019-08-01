@@ -46,7 +46,7 @@ function mostrarEventos(fecha){
         $(this).ready(function () {
             $('#eventosDia').DataTable();
         });
-        $('#excel').attr("href","http://pdc.arcadesamuel.cl/arriendos_excel.php?fecha"+fecha);
+        $('#excel').attr("href","http://pdc.arcadesamuel.cl/arriendos_excel.php?fecha="+fecha);
 
     })
 
