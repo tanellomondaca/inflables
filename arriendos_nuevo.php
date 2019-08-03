@@ -435,7 +435,7 @@
                                                    $juegos_disponibles[][] = "";
                                                    //2. Seleccionar todos los juegos arrendados
                                                          //Consultar por juegos arrendados más de un día
-                                                   $consulta_dias = "SELECT JA.id_juego, A.fecha, A.fin, A.start, A.end, J.categoria, J.stock, JA.cantidad FROM juego J, juego_arriendo JA, arriendo A WHERE JA.id_arriendo = A.id";
+                                                   $consulta_dias = "SELECT JA.id_juego, A.fecha, A.fin, A.start, A.end, J.categoria, J.stock, JA.cantidad FROM juego J, juego_arriendo JA, arriendo A WHERE JA.id_arriendo = A.id AND A.fecha <> A.fin";
                                                    $result_dias = mysqli_query($conexion,$consulta_dias);
                                                    $linea=0;
                                                    while($juegos = mysqli_fetch_array($result_dias)){
