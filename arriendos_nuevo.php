@@ -449,7 +449,7 @@
                                                             while($fecha_aux<=$fin_aux){
                                                                $i = date ( 'Y-m-j' , $fecha_aux );
                                                                
-                                                               if($i==$juegos['fecha'] || $i==$juegos['fin']){
+                                                               if($i>=$juegos['fecha'] && $i<=$juegos['fin']){
                                                                      $z=1;
                                                                }
                                                                //echo $i." ".$z."<br>";
