@@ -52,7 +52,6 @@ function mostrarEventos(fecha){
 
     xhr_eventos.send()
 }
-
 function detalleArriendo(id){
     var xhr_detalle = new XMLHttpRequest;
     xhr_detalle.open('GET', 'arriendos_detalle.php?id=' + id);
